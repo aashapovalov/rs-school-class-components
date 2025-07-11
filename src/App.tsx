@@ -89,16 +89,18 @@ export default class App extends Component {
       this.setState({ searchResults: data.results, loading: false });
       console.log('Search results:', this.state.searchResults);
     }
-  } catch (error: any) {
-   this.setState(
-  { error: error.message || 'Unknown error', loading: false },
-  () => {
-    console.log('Error:', this.state.error);
-  }
-);
+  } catch (error) {
+  if (error instanceof Error) {
+    this.setState({ error: error.message, loading: false });
+  } else {
+    this.setState({ error: 'Unknown error', loading: false });
   }
 }
+}
 
+componentDidMount() {
+  this.setState({ inputValue: localStorage.getItem('searchQuery') || '' });
+}
 
   render() {
     return (
