@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SearchForm from './components/SearchForm';
+import ResultsList from './components/ResultsList';
 
 interface Props {}
 
@@ -106,6 +107,9 @@ export default class App extends Component {
           inputValue={this.state.inputValue}
           onInputChange={this.handleInputChange}
           onSearchSubmit={this.handleSearchSubmit}
+        />
+        <ResultsList 
+          results={this.state.searchResults}
         />
       </div>
     );
