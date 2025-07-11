@@ -47,6 +47,8 @@ export default class App extends Component {
 
   handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
   this.setState({ inputValue: e.target.value });
+  console.log('Input value:', e.target.value);
+
 }
 
   nameTransform (name: string) {
@@ -59,17 +61,21 @@ export default class App extends Component {
   async handleSearchSubmit(e: React.FormEvent<HTMLFormElement>) {
   e.preventDefault();
   this.setState({ loading: true, error: null });
+  console.log('Loading started');
   localStorage.setItem('searchQuery', this.state.inputValue);
   const searchTerm: string = this.state.inputValue;
-
+  console.log('LS', localStorage.getItem('searchQuery'));
   try {
     if (searchTerm.trim() === '') {
+      console.log('searchTerm is equal to 0')
       const responseAll = await fetch('https://rickandmortyapi.com/api/character');
       if (!responseAll.ok) {
         throw new Error('Network response was not ok');
       }
       const data = await responseAll.json();
+      console.log('Raw API data:', data); // 👈 Add this
       this.setState({ searchResults: data.results, loading: false });
+      console.log('Search results:', this.state.searchResults);
     } else {
       const response = await fetch(
         `https://rickandmortyapi.com/api/character/?name=${this.nameTransform(searchTerm)}`
@@ -78,10 +84,17 @@ export default class App extends Component {
         throw new Error('Network response was not ok');
       }
       const data = await response.json();
+      console.log('Raw API data:', data); // 👈 Add this
       this.setState({ searchResults: data.results, loading: false });
+      console.log('Search results:', this.state.searchResults);
     }
   } catch (error: any) {
-    this.setState({ error: error.message || 'Unknown error', loading: false });
+   this.setState(
+  { error: error.message || 'Unknown error', loading: false },
+  () => {
+    console.log('Error:', this.state.error);
+  }
+);
   }
 }
 
