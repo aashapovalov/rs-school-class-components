@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SearchForm from './components/SearchForm';
 import ResultsList from './components/ResultsList';
 import Spinner from './components/Spinner';
+import CrashButton from './components/CrashButton';
 import './App.css';
 
 interface Props {}
@@ -119,6 +120,7 @@ componentDidMount() {
               onInputChange={this.handleInputChange}
               onSearchSubmit={this.handleSearchSubmit}
             />
+            <CrashButton/>
             <ResultsList 
               results={this.state.searchResults}
             />
