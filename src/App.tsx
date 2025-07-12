@@ -3,6 +3,7 @@ import SearchForm from './components/SearchForm';
 import ResultsList from './components/ResultsList';
 import Spinner from './components/Spinner';
 import CrashButton from './components/CrashButton';
+import ErrorMessage from './components/ErrorMessage';
 import './App.css';
 
 interface Props {}
@@ -78,19 +79,23 @@ export default class App extends Component {
         throw new Error('Network response was not ok');
       }
       const data = await responseAll.json();
-      console.log('Raw API data:', data); // 👈 Add this
+      console.log('Raw API data:', data); 
       this.setState({ searchResults: data.results, loading: false });
       console.log('Search results:', this.state.searchResults);
     } else {
       const response = await fetch(
         `https://rickandmortyapi.com/api/character/?name=${this.nameTransform(searchTerm)}`
       );
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
       const data = await response.json();
-      console.log('Raw API data:', data); // 👈 Add this
-      this.setState({ searchResults: data.results, loading: false });
+      if (!response.ok) {
+        this.setState({ 
+          searchResults: [], 
+          loading: false, 
+          error: data.error || 'Unknown error' 
+        });
+  return;
+}
+      console.log('Raw API data:', data); 
       console.log('Search results:', this.state.searchResults);
     }
   } catch (error) {
@@ -121,6 +126,9 @@ componentDidMount() {
               onSearchSubmit={this.handleSearchSubmit}
             />
             <CrashButton/>
+            {this.state.error ? (
+              <ErrorMessage message={this.state.error} />
+              ) : null}
             <ResultsList 
               results={this.state.searchResults}
             />
