@@ -110,7 +110,11 @@ export default class App extends Component {
 
 componentDidMount() {
   console.log('App component Did Mount');
-  this.setState({ inputValue: localStorage.getItem('searchQuery') || '' });
+  const inputValue = localStorage.getItem('searchQuery') || '';
+  this.setState({ inputValue }, () => {
+    // Call handleSearchSubmit with a fake event
+    this.handleSearchSubmit({ preventDefault: () => {} } as React.FormEvent<HTMLFormElement>);
+  });
 }
 
   render() {
