@@ -96,6 +96,7 @@ export default class App extends Component {
   return;
 }
       console.log('Raw API data:', data); 
+      this.setState({ searchResults: data.results, loading: false });
       console.log('Search results:', this.state.searchResults);
     }
   } catch (error) {
