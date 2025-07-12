@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import SearchForm from './components/SearchForm';
 import ResultsList from './components/ResultsList';
+import Spinner from './components/Spinner';
+import './App.css';
 
 interface Props {}
 
@@ -44,6 +46,7 @@ export default class App extends Component {
   this.handleInputChange = this.handleInputChange.bind(this);
   this.nameTransform = this.nameTransform.bind(this);
   this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
+  console.log('App constructor');
 }
 
   handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -99,20 +102,27 @@ export default class App extends Component {
 }
 
 componentDidMount() {
+  console.log('App component Did Mount');
   this.setState({ inputValue: localStorage.getItem('searchQuery') || '' });
 }
 
   render() {
+    console.log("Rendering SearchForm");
+    const {loading} = this.state;
     return (
+      
       <div className="app">
-        <SearchForm
-          inputValue={this.state.inputValue}
-          onInputChange={this.handleInputChange}
-          onSearchSubmit={this.handleSearchSubmit}
-        />
-        <ResultsList 
-          results={this.state.searchResults}
-        />
+        {loading ? <Spinner/> : null}
+          <div className={this.state.loading ? 'blurring' : ''}>
+            <SearchForm
+              inputValue={this.state.inputValue}
+              onInputChange={this.handleInputChange}
+              onSearchSubmit={this.handleSearchSubmit}
+            />
+            <ResultsList 
+              results={this.state.searchResults}
+            />
+          </div>
       </div>
     );
   }

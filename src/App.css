@@ -1,0 +1,11 @@
+.spinner {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+}
+
+.blurring {
+  filter: blur(4px);
+  pointer-events: none;
+  opacity: 0;
+}
