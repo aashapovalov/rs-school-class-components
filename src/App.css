@@ -1,27 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue&family=Share+Tech+Mono&display=swap');
+
+
 *, *::before, *::after {
   box-sizing: border-box;
 }   
 
 :root {
   --Grey-background: hsl(65, 21%, 89%);
-  --Grey-background: hsl(65, 21%, 89%);
-
+  --Card-background: hsl(45, 100%, 94%);
+  --Font-color-basic: hsl(24, 5%, 18%);
+  font-size: 16px;
 }
 
 body {
+  font-family: 'Comic Neue', cursive, 'Comic Sans MS', 'Comic Sans', sans-serif;
   background-color: var(--Grey-background);
+  color: var(--Font-color-basic);
   margin: 0;
   padding: 0;
   min-height: 100vh;
 }
 
-.search-section {
-    background-color: var(--Grey-background);
-
+.app {
+  padding: 1rem;
 }
 
+.device {
+  position: relative;
+  max-width: 90vw;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.logo {
+  width: 80%;
+  
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+
+.character-search {
+  font-size: 2rem;
+  font-size: clamp(2rem, 6.25vw, 3rem);
+  margin: 0.5rem 0 1rem 0;
+}
+
+.device {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.device-frame {
+  position: relative;
+  width: 100%;
+  display: inline-block; /* allows height to match image */
+}
+
+.device-no-bg {
+  width: 100%;
+  height: auto;
+  display: block;
+  min-width: 350px;
+}
+
+.search-input {
+  position: absolute;
+  top: 19.8%;      /* adjust by DevTools */
+  left: 14.3%;
+  width: 66.6%;
+  height: 33.8%;
+  font-size: clamp(1rem, 2.7vw, 1.5rem);
+  font-family: 'Share Tech Mono', monospace;
+  background-color: var(--Grey-background); /* match body */
+  color: var(--Font-color-basic);  
+  padding: 0.3rem 4% 0.3rem 4%;
+  border-radius: calc(-1.608px + 1.902vw);
+  pointer-events: auto;
+}
+
+.search-input::placeholder {
+  color: #888; /* default placeholder when inactive */
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.search-input:focus {
+  background-color: #064e3b;    /* dark green */
+  color: #a7f3d0;               /* light green */
+  text-shadow: 0 0 1px #a7f3d0;    /* emerald green border */
+}
+
+.search-input:focus::placeholder {
+  color: #a7f3d0; /* light green */
+  text-shadow: 0 0 1px #a7f3d0;
+}
+
+.search-btn {
+  position: absolute;
+  top: 58.5%;
+  left: 61.4%;
+  width: 20%;
+  height: 37%;
+  background: none;
+  border: none;
+  background-image: url('/src/assets/search_button.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.search-btn:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
 
 .spinner {
+    font-family: 'Share Tech Mono', monospace, 'Courier New', Courier;
+
     width: 100px;
     height: 100px;
     background-color: black;

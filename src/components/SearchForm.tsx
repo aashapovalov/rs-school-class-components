@@ -14,20 +14,25 @@ export default class SearchForm extends Component<Props> {
     return (
       <>
         <section className="device">
-        <img src={appLogo} alt='Rick and Morty logo' className='logo' />
-        <h1 className='character-search'>Character Search</h1>
-        <img src={deviceImg} alt="Device background" className="device-bg" />
-        <form className="search-form" onSubmit={this.props.onSearchSubmit}>
-          <input
-            type="text"
-            className="search-input"
-            value={this.props.inputValue}
-            onChange={this.props.onInputChange}
-            placeholder="Search for a character..."
-          />
-          <button type="submit" className="search-btn" />
-        </form>
-      </section>
+  <img src={appLogo} className="logo" />
+  <h1 className="character-search">Character Search</h1>
+
+  <div className="device-frame">
+    <img src={deviceImg} alt="Device" className="device-no-bg" />
+
+    <form onSubmit={this.props.onSearchSubmit}>
+      <input
+        className="search-input"
+        value={this.props.inputValue}
+        onChange={this.props.onInputChange}
+        placeholder="Search for a character..."
+        type="text"
+      />
+      <button className="search-btn" type="submit" />
+    </form>
+  </div>
+</section>
+
       </>
     );
   }
