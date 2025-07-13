@@ -131,14 +131,16 @@ componentDidMount() {
               onSearchSubmit={this.handleSearchSubmit}
             />
             <CrashButton/>
+          </div>
             {this.state.error ? (
               <ErrorMessage message={this.state.error} />
               ) : null}
             <ResultsList 
               results={this.state.searchResults}
             />
-          </div>
+          
       </div>
+      
     );
   }
 }

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import crashBtnImg from '../assets/crash_button.png';
 
 interface State {
   crashNow: boolean;
@@ -22,11 +23,11 @@ render() {
 
    }
     return (
-        <button 
-        className='crash-button'
-        onClick={this.releaseCrash}>
-        💥 Crash the App   
-        </button>
+        <button
+        className="crash-btn"
+        onClick={this.releaseCrash}
+        aria-label="Crash App"
+      />
     )
 }
 }

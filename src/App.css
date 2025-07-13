@@ -1,3 +1,26 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}   
+
+:root {
+  --Grey-background: hsl(65, 21%, 89%);
+  --Grey-background: hsl(65, 21%, 89%);
+
+}
+
+body {
+  background-color: var(--Grey-background);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+.search-section {
+    background-color: var(--Grey-background);
+
+}
+
+
 .spinner {
     width: 100px;
     height: 100px;
