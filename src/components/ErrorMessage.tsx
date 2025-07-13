@@ -13,10 +13,15 @@ export default class ErrorMessage extends Component<Props> {
     return (
       <div className="error-message">
         {isNotFound ? (
-          <img src={noResultsImg} alt="No Results Error" className="no-results-error" />
-
+          <img
+            src={noResultsImg}
+            alt="No Results Error"
+            className="no-results-error"
+          />
         ) : (
-          <p className="general-error">Error: <span>{message}</span></p>
+          <p className="general-error">
+            Error: <span>{message}</span>
+          </p>
         )}
       </div>
     );
