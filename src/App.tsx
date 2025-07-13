@@ -5,7 +5,6 @@ import Spinner from './components/Spinner';
 import ErrorMessage from './components/ErrorMessage';
 import './App.css';
 import genErrorMortyImg from './assets/general_error_morty.png';
-import genErrorRickImg from './assets/general_error_rick.png';
 
 interface Props {}
 
@@ -75,7 +74,7 @@ export default class App extends Component {
   try {
     if (searchTerm.trim() === '') {
       console.log('searchTerm is equal to 0')
-      const responseAll = await fetch('https://rickandmortyapi.com/api/characte');
+      const responseAll = await fetch('https://rickandmortyapi.com/api/character');
       if (!responseAll.ok) {
         throw new Error('Network response was not ok');
       }
