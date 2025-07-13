@@ -20,7 +20,6 @@ export default class SearchForm extends Component<Props> {
 
   <div className="device-frame">
     <img src={deviceImg} alt="Device" className="device-no-bg" />
-
     <form onSubmit={this.props.onSearchSubmit}>
       <input
         className="search-input"

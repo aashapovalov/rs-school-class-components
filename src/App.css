@@ -54,7 +54,7 @@ body {
   position: relative;
   width: 100%;
   max-width: 50rem;
-  min-width: 25rem;
+  min-width: 20rem;
   margin: 0 auto;
 }
 
@@ -62,13 +62,15 @@ body {
   position: relative;
   width: 100%;
   display: inline-block; 
+  max-width: 40rem;
+  min-width: 22rem;
 }
 
 .device-no-bg {
   width: 100%;
   height: auto;
   display: block;
-  min-width: 350px;
+  
 }
 
 .search-input {
@@ -203,6 +205,13 @@ color: var(--Font-color-monitor-inactive);
 .location span {
   display: block;
   color: var(--Font-color-basic);
+}
+
+.no-results-error {
+display: block;
+margin: 2rem auto;
+max-width: 30rem;
+width:100%
 }
 
 .spinner {

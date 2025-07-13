@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import noResultsImg from '../assets/no_results_error.png';
 
 interface Props {
   message: string;
@@ -12,7 +13,8 @@ export default class ErrorMessage extends Component<Props> {
     return (
       <div className="error-message">
         {isNotFound ? (
-          <p className="no-results">No characters found. Try a different name.</p>
+          <img src={noResultsImg} alt="No Results Error" className="no-results-error" />
+
         ) : (
           <p className="general-error">{message}</p>
         )}
