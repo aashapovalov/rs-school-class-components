@@ -16,20 +16,30 @@ interface ResultsListProps {
   results: Character[];
 }
 
+
 export default class ResultsList extends Component<ResultsListProps> {
   render() {
+    
     return (
     <section className="result-section">
     {this.props.results.map((character, index)=>(
     <div key={index} className={`character-card ${index}`}>
-      <img src = {character.image} alt = {character.name}/>
-      <h2 className='character-name'>Name: {character.name}</h2>
-      <p className='alive-status'>
-        <span className={`status-indicator ${character.status === 'Alive' ? 'green' : 'red'}`}>
-        </span>
-      {character.status}</p>
-      <p className='species'>{character.species}</p>
-      <p className='location'>Last known location: {character.location.name}</p>
+      <img className = 'character-image' src = {character.image} alt = {character.name}/>
+      <div className='character-description'>
+        <h2 className='character-name'>{character.name}</h2>
+        <p className='alive-status'>
+          <span className={`status-indicator ${
+            character.status === 'Alive' ? 'green' :
+            character.status === 'Dead' ? 'red' :
+            'gray'
+          }`}>
+          </span>
+            {character.status} - 
+            <span className='species'> {character.species}
+            </span>
+        </p>
+        <p className='location'>Last known location: <span>{character.location.name}</span></p>
+      </div>  
     </div>
   ))}
   </section>

@@ -22,9 +22,10 @@ body {
   font-family: 'Comic Neue', cursive, 'Comic Sans MS', 'Comic Sans', sans-serif;
   background-color: var(--Grey-background);
   color: var(--Font-color-basic);
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   min-height: 100vh;
+  max-width: 65rem;
 }
 
 .app {
@@ -39,16 +40,14 @@ body {
 }
 
 .logo {
-  width: 80%;
-  max-width: 30rem;
+  width: 20rem;
   height: auto;
-  margin-bottom: 0.5rem;
 }
 
 .character-search {
   font-size: 2rem;
   font-size: clamp(2rem, 7.6vw, 3rem);
-  margin: 0.5rem 0 1rem 0;
+  margin: 0;
 }
 
 .device {
@@ -83,8 +82,9 @@ body {
   background-color: var(--Grey-background); 
   color: var(--Font-color-basic);  
   padding: 0.3rem 4% 0.3rem 4%;
-  border-radius: calc(-1.608px + 1.902vw);
+  border-radius: clamp(6px, calc(-1.608px + 1.902vw), 13px);
   pointer-events: auto;
+  border: none;
 }
 
 .search-input::placeholder {
@@ -95,7 +95,8 @@ body {
 .search-input:focus {
   background-color: var(--Active-monitor-background);    
   color: var(--Font-color-monitor-active);               
-  text-shadow: 0 0 1px var(--Font-color-monitor-active);    
+  text-shadow: 0 0 1px var(--Font-color-monitor-active); 
+  outline: none;   
 }
 
 .search-input:focus::placeholder {
@@ -145,9 +146,67 @@ body {
   filter: brightness(1.1);
 }
 
+.result-section {
+  margin-block-start: 1rem;
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+  justify-items: center;
+  
+}
+
+.character-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: var(--Card-background); 
+  color: var(--Font-color-basic);           
+  border: 1px solid #333;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  height: 9rem;
+  width: 30rem;
+}
+
+.character-image {
+  height: 100%;
+  border-radius: 1rem 0 0 1rem;
+  margin-inline-end: 1rem;
+}
+
+.status-indicator {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-inline-end: 0.5rem;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.status-indicator.green {
+  background-color: green;
+}
+
+.status-indicator.red {
+  background-color: red;
+}
+
+.status-indicator.gray {
+  background-color: gray;
+}
+
+.location {
+color: var(--Font-color-monitor-inactive);
+}
+
+.location span {
+  display: block;
+  color: var(--Font-color-basic);
+}
+
 .spinner {
     font-family: 'Share Tech Mono', monospace, 'Courier New', Courier;
-
     width: 100px;
     height: 100px;
     background-color: black;
