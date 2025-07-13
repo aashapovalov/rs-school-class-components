@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import deviceImg from '../assets/search_device_desktop_no_background.png';
 import appLogo from '../assets/app_logo.png';
+import CrashButton from './CrashButton';
 
 
 interface Props {
@@ -30,6 +31,7 @@ export default class SearchForm extends Component<Props> {
       />
       <button className="search-btn" type="submit" />
     </form>
+    <CrashButton/>
   </div>
 </section>
 

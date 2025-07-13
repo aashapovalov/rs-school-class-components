@@ -8,7 +8,13 @@
 :root {
   --Grey-background: hsl(65, 21%, 89%);
   --Card-background: hsl(45, 100%, 94%);
+  --Active-monitor-background: hsl(164, 86%, 16%);
   --Font-color-basic: hsl(24, 5%, 18%);
+  --Font-color-monitor-active: hsl(152, 76%, 80%);
+  --Font-color-monitor-inactive: hsl(152, 0%, 53%);
+
+
+
   font-size: 16px;
 }
 
@@ -34,28 +40,29 @@ body {
 
 .logo {
   width: 80%;
-  
+  max-width: 30rem;
   height: auto;
   margin-bottom: 0.5rem;
 }
 
 .character-search {
   font-size: 2rem;
-  font-size: clamp(2rem, 6.25vw, 3rem);
+  font-size: clamp(2rem, 7.6vw, 3rem);
   margin: 0.5rem 0 1rem 0;
 }
 
 .device {
   position: relative;
   width: 100%;
-  max-width: 800px;
+  max-width: 50rem;
+  min-width: 25rem;
   margin: 0 auto;
 }
 
 .device-frame {
   position: relative;
   width: 100%;
-  display: inline-block; /* allows height to match image */
+  display: inline-block; 
 }
 
 .device-no-bg {
@@ -67,13 +74,13 @@ body {
 
 .search-input {
   position: absolute;
-  top: 19.8%;      /* adjust by DevTools */
+  top: 19.8%;      
   left: 14.3%;
   width: 66.6%;
   height: 33.8%;
-  font-size: clamp(1rem, 2.7vw, 1.5rem);
+  font-size: clamp(1rem, 3vw, 1.5rem);
   font-family: 'Share Tech Mono', monospace;
-  background-color: var(--Grey-background); /* match body */
+  background-color: var(--Grey-background); 
   color: var(--Font-color-basic);  
   padding: 0.3rem 4% 0.3rem 4%;
   border-radius: calc(-1.608px + 1.902vw);
@@ -81,19 +88,19 @@ body {
 }
 
 .search-input::placeholder {
-  color: #888; /* default placeholder when inactive */
-  transition: color 0.2s ease, text-shadow 0.2s ease;
+  color: var(--Font-color-monitor-inactive);
+  transition: color 0.2s ease, text-shadow 0.5s ease;
 }
 
 .search-input:focus {
-  background-color: #064e3b;    /* dark green */
-  color: #a7f3d0;               /* light green */
-  text-shadow: 0 0 1px #a7f3d0;    /* emerald green border */
+  background-color: var(--Active-monitor-background);    
+  color: var(--Font-color-monitor-active);               
+  text-shadow: 0 0 1px var(--Font-color-monitor-active);    
 }
 
 .search-input:focus::placeholder {
-  color: #a7f3d0; /* light green */
-  text-shadow: 0 0 1px #a7f3d0;
+  color: var(--Font-color-monitor-active); 
+  text-shadow: 0 0 1px var(--Font-color-monitor-active);
 }
 
 .search-btn {
@@ -113,6 +120,27 @@ body {
 }
 
 .search-btn:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+.crash-btn {
+  position: absolute;
+  top: 57.9%; 
+  left: 83.8%; 
+  width: 12%;
+  height: 35.9%;
+  background: none;
+  border: none;
+  background-image: url('/src/assets/crash_button.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.crash-btn:hover {
   transform: scale(1.05);
   filter: brightness(1.1);
 }
