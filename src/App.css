@@ -12,9 +12,7 @@
   --Font-color-basic: hsl(24, 5%, 18%);
   --Font-color-monitor-active: hsl(152, 76%, 80%);
   --Font-color-monitor-inactive: hsl(152, 0%, 53%);
-
-
-
+  --Font-color-error: hsl(8, 40%, 42%);
   font-size: 16px;
 }
 
@@ -212,6 +210,34 @@ display: block;
 margin: 2rem auto;
 max-width: 30rem;
 width:100%
+}
+
+.error-block {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem auto;
+  text-align: center;
+  width: 70%;}
+
+.general-error-morty,
+.general-error-rick {
+  max-width: 20rem;
+  width: 45%;
+}
+
+.general-error {
+  font-family: 'Share Tech Mono', monospace;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 7.6vw, 3rem);
+  color: var(--Font-color-error);
+  max-width: 100%;
+  word-wrap: break-word;
+  white-space: normal;
+  padding: 1rem;
+  
 }
 
 .spinner {

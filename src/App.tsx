@@ -4,6 +4,8 @@ import ResultsList from './components/ResultsList';
 import Spinner from './components/Spinner';
 import ErrorMessage from './components/ErrorMessage';
 import './App.css';
+import genErrorMortyImg from './assets/general_error_morty.png';
+import genErrorRickImg from './assets/general_error_rick.png';
 
 interface Props {}
 
@@ -73,7 +75,7 @@ export default class App extends Component {
   try {
     if (searchTerm.trim() === '') {
       console.log('searchTerm is equal to 0')
-      const responseAll = await fetch('https://rickandmortyapi.com/api/character');
+      const responseAll = await fetch('https://rickandmortyapi.com/api/characte');
       if (!responseAll.ok) {
         throw new Error('Network response was not ok');
       }
@@ -111,7 +113,6 @@ componentDidMount() {
   console.log('App component Did Mount');
   const inputValue = localStorage.getItem('searchQuery') || '';
   this.setState({ inputValue }, () => {
-    // Call handleSearchSubmit with a fake event
     this.handleSearchSubmit({ preventDefault: () => {} } as React.FormEvent<HTMLFormElement>);
   });
 }
@@ -131,8 +132,19 @@ componentDidMount() {
             />
           </div>
             {this.state.error ? (
-              <ErrorMessage message={this.state.error} />
-              ) : null}
+  this.state.error === "There is nothing here" ? (
+    <ErrorMessage message={this.state.error} />
+  ) : (
+    <div className="error-block">
+      <img
+        src={genErrorMortyImg}
+        alt="Morty panic"
+        className="general-error-morty"
+      />
+      <ErrorMessage message={this.state.error} />
+    </div>
+    )
+    ) : null}
             <ResultsList 
               results={this.state.searchResults}
             />

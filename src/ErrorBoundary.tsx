@@ -1,4 +1,6 @@
 import * as React from 'react';
+import ErrorMessage from './components/ErrorMessage';
+import genErrorRickImg from './assets/general_error_rick.png'
 
 interface State {
     hasError: boolean;
@@ -24,10 +26,14 @@ export default class ErrorBoundary extends React.Component<React.PropsWithChildr
     if (this.state.hasError) {
   return (
         <>
-        <div className='error-container'>
-            <p className='error-name'>Error: {this.state.error?.name}</p>
-            <p className='error-message'>{this.state.error?.message ?? 'Something went wrong'}</p>
-        </div>
+        <div className="error-block">
+        <ErrorMessage message={this.state.error?.message || "Something went wrong"} />
+        <img
+          src={genErrorRickImg}
+          alt="Rick sarcastic"
+          className="general-error-rick"
+        />
+      </div>
         </>
     )
   }

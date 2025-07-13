@@ -16,7 +16,7 @@ export default class ErrorMessage extends Component<Props> {
           <img src={noResultsImg} alt="No Results Error" className="no-results-error" />
 
         ) : (
-          <p className="general-error">{message}</p>
+          <p className="general-error">Error: <span>{message}</span></p>
         )}
       </div>
     );
