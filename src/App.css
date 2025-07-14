@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Comic+Neue&family=Share+Tech+Mono&display=swap');
 
-
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-}   
+}
 
 :root {
   --Grey-background: hsl(65, 21%, 89%);
@@ -60,7 +61,7 @@ body {
 .device-frame {
   position: relative;
   width: 100%;
-  display: inline-block; 
+  display: inline-block;
   max-width: 40rem;
   min-width: 22rem;
 }
@@ -69,19 +70,18 @@ body {
   width: 100%;
   height: auto;
   display: block;
-  
 }
 
 .search-input {
   position: absolute;
-  top: 19.8%;      
+  top: 19.8%;
   left: 14.3%;
   width: 66.6%;
   height: 33.8%;
   font-size: clamp(1rem, 3vw, 1.5rem);
   font-family: 'Share Tech Mono', monospace;
-  background-color: var(--Grey-background); 
-  color: var(--Font-color-basic);  
+  background-color: var(--Grey-background);
+  color: var(--Font-color-basic);
   padding: 0.3rem 4% 0.3rem 4%;
   border-radius: clamp(6px, calc(-1.608px + 1.902vw), 13px);
   pointer-events: auto;
@@ -90,18 +90,20 @@ body {
 
 .search-input::placeholder {
   color: var(--Font-color-monitor-inactive);
-  transition: color 0.2s ease, text-shadow 0.5s ease;
+  transition:
+    color 0.2s ease,
+    text-shadow 0.5s ease;
 }
 
 .search-input:focus {
-  background-color: var(--Active-monitor-background);    
-  color: var(--Font-color-monitor-active);               
-  text-shadow: 0 0 1px var(--Font-color-monitor-active); 
-  outline: none;   
+  background-color: var(--Active-monitor-background);
+  color: var(--Font-color-monitor-active);
+  text-shadow: 0 0 1px var(--Font-color-monitor-active);
+  outline: none;
 }
 
 .search-input:focus::placeholder {
-  color: var(--Font-color-monitor-active); 
+  color: var(--Font-color-monitor-active);
   text-shadow: 0 0 1px var(--Font-color-monitor-active);
 }
 
@@ -128,8 +130,8 @@ body {
 
 .crash-btn {
   position: absolute;
-  top: 57.9%; 
-  left: 83.8%; 
+  top: 57.9%;
+  left: 83.8%;
   width: 12%;
   height: 35.9%;
   background: none;
@@ -147,30 +149,29 @@ body {
   filter: brightness(1.1);
 }
 
-  .result-section {
-    margin-block-start: 1rem;
-    display: grid;
-    gap: 1rem;
-    padding: 1rem;
-    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
-    justify-items: center;
-    
-  }
+.result-section {
+  margin-block-start: 1rem;
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  justify-items: center;
+}
 
-  .character-card {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    background-color: var(--Card-background); 
-    color: var(--Font-color-basic);           
-    border: 1px solid #333;
-    border-radius: 1rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    height: 9rem;
-    width: 100%;
-    max-width: 30rem;
-    min-width: 10rem;
-  }
+.character-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: var(--Card-background);
+  color: var(--Font-color-basic);
+  border: 1px solid #333;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  height: 9rem;
+  width: 100%;
+  max-width: 30rem;
+  min-width: 10rem;
+}
 
 .character-image {
   height: 100%;
@@ -214,7 +215,7 @@ body {
 }
 
 .location {
-color: var(--Font-color-monitor-inactive);
+  color: var(--Font-color-monitor-inactive);
 }
 
 .location span {
@@ -223,10 +224,10 @@ color: var(--Font-color-monitor-inactive);
 }
 
 .no-results-error {
-display: block;
-margin: 2rem auto;
-max-width: 30rem;
-width:100%
+  display: block;
+  margin: 2rem auto;
+  max-width: 30rem;
+  width: 100%;
 }
 
 .error-block {
@@ -237,7 +238,8 @@ width:100%
   gap: 1rem;
   margin: 2rem auto;
   text-align: center;
-  width: 70%;}
+  width: 70%;
+}
 
 .general-error-morty,
 .general-error-rick {
@@ -254,7 +256,6 @@ width:100%
   word-wrap: break-word;
   white-space: normal;
   padding: 1rem;
-  
 }
 
 .spinner {
@@ -285,7 +286,7 @@ width:100%
 }
 
 @media (max-width: 28rem) {
-.character-description {
-  gap: 0.3rem;
+  .character-description {
+    gap: 0.3rem;
   }
 }
