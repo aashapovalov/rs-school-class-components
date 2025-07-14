@@ -186,10 +186,6 @@ body {
   padding: 0;
 }
 
-.character-description > * {
-  border: 1px solid red;
-}
-
 .character-description p,
 .character-description h2 {
   margin: 0;
