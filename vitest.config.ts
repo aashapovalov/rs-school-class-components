@@ -4,6 +4,7 @@ export default defineConfig({
   test: {
     environment: 'jsdom',
     globals: true,
+    setupFiles: ['./vitest.setup.ts'],
     coverage: {
       provider: 'v8', // or 'istanbul' if you prefer
       include: ['src/**/*.{js,jsx,ts,tsx}'],
