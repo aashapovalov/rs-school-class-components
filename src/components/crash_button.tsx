@@ -1,9 +1,8 @@
-import * as React from 'react';
-interface State {
-  crashNow: boolean;
-}
+import { Component } from 'react';
 
-export default class CrashButton extends React.Component<
+import type { State } from './types';
+
+export default class CrashButton extends Component<
   Record<string, never>,
   State
 > {

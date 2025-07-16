@@ -1,11 +1,10 @@
 import { Component } from 'react';
+
 import noResultsImg from '../assets/no_results_error.png';
 
-interface Props {
-  message: string;
-}
+import type { ErrorMessageProps } from './types';
 
-export default class ErrorMessage extends Component<Props> {
+export default class ErrorMessage extends Component<ErrorMessageProps> {
   render() {
     const { message } = this.props;
     const isNotFound = message.toLowerCase().includes('there is nothing here');

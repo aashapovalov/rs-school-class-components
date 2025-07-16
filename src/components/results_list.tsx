@@ -1,19 +1,6 @@
 import { Component } from 'react';
 
-interface Character {
-  name: string;
-  status: string;
-  species: string;
-  location: {
-    name: string;
-    url: string;
-  };
-  image: string;
-}
-
-interface ResultsListProps {
-  results: Character[];
-}
+import type { ResultsListProps } from './types';
 
 export default class ResultsList extends Component<ResultsListProps> {
   render() {

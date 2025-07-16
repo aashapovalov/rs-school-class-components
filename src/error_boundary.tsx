@@ -1,22 +1,20 @@
-import * as React from 'react';
-import ErrorMessage from './components/ErrorMessage';
+import { Component } from 'react';
+import { ErrorMessage } from './components';
+
+import type { ErrorBoundaryState, ErrorBoundaryProps } from './types';
+
 import genErrorRickImg from './assets/general_error_rick.png';
 
-interface State {
-  hasError: boolean;
-  error: Error | null;
-}
-
-export default class ErrorBoundary extends React.Component<
-  { children: React.ReactNode },
-  State
+export default class ErrorBoundary extends Component<
+  ErrorBoundaryProps,
+  ErrorBoundaryState
 > {
-  state: State = {
+  state: ErrorBoundaryState = {
     hasError: false,
     error: null,
   };
 
-  static getDerivedStateFromError(error: Error): State {
+  static getDerivedStateFromError(error: Error): ErrorBoundaryState {
     return { hasError: true, error };
   }
 

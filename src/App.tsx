@@ -1,49 +1,19 @@
-import React, { Component } from 'react';
-import SearchForm from './components/SearchForm';
-import ResultsList from './components/ResultsList';
-import Spinner from './components/Spinner';
-import ErrorMessage from './components/ErrorMessage';
+import { Component } from 'react';
+import { SearchForm, ResultsList, Spinner, ErrorMessage } from './components';
+import type { AppState, AppProps } from './types';
+
 import './App.css';
 import genErrorMortyImg from './assets/general_error_morty.png';
 
-type Props = Record<string, never>;
-
-interface Character {
-  id: number;
-  name: string;
-  status: string;
-  species: string;
-  type: string;
-  gender: string;
-  origin: {
-    name: string;
-    url: string;
-  };
-  location: {
-    name: string;
-    url: string;
-  };
-  image: string;
-  episode: string[];
-  url: string;
-  created: string;
-}
-
-interface State {
-  inputValue: string;
-  searchResults: Character[];
-  loading: boolean;
-  error: string | null;
-}
 export default class App extends Component {
-  state: State = {
+  state: AppState = {
     inputValue: '',
     searchResults: [],
     loading: false,
     error: null,
   };
 
-  constructor(props: Props) {
+  constructor(props: AppProps) {
     super(props);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.nameTransform = this.nameTransform.bind(this);

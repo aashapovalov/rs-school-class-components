@@ -1,15 +1,12 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
+import { CrashButton } from './';
+
+import type { SearchFormProps } from './types';
+
 import deviceImg from '../assets/search_device_desktop_no_background.png';
 import appLogo from '../assets/app_logo.png';
-import CrashButton from './CrashButton';
 
-interface Props {
-  inputValue: string;
-  onInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onSearchSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
-}
-
-export default class SearchForm extends Component<Props> {
+export default class SearchForm extends Component<SearchFormProps> {
   render() {
     return (
       <>
