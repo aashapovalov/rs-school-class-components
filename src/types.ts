@@ -33,4 +33,4 @@ export interface ErrorBoundaryState {
   error: Error | null;
 }
 
-export type ErrorBoundaryProps = React.PropsWithChildren<Record<string, never>>;
+export type ErrorBoundaryProps = React.PropsWithChildren<unknown>;
