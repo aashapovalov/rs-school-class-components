@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/108</span>
+                <span class='fraction'>0/98</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/108</span>
+                <span class='fraction'>0/98</span>
             </div>
         
             
@@ -173,17 +173,7 @@
 <a name='L108'></a><a href='#L108'>108</a>
 <a name='L109'></a><a href='#L109'>109</a>
 <a name='L110'></a><a href='#L110'>110</a>
-<a name='L111'></a><a href='#L111'>111</a>
-<a name='L112'></a><a href='#L112'>112</a>
-<a name='L113'></a><a href='#L113'>113</a>
-<a name='L114'></a><a href='#L114'>114</a>
-<a name='L115'></a><a href='#L115'>115</a>
-<a name='L116'></a><a href='#L116'>116</a>
-<a name='L117'></a><a href='#L117'>117</a>
-<a name='L118'></a><a href='#L118'>118</a>
-<a name='L119'></a><a href='#L119'>119</a>
-<a name='L120'></a><a href='#L120'>120</a>
-<a name='L121'></a><a href='#L121'>121</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L111'></a><a href='#L111'>111</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -252,17 +242,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -335,30 +315,24 @@ import type { AppState, AppProps } from './types';
 <span class="cstat-no" title="statement not covered" >    return name.toLowerCase().trim().replace(/\s+/g, '%20');</span>
 <span class="cstat-no" title="statement not covered" >  }</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  async handleSearchSubmit(e: React.FormEvent&lt;HTMLFormElement&gt;) {</span>
-<span class="cstat-no" title="statement not covered" >    e.preventDefault();</span>
+<span class="cstat-no" title="statement not covered" >  async handleSearchSubmit(input: string) {</span>
+<span class="cstat-no" title="statement not covered" >    const urlBase: string = 'https://rickandmortyapi.com/api/character';</span>
 <span class="cstat-no" title="statement not covered" >    this.setState({ loading: true, error: null });</span>
 <span class="cstat-no" title="statement not covered" >    console.log('Loading started');</span>
-<span class="cstat-no" title="statement not covered" >    localStorage.setItem('searchQuery', this.state.inputValue);</span>
-<span class="cstat-no" title="statement not covered" >    const searchTerm: string = this.state.inputValue;</span>
+<span class="cstat-no" title="statement not covered" >    localStorage.setItem('searchQuery', input);</span>
+<span class="cstat-no" title="statement not covered" >    const searchTerm: string = input;</span>
 <span class="cstat-no" title="statement not covered" >    console.log('LS', localStorage.getItem('searchQuery'));</span>
 <span class="cstat-no" title="statement not covered" >    try {</span>
 <span class="cstat-no" title="statement not covered" >      if (searchTerm.trim() === '') {</span>
-<span class="cstat-no" title="statement not covered" >        console.log('searchTerm is equal to 0');</span>
-<span class="cstat-no" title="statement not covered" >        const responseAll = await fetch(</span>
-<span class="cstat-no" title="statement not covered" >          'https://rickandmortyapi.com/api/character'</span>
-<span class="cstat-no" title="statement not covered" >        );</span>
+<span class="cstat-no" title="statement not covered" >        const responseAll = await fetch(urlBase);</span>
 <span class="cstat-no" title="statement not covered" >        if (!responseAll.ok) {</span>
 <span class="cstat-no" title="statement not covered" >          throw new Error('Network response was not ok');</span>
 <span class="cstat-no" title="statement not covered" >        }</span>
 <span class="cstat-no" title="statement not covered" >        const data = await responseAll.json();</span>
-<span class="cstat-no" title="statement not covered" >        console.log('Raw API data:', data);</span>
 <span class="cstat-no" title="statement not covered" >        this.setState({ searchResults: data.results, loading: false });</span>
-<span class="cstat-no" title="statement not covered" >        console.log('Search results:', this.state.searchResults);</span>
 <span class="cstat-no" title="statement not covered" >      } else {</span>
-<span class="cstat-no" title="statement not covered" >        const response = await fetch(</span>
-<span class="cstat-no" title="statement not covered" >          `https://rickandmortyapi.com/api/character/?name=${this.nameTransform(searchTerm)}`</span>
-<span class="cstat-no" title="statement not covered" >        );</span>
+<span class="cstat-no" title="statement not covered" >        const urlName: string = `${urlBase}/?name=${this.nameTransform(searchTerm)}`;</span>
+<span class="cstat-no" title="statement not covered" >        const response = await fetch(urlName);</span>
 <span class="cstat-no" title="statement not covered" >        const data = await response.json();</span>
 <span class="cstat-no" title="statement not covered" >        if (!response.ok) {</span>
 <span class="cstat-no" title="statement not covered" >          this.setState({</span>
@@ -368,9 +342,7 @@ import type { AppState, AppProps } from './types';
 <span class="cstat-no" title="statement not covered" >          });</span>
 <span class="cstat-no" title="statement not covered" >          return;</span>
 <span class="cstat-no" title="statement not covered" >        }</span>
-<span class="cstat-no" title="statement not covered" >        console.log('Raw API data:', data);</span>
 <span class="cstat-no" title="statement not covered" >        this.setState({ searchResults: data.results, loading: false });</span>
-<span class="cstat-no" title="statement not covered" >        console.log('Search results:', this.state.searchResults);</span>
 <span class="cstat-no" title="statement not covered" >      }</span>
 <span class="cstat-no" title="statement not covered" >    } catch (error) {</span>
 <span class="cstat-no" title="statement not covered" >      if (error instanceof Error) {</span>
@@ -385,9 +357,7 @@ import type { AppState, AppProps } from './types';
 <span class="cstat-no" title="statement not covered" >    console.log('App component Did Mount');</span>
 <span class="cstat-no" title="statement not covered" >    const inputValue = localStorage.getItem('searchQuery') || '';</span>
 <span class="cstat-no" title="statement not covered" >    this.setState({ inputValue }, () =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      this.handleSearchSubmit({</span>
-<span class="cstat-no" title="statement not covered" >        preventDefault: () =&gt; {},</span>
-<span class="cstat-no" title="statement not covered" >      } as React.FormEvent&lt;HTMLFormElement&gt;);</span>
+<span class="cstat-no" title="statement not covered" >      this.handleSearchSubmit(inputValue);</span>
 <span class="cstat-no" title="statement not covered" >    });</span>
 <span class="cstat-no" title="statement not covered" >  }</span>
 &nbsp;
@@ -430,7 +400,7 @@ import type { AppState, AppProps } from './types';
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-07-17T09:18:58.003Z
+                at 2025-07-17T12:45:33.465Z
             </div>
         <script src="../prettify.js"></script>
         <script>

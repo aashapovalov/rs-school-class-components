@@ -4,7 +4,6 @@ export interface Character {
   species: string;
   location: {
     name: string;
-    url: string;
   };
   image: string;
 }

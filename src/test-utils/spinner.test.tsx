@@ -7,3 +7,9 @@ test('spinner mounts successfuly', () => {
   const spinner = screen.getByTestId('spinner');
   expect(spinner).toBeInTheDocument();
 });
+
+test('spinner provides an aria-label', () => {
+  render(<Spinner />);
+  const spinnerAriaLabel = screen.getByLabelText('spinner');
+  expect(spinnerAriaLabel).toBeInTheDocument();
+});
