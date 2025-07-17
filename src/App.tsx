@@ -2,7 +2,7 @@ import { Component } from 'react';
 import { SearchForm, ResultsList, Spinner, ErrorMessage } from './components';
 import type { AppState, AppProps } from './types';
 
-import './App.css';
+import './app.css';
 import genErrorMortyImg from './assets/general_error_morty.png';
 
 export default class App extends Component {
@@ -18,25 +18,22 @@ export default class App extends Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.nameTransform = this.nameTransform.bind(this);
     this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
-    console.log('App constructor');
   }
 
   handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
     this.setState({ inputValue: e.target.value });
-    console.log('Input value:', e.target.value);
   }
 
   nameTransform(name: string) {
-    return name.toLowerCase().trim().replace(/\s+/g, '%20');
+    return name.toLowerCase().replace(/\s+/g, '%20');
   }
 
   async handleSearchSubmit(input: string) {
-    const urlBase: string = 'https://rickandmortyapi.com/api/character';
     this.setState({ loading: true, error: null });
-    console.log('Loading started');
-    localStorage.setItem('searchQuery', input);
+    localStorage.removeItem('searchQuery');
+    localStorage.setItem('searchQuery', input.trim());
     const searchTerm: string = input;
-    console.log('LS', localStorage.getItem('searchQuery'));
+    const urlBase: string = 'https://rickandmortyapi.com/api/character';
     try {
       if (searchTerm.trim() === '') {
         const responseAll = await fetch(urlBase);
@@ -46,7 +43,7 @@ export default class App extends Component {
         const data = await responseAll.json();
         this.setState({ searchResults: data.results, loading: false });
       } else {
-        const urlName: string = `${urlBase}/?name=${this.nameTransform(searchTerm)}`;
+        const urlName: string = `${urlBase}/?name=${this.nameTransform(searchTerm.trim())}`;
         const response = await fetch(urlName);
         const data = await response.json();
         if (!response.ok) {

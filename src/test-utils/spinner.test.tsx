@@ -1,6 +1,7 @@
 import { Spinner } from '../components';
 
 import { screen, render } from '@testing-library/react';
+import { test, expect } from 'vitest';
 
 test('spinner mounts successfuly', () => {
   render(<Spinner />);

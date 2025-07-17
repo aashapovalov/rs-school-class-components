@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/20</span>
+                <span class='fraction'>15/20</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">50% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>1/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
-                <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
-            </div>
-        
-            
-            <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/20</span>
+                <span class='fraction'>15/20</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -99,25 +99,25 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Component } from 'react';
 &nbsp;
@@ -126,26 +126,26 @@ import noResultsImg from '../assets/no_results_error.png';
 import type { ErrorMessageProps } from './types';
 &nbsp;
 export default class ErrorMessage extends Component&lt;ErrorMessageProps&gt; {
-<span class="fstat-no" title="function not covered" >  render() {</span>
-<span class="cstat-no" title="statement not covered" >    const { message } = this.props;</span>
-<span class="cstat-no" title="statement not covered" >    const isNotFound = message.toLowerCase().includes('there is nothing here');</span>
+  render() {
+    const { message } = this.props;
+    const isNotFound = message.toLowerCase().includes('there is nothing here');
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return (</span>
-<span class="cstat-no" title="statement not covered" >      &lt;div className="error-message"&gt;</span>
-<span class="cstat-no" title="statement not covered" >        {isNotFound ? (</span>
+    return (
+      &lt;div className="error-message"&gt;
+        {<span class="branch-0 cbranch-no" title="branch not covered" >isNotFound ? (</span>
 <span class="cstat-no" title="statement not covered" >          &lt;img</span>
 <span class="cstat-no" title="statement not covered" >            src={noResultsImg}</span>
 <span class="cstat-no" title="statement not covered" >            alt="No Results Error"</span>
 <span class="cstat-no" title="statement not covered" >            className="no-results-error"</span>
 <span class="cstat-no" title="statement not covered" >          /&gt;</span>
         ) : (
-<span class="cstat-no" title="statement not covered" >          &lt;p className="general-error"&gt;</span>
-<span class="cstat-no" title="statement not covered" >            Error: &lt;span&gt;{message}&lt;/span&gt;</span>
-<span class="cstat-no" title="statement not covered" >          &lt;/p&gt;</span>
+          &lt;p className="general-error"&gt;
+            Error: &lt;span&gt;{message}&lt;/span&gt;
+          &lt;/p&gt;
         )}
-<span class="cstat-no" title="statement not covered" >      &lt;/div&gt;</span>
+      &lt;/div&gt;
     );
-<span class="cstat-no" title="statement not covered" >  }</span>
+  }
 }
 &nbsp;</pre></td></tr></table></pre>
 
@@ -154,7 +154,7 @@ export default class ErrorMessage extends Component&lt;ErrorMessageProps&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-07-17T12:45:33.465Z
+                at 2025-07-17T16:19:29.378Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

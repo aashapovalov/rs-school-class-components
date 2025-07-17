@@ -1,5 +1,5 @@
 import { ResultsList } from '../components';
-
+import { test, expect } from 'vitest';
 import { screen, render } from '@testing-library/react';
 
 import fallbackImage from '../assets/fallback_card_image.png';
