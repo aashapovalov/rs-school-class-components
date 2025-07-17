@@ -56,8 +56,22 @@
     ]
   },
   "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "jsx": "react-jsx",
     "types": [
       "vitest"
     ]
-  }
+  },
+  "include": [
+    "src",
+    "vitest.setup.ts",
+    "**/*.test.ts",
+    "**/*.test.tsx"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }

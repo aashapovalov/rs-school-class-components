@@ -23,6 +23,6 @@ export interface ErrorMessageProps {
   message: string;
 }
 
-export interface State {
+export interface CrashState {
   crashNow: boolean;
 }
