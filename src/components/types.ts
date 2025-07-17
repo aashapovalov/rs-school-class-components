@@ -16,7 +16,7 @@ export interface ResultsListProps {
 export interface SearchFormProps {
   inputValue: string;
   onInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onSearchSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  onSearchSubmit: (value: string) => void;
 }
 
 export interface ErrorMessageProps {
