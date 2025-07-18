@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1752769169386" clover="3.2.0">
-  <project timestamp="1752769169386" name="All files">
-    <metrics statements="286" coveredstatements="221" conditionals="45" coveredconditionals="35" methods="23" coveredmethods="16" elements="354" coveredelements="272" complexity="0" loc="286" ncloc="286" packages="2" files="11" classes="11"/>
+<coverage generated="1752815041745" clover="3.2.0">
+  <project timestamp="1752815041745" name="All files">
+    <metrics statements="286" coveredstatements="218" conditionals="43" coveredconditionals="33" methods="23" coveredmethods="16" elements="352" coveredelements="267" complexity="0" loc="286" ncloc="286" packages="2" files="11" classes="11"/>
     <package name="src">
-      <metrics statements="144" coveredstatements="93" conditionals="30" coveredconditionals="24" methods="13" coveredmethods="8"/>
+      <metrics statements="144" coveredstatements="90" conditionals="28" coveredconditionals="22" methods="13" coveredmethods="8"/>
       <file name="app.tsx" path="/Users/alekseishapovalov/my-rick-morty-app/src/app.tsx">
-        <metrics statements="95" coveredstatements="83" conditionals="27" coveredconditionals="23" methods="7" coveredmethods="7"/>
+        <metrics statements="95" coveredstatements="80" conditionals="25" coveredconditionals="21" methods="7" coveredmethods="7"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
@@ -46,24 +46,24 @@
         <line num="45" count="11" type="cond" truecount="1" falsecount="0"/>
         <line num="46" count="7" type="stmt"/>
         <line num="47" count="7" type="cond" truecount="1" falsecount="0"/>
-        <line num="48" count="2" type="cond" truecount="1" falsecount="0"/>
-        <line num="49" count="7" type="cond" truecount="0" falsecount="1"/>
+        <line num="48" count="2" type="cond" truecount="0" falsecount="1"/>
+        <line num="49" count="0" type="stmt"/>
         <line num="50" count="0" type="stmt"/>
         <line num="51" count="0" type="stmt"/>
         <line num="52" count="0" type="stmt"/>
         <line num="53" count="0" type="stmt"/>
         <line num="54" count="0" type="stmt"/>
         <line num="55" count="0" type="stmt"/>
-        <line num="56" count="0" type="cond" truecount="1" falsecount="0"/>
-        <line num="57" count="1" type="stmt"/>
-        <line num="58" count="1" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="57" count="0" type="stmt"/>
+        <line num="58" count="0" type="stmt"/>
         <line num="59" count="11" type="cond" truecount="1" falsecount="0"/>
-        <line num="60" count="1" type="stmt"/>
-        <line num="61" count="1" type="stmt"/>
-        <line num="62" count="1" type="cond" truecount="0" falsecount="1"/>
+        <line num="60" count="2" type="stmt"/>
+        <line num="61" count="2" type="stmt"/>
+        <line num="62" count="2" type="cond" truecount="0" falsecount="1"/>
         <line num="63" count="0" type="stmt"/>
         <line num="64" count="0" type="stmt"/>
-        <line num="65" count="1" type="stmt"/>
+        <line num="65" count="2" type="stmt"/>
         <line num="66" count="11" type="stmt"/>
         <line num="68" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="69" count="7" type="stmt"/>
@@ -73,33 +73,33 @@
         <line num="73" count="7" type="stmt"/>
         <line num="74" count="7" type="stmt"/>
         <line num="76" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="77" count="95" type="stmt"/>
-        <line num="78" count="95" type="stmt"/>
-        <line num="79" count="95" type="stmt"/>
-        <line num="80" count="95" type="stmt"/>
-        <line num="81" count="95" type="cond" truecount="2" falsecount="0"/>
-        <line num="82" count="95" type="cond" truecount="2" falsecount="0"/>
-        <line num="83" count="95" type="stmt"/>
-        <line num="84" count="95" type="stmt"/>
-        <line num="85" count="95" type="stmt"/>
-        <line num="86" count="95" type="stmt"/>
-        <line num="87" count="95" type="stmt"/>
-        <line num="88" count="95" type="stmt"/>
-        <line num="89" count="95" type="cond" truecount="1" falsecount="0"/>
-        <line num="90" count="1" type="cond" truecount="0" falsecount="1"/>
+        <line num="77" count="96" type="stmt"/>
+        <line num="78" count="96" type="stmt"/>
+        <line num="79" count="96" type="stmt"/>
+        <line num="80" count="96" type="stmt"/>
+        <line num="81" count="96" type="cond" truecount="2" falsecount="0"/>
+        <line num="82" count="96" type="cond" truecount="2" falsecount="0"/>
+        <line num="83" count="96" type="stmt"/>
+        <line num="84" count="96" type="stmt"/>
+        <line num="85" count="96" type="stmt"/>
+        <line num="86" count="96" type="stmt"/>
+        <line num="87" count="96" type="stmt"/>
+        <line num="88" count="96" type="stmt"/>
+        <line num="89" count="96" type="cond" truecount="1" falsecount="0"/>
+        <line num="90" count="18" type="cond" truecount="0" falsecount="1"/>
         <line num="91" count="0" type="stmt"/>
-        <line num="93" count="1" type="stmt"/>
-        <line num="94" count="1" type="stmt"/>
-        <line num="95" count="1" type="stmt"/>
-        <line num="96" count="1" type="stmt"/>
-        <line num="97" count="1" type="stmt"/>
-        <line num="98" count="1" type="stmt"/>
-        <line num="99" count="1" type="stmt"/>
-        <line num="100" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="102" count="94" type="stmt"/>
-        <line num="103" count="95" type="stmt"/>
-        <line num="104" count="95" type="stmt"/>
-        <line num="106" count="95" type="stmt"/>
+        <line num="93" count="18" type="stmt"/>
+        <line num="94" count="18" type="stmt"/>
+        <line num="95" count="18" type="stmt"/>
+        <line num="96" count="18" type="stmt"/>
+        <line num="97" count="18" type="stmt"/>
+        <line num="98" count="18" type="stmt"/>
+        <line num="99" count="18" type="stmt"/>
+        <line num="100" count="18" type="cond" truecount="1" falsecount="0"/>
+        <line num="102" count="78" type="stmt"/>
+        <line num="103" count="96" type="stmt"/>
+        <line num="104" count="96" type="stmt"/>
+        <line num="106" count="96" type="stmt"/>
         <line num="107" count="1" type="stmt"/>
       </file>
       <file name="error_boundary.tsx" path="/Users/alekseishapovalov/my-rick-morty-app/src/error_boundary.tsx">
@@ -177,16 +177,16 @@
         <line num="16" count="0" type="stmt"/>
         <line num="17" count="0" type="stmt"/>
         <line num="19" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="20" count="103" type="cond" truecount="0" falsecount="1"/>
+        <line num="20" count="104" type="cond" truecount="0" falsecount="1"/>
         <line num="21" count="0" type="stmt"/>
         <line num="22" count="0" type="stmt"/>
-        <line num="23" count="103" type="stmt"/>
-        <line num="24" count="103" type="stmt"/>
-        <line num="25" count="103" type="stmt"/>
-        <line num="26" count="103" type="stmt"/>
-        <line num="27" count="103" type="stmt"/>
-        <line num="28" count="103" type="stmt"/>
-        <line num="30" count="103" type="stmt"/>
+        <line num="23" count="104" type="stmt"/>
+        <line num="24" count="104" type="stmt"/>
+        <line num="25" count="104" type="stmt"/>
+        <line num="26" count="104" type="stmt"/>
+        <line num="27" count="104" type="stmt"/>
+        <line num="28" count="104" type="stmt"/>
+        <line num="30" count="104" type="stmt"/>
         <line num="31" count="1" type="stmt"/>
       </file>
       <file name="error_message.tsx" path="/Users/alekseishapovalov/my-rick-morty-app/src/components/error_message.tsx">
@@ -195,21 +195,21 @@
         <line num="3" count="1" type="stmt"/>
         <line num="7" count="1" type="stmt"/>
         <line num="8" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="9" count="1" type="stmt"/>
-        <line num="10" count="1" type="stmt"/>
-        <line num="12" count="1" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="14" count="1" type="cond" truecount="0" falsecount="1"/>
+        <line num="9" count="18" type="stmt"/>
+        <line num="10" count="18" type="stmt"/>
+        <line num="12" count="18" type="stmt"/>
+        <line num="13" count="18" type="stmt"/>
+        <line num="14" count="18" type="cond" truecount="0" falsecount="1"/>
         <line num="15" count="0" type="stmt"/>
         <line num="16" count="0" type="stmt"/>
         <line num="17" count="0" type="stmt"/>
         <line num="18" count="0" type="stmt"/>
         <line num="19" count="0" type="stmt"/>
-        <line num="21" count="1" type="stmt"/>
-        <line num="22" count="1" type="stmt"/>
-        <line num="23" count="1" type="stmt"/>
-        <line num="25" count="1" type="stmt"/>
-        <line num="27" count="1" type="stmt"/>
+        <line num="21" count="18" type="stmt"/>
+        <line num="22" count="18" type="stmt"/>
+        <line num="23" count="18" type="stmt"/>
+        <line num="25" count="18" type="stmt"/>
+        <line num="27" count="18" type="stmt"/>
         <line num="28" count="1" type="stmt"/>
       </file>
       <file name="index.ts" path="/Users/alekseishapovalov/my-rick-morty-app/src/components/index.ts">
@@ -226,9 +226,9 @@
         <line num="5" count="1" type="stmt"/>
         <line num="7" count="1" type="stmt"/>
         <line num="8" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="9" count="103" type="stmt"/>
-        <line num="10" count="103" type="stmt"/>
-        <line num="11" count="103" type="cond" truecount="1" falsecount="0"/>
+        <line num="9" count="104" type="stmt"/>
+        <line num="10" count="104" type="stmt"/>
+        <line num="11" count="104" type="cond" truecount="1" falsecount="0"/>
         <line num="12" count="8" type="stmt"/>
         <line num="13" count="8" type="stmt"/>
         <line num="14" count="8" type="stmt"/>
@@ -262,9 +262,9 @@
         <line num="43" count="8" type="stmt"/>
         <line num="44" count="8" type="stmt"/>
         <line num="45" count="8" type="stmt"/>
-        <line num="46" count="103" type="stmt"/>
-        <line num="47" count="103" type="stmt"/>
-        <line num="49" count="103" type="stmt"/>
+        <line num="46" count="104" type="stmt"/>
+        <line num="47" count="104" type="stmt"/>
+        <line num="49" count="104" type="stmt"/>
         <line num="50" count="1" type="stmt"/>
       </file>
       <file name="search_form.tsx" path="/Users/alekseishapovalov/my-rick-morty-app/src/components/search_form.tsx">
@@ -275,40 +275,40 @@
         <line num="7" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
         <line num="10" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="11" count="102" type="stmt"/>
-        <line num="12" count="102" type="stmt"/>
-        <line num="13" count="102" type="stmt"/>
-        <line num="14" count="102" type="stmt"/>
-        <line num="15" count="102" type="stmt"/>
-        <line num="17" count="102" type="stmt"/>
-        <line num="18" count="102" type="stmt"/>
-        <line num="19" count="102" type="stmt"/>
-        <line num="20" count="102" type="stmt"/>
+        <line num="11" count="103" type="stmt"/>
+        <line num="12" count="103" type="stmt"/>
+        <line num="13" count="103" type="stmt"/>
+        <line num="14" count="103" type="stmt"/>
+        <line num="15" count="103" type="stmt"/>
+        <line num="17" count="103" type="stmt"/>
+        <line num="18" count="103" type="stmt"/>
+        <line num="19" count="103" type="stmt"/>
+        <line num="20" count="103" type="stmt"/>
         <line num="21" count="0" type="stmt"/>
         <line num="22" count="0" type="stmt"/>
         <line num="23" count="0" type="stmt"/>
-        <line num="25" count="102" type="stmt"/>
-        <line num="26" count="102" type="stmt"/>
-        <line num="27" count="102" type="stmt"/>
-        <line num="28" count="102" type="stmt"/>
-        <line num="29" count="102" type="stmt"/>
-        <line num="30" count="102" type="stmt"/>
-        <line num="31" count="102" type="stmt"/>
-        <line num="32" count="102" type="stmt"/>
-        <line num="33" count="102" type="cond" truecount="1" falsecount="0"/>
+        <line num="25" count="103" type="stmt"/>
+        <line num="26" count="103" type="stmt"/>
+        <line num="27" count="103" type="stmt"/>
+        <line num="28" count="103" type="stmt"/>
+        <line num="29" count="103" type="stmt"/>
+        <line num="30" count="103" type="stmt"/>
+        <line num="31" count="103" type="stmt"/>
+        <line num="32" count="103" type="stmt"/>
+        <line num="33" count="103" type="cond" truecount="1" falsecount="0"/>
         <line num="34" count="6" type="stmt"/>
         <line num="35" count="6" type="stmt"/>
         <line num="36" count="6" type="stmt"/>
-        <line num="37" count="102" type="stmt"/>
-        <line num="38" count="102" type="stmt"/>
-        <line num="39" count="102" type="stmt"/>
-        <line num="40" count="102" type="stmt"/>
-        <line num="41" count="102" type="stmt"/>
-        <line num="42" count="102" type="stmt"/>
-        <line num="43" count="102" type="stmt"/>
-        <line num="44" count="102" type="stmt"/>
-        <line num="45" count="102" type="stmt"/>
-        <line num="47" count="102" type="stmt"/>
+        <line num="37" count="103" type="stmt"/>
+        <line num="38" count="103" type="stmt"/>
+        <line num="39" count="103" type="stmt"/>
+        <line num="40" count="103" type="stmt"/>
+        <line num="41" count="103" type="stmt"/>
+        <line num="42" count="103" type="stmt"/>
+        <line num="43" count="103" type="stmt"/>
+        <line num="44" count="103" type="stmt"/>
+        <line num="45" count="103" type="stmt"/>
+        <line num="47" count="103" type="stmt"/>
         <line num="48" count="1" type="stmt"/>
       </file>
       <file name="spinner.tsx" path="/Users/alekseishapovalov/my-rick-morty-app/src/components/spinner.tsx">
@@ -316,11 +316,11 @@
         <line num="1" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="5" count="82" type="stmt"/>
-        <line num="6" count="82" type="stmt"/>
-        <line num="7" count="82" type="stmt"/>
-        <line num="8" count="82" type="stmt"/>
-        <line num="10" count="82" type="stmt"/>
+        <line num="5" count="66" type="stmt"/>
+        <line num="6" count="66" type="stmt"/>
+        <line num="7" count="66" type="stmt"/>
+        <line num="8" count="66" type="stmt"/>
+        <line num="10" count="66" type="stmt"/>
         <line num="11" count="1" type="stmt"/>
       </file>
       <file name="types.ts" path="/Users/alekseishapovalov/my-rick-morty-app/src/components/types.ts">
