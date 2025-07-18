@@ -107,21 +107,21 @@ body {
   text-shadow: 0 0 1px var(--Font-color-monitor-active);
 }
 
-  .search-btn {
-    position: absolute;
-    top: 58.5%;
-    left: 61.4%;
-    width: 20%;
-    height: 37%;
-    background: none;
-    border: none;
-    background-image: url('/src/assets/search_button.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    cursor: pointer;
-    pointer-events: auto;
-  }
+.search-btn {
+  position: absolute;
+  top: 58.5%;
+  left: 61.4%;
+  width: 20%;
+  height: 37%;
+  background: none;
+  border: none;
+  background-image: url('/src/assets/search_button.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  pointer-events: auto;
+}
 
 .search-btn:hover {
   transform: scale(1.05);
