@@ -2,7 +2,7 @@ import { Component } from 'react';
 import { SearchForm, ResultsList, Spinner, ErrorMessage } from './components';
 import type { AppState, AppProps } from './types';
 
-import './App.css';
+import './app.css';
 import genErrorMortyImg from './assets/general_error_morty.png';
 
 export default class App extends Component {
@@ -18,42 +18,33 @@ export default class App extends Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.nameTransform = this.nameTransform.bind(this);
     this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
-    console.log('App constructor');
   }
 
   handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
     this.setState({ inputValue: e.target.value });
-    console.log('Input value:', e.target.value);
   }
 
   nameTransform(name: string) {
-    return name.toLowerCase().trim().replace(/\s+/g, '%20');
+    return name.toLowerCase().replace(/\s+/g, '%20');
   }
 
-  async handleSearchSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
+  async handleSearchSubmit(input: string) {
     this.setState({ loading: true, error: null });
-    console.log('Loading started');
-    localStorage.setItem('searchQuery', this.state.inputValue);
-    const searchTerm: string = this.state.inputValue;
-    console.log('LS', localStorage.getItem('searchQuery'));
+    localStorage.removeItem('searchQuery');
+    localStorage.setItem('searchQuery', input.trim());
+    const searchTerm: string = input;
+    const urlBase: string = 'https://rickandmortyapi.com/api/character';
     try {
       if (searchTerm.trim() === '') {
-        console.log('searchTerm is equal to 0');
-        const responseAll = await fetch(
-          'https://rickandmortyapi.com/api/character'
-        );
+        const responseAll = await fetch(urlBase);
         if (!responseAll.ok) {
           throw new Error('Network response was not ok');
         }
         const data = await responseAll.json();
-        console.log('Raw API data:', data);
         this.setState({ searchResults: data.results, loading: false });
-        console.log('Search results:', this.state.searchResults);
       } else {
-        const response = await fetch(
-          `https://rickandmortyapi.com/api/character/?name=${this.nameTransform(searchTerm)}`
-        );
+        const urlName: string = `${urlBase}/?name=${this.nameTransform(searchTerm.trim())}`;
+        const response = await fetch(urlName);
         const data = await response.json();
         if (!response.ok) {
           this.setState({
@@ -63,9 +54,7 @@ export default class App extends Component {
           });
           return;
         }
-        console.log('Raw API data:', data);
         this.setState({ searchResults: data.results, loading: false });
-        console.log('Search results:', this.state.searchResults);
       }
     } catch (error) {
       if (error instanceof Error) {
@@ -80,9 +69,7 @@ export default class App extends Component {
     console.log('App component Did Mount');
     const inputValue = localStorage.getItem('searchQuery') || '';
     this.setState({ inputValue }, () => {
-      this.handleSearchSubmit({
-        preventDefault: () => {},
-      } as React.FormEvent<HTMLFormElement>);
+      this.handleSearchSubmit(inputValue);
     });
   }
 

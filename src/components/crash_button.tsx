@@ -1,10 +1,10 @@
 import { Component } from 'react';
 
-import type { State } from './types';
+import type { CrashState } from './types';
 
 export default class CrashButton extends Component<
   Record<string, never>,
-  State
+  CrashState
 > {
   constructor(props: Record<string, never>) {
     super(props);
