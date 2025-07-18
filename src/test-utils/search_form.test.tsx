@@ -1,6 +1,5 @@
 import { SearchForm } from '../components';
 
-import { vi, test, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 
@@ -16,7 +15,9 @@ test('search input mounts successfully', () => {
       onSearchSubmit={mockHandleSearch}
     />
   );
+
   const searchInput = screen.getByRole('textbox');
+
   expect(searchInput).toBeInTheDocument();
 });
 
@@ -28,7 +29,9 @@ test('search button mounts successfully', () => {
       onSearchSubmit={mockHandleSearch}
     />
   );
+
   const searchButton = screen.getByRole('button', { name: 'Search' });
+
   expect(searchButton).toBeInTheDocument();
 });
 
@@ -40,7 +43,9 @@ test('search input has a placeholder', () => {
       onSearchSubmit={mockHandleSearch}
     />
   );
+
   const searchInput = screen.getByPlaceholderText('Search for a character...');
+
   expect(searchInput).toBeInTheDocument();
 });
 
@@ -52,7 +57,9 @@ test('search input shows value passed in props', () => {
       onSearchSubmit={mockHandleSearch}
     />
   );
+
   const searchInput = screen.getByRole('textbox');
+
   expect(searchInput).toHaveValue('Text');
 });
 
@@ -64,7 +71,9 @@ test('search function is called when user clicks search button', async () => {
       onSearchSubmit={mockHandleSearch}
     />
   );
+
   await userEvent.click(screen.getByRole('button', { name: 'Search' }));
+
   expect(mockHandleSearch).toHaveBeenCalled();
 });
 
@@ -76,7 +85,9 @@ test('search function is called with a value from props', async () => {
       onSearchSubmit={mockHandleSearch}
     />
   );
+
   await userEvent.click(screen.getByRole('button', { name: 'Search' }));
+
   expect(mockHandleSearch).toHaveBeenCalledWith('Text');
 });
 
@@ -88,6 +99,8 @@ test('imput handler function is called when user types value in input field', as
       onSearchSubmit={mockHandleSearch}
     />
   );
+
   await userEvent.type(screen.getByRole('textbox'), 'Name');
+
   expect(mockInputChange).toHaveBeenCalled();
 });

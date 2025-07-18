@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { vi, test, expect } from 'vitest';
 
 import { App } from '../';
 
@@ -16,8 +15,11 @@ type Character = {
 
 test('shows empty input when no saved term exists', async () => {
   localStorage.removeItem('searchQuery');
+
   render(<App />);
+
   const initialInput = await screen.findByRole('textbox');
+
   expect(initialInput).toHaveValue('');
 });
 
@@ -38,48 +40,66 @@ test('updates input value when user types', async () => {
 
 test('saves search term to localStorage when search button is clicked', async () => {
   localStorage.removeItem('searchQuery');
+
   render(<App />);
+
   const input = await screen.findByRole('textbox');
   const searchButton = await screen.findByRole('button', { name: 'Search' });
+
   await userEvent.type(input, 'abrakadabra');
   await userEvent.click(searchButton);
+
   const valueLS = localStorage.getItem('searchQuery');
+
   expect(valueLS).toBe('abrakadabra');
 });
 
 test('saves search term to localStorage when search button is clicked', async () => {
   localStorage.removeItem('searchQuery');
+
   render(<App />);
+
   const input = await screen.findByRole('textbox');
   const searchButton = await screen.findByRole('button', { name: 'Search' });
+
   await userEvent.type(input, '  abra kadabra ');
   await userEvent.click(searchButton);
+
   const valueLS = localStorage.getItem('searchQuery');
+
   expect(valueLS).toBe('abra kadabra');
 });
 
 test('overwrites existing localStorage value when new search is performed', async () => {
   localStorage.removeItem('searchQuery');
   localStorage.setItem('searchQuery', 'Rick Sanchez');
+
   render(<App />);
+
   const input = await screen.findByRole('textbox');
   const searchButton = await screen.findByRole('button', { name: 'Search' });
+
   await userEvent.clear(input);
   await userEvent.type(input, '  abra kadabra ');
   await userEvent.click(searchButton);
+
   expect(localStorage.getItem('searchQuery')).toBe('abra kadabra');
 });
 
 test('triggers search callback with correct parameters', async () => {
   const mockFetch = vi.fn();
   global.fetch = mockFetch;
+
   render(<App />);
+
   const urlBase: string = 'https://rickandmortyapi.com/api/character';
   const input = await screen.findByRole('textbox');
   const searchButton = await screen.findByRole('button', { name: 'Search' });
+
   await userEvent.clear(input);
   await userEvent.type(input, '  abra kadabra ');
   await userEvent.click(searchButton);
+
   expect(mockFetch).toBeCalledWith(`${urlBase}/?name=abra%20kadabra`);
 });
 
@@ -93,6 +113,7 @@ test('Shows loading state while fetching data', async () => {
     },
     image: '../assets/test_card_image_qa_morty.png',
   };
+
   const mockFetch = vi.fn().mockResolvedValue({
     ok: true,
     json: () =>
@@ -103,9 +124,10 @@ test('Shows loading state while fetching data', async () => {
       }),
   });
   global.fetch = mockFetch;
-  render(<App />);
-  const searchButton = await screen.findByRole('button', { name: 'Search' });
 
+  render(<App />);
+
+  const searchButton = await screen.findByRole('button', { name: 'Search' });
   await userEvent.click(searchButton);
 
   const spinner = await screen.findByTestId('spinner');
@@ -178,16 +200,17 @@ test('spinner disappears when loading ends', async () => {
     },
     image: '../assets/test_card_image_qa_morty.png',
   };
+
   const mockFetch = vi.fn().mockResolvedValue({
     ok: true,
     json: () => Promise.resolve({ results: [mockData] }),
   });
   global.fetch = mockFetch;
+
   render(<App />);
+
   const searchButton = await screen.findByRole('button', { name: 'Search' });
-
   await userEvent.click(searchButton);
-
   await screen.findByText(mockData.name);
 
   expect(screen.queryByTestId('spinner')).not.toBeInTheDocument();

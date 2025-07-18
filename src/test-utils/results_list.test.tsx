@@ -1,5 +1,4 @@
 import { ResultsList } from '../components';
-import { test, expect } from 'vitest';
 import { screen, render } from '@testing-library/react';
 
 import fallbackImage from '../assets/fallback_card_image.png';
@@ -49,13 +48,17 @@ const characterListEmpty: Character[] = [
 
 test('result list has approprite cards number', () => {
   render(<ResultsList results={characterList} />);
+
   const numberOfChar: number = screen.getAllByTestId('character-card').length;
+
   expect(numberOfChar).toBe(characterList.length);
 });
 
 test('if character image is empty fallback image renders successfully', () => {
   render(<ResultsList results={characterListEmpty} />);
+
   const charImg = screen.getByAltText('PM');
+
   expect(charImg).toHaveAttribute('src', fallbackImage);
 });
 
@@ -73,39 +76,51 @@ characterList = [
 
 test('character image renders successfully ', () => {
   render(<ResultsList results={characterList} />);
+
   const charImg = screen.getByRole('img');
+
   expect(charImg).toBeInTheDocument();
 });
 
 test('character image has alt property', () => {
   render(<ResultsList results={characterList} />);
+
   const charImgAlt = screen.getByAltText(characterList[0].name);
+
   expect(charImgAlt).toBeInTheDocument();
 });
 
 test('character name renders successfully', () => {
   render(<ResultsList results={characterList} />);
+
   const charName = screen.getByRole('heading', {
     level: 2,
     name: 'Developer Rick',
   });
+
   expect(charName).toBeInTheDocument();
 });
 
 test('character alive status renders successfully', () => {
   render(<ResultsList results={characterList} />);
+
   const charStatus = screen.getByTestId('alive-status');
+
   expect(charStatus).toHaveTextContent(characterList[0].status);
 });
 
 test('character species renders successfully', () => {
   render(<ResultsList results={characterList} />);
+
   const charSpecies = screen.getByTestId('species');
+
   expect(charSpecies).toHaveTextContent(characterList[0].species);
 });
 
 test('character location renders successfully', () => {
   render(<ResultsList results={characterList} />);
+
   const charLocation = screen.getByTestId('location');
+
   expect(charLocation).toHaveTextContent(characterList[0].location.name);
 });

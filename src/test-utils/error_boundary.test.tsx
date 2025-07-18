@@ -1,11 +1,11 @@
 import { screen, render } from '@testing-library/react';
 import { ErrorBoundary } from '../';
-import { test, expect, vi } from 'vitest';
 
 test('Catches and handles JavaScript errors in child components', () => {
   const NaugthyChild = () => {
     throw new Error('I`m naughty, naughty child');
   };
+
   const logErrorInConsole = vi
     .spyOn(console, 'error')
     .mockImplementation(() => {});
