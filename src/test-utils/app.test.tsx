@@ -167,3 +167,28 @@ test('Displays error message when API call fails', async () => {
 
   expect(errorMsg).toBeInTheDocument();
 });
+
+test('spinner disappears when loading ends', async () => {
+  const mockData: Character = {
+    name: 'Morty Smith',
+    status: 'alive',
+    species: 'Human',
+    location: {
+      name: 'Earth',
+    },
+    image: '../assets/test_card_image_qa_morty.png',
+  };
+  const mockFetch = vi.fn().mockResolvedValue({
+    ok: true,
+    json: () => Promise.resolve({ results: [mockData] }),
+  });
+  global.fetch = mockFetch;
+  render(<App />);
+  const searchButton = await screen.findByRole('button', { name: 'Search' });
+
+  await userEvent.click(searchButton);
+
+  await screen.findByText(mockData.name);
+
+  expect(screen.queryByTestId('spinner')).not.toBeInTheDocument();
+});
