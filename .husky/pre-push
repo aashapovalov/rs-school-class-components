@@ -1,5 +1,5 @@
 if ls src/**/*.test.tsx >/dev/null 2>&1; then
-  npx vitest run:coverage
+  npx vitest run --coverage
 else
   echo "No test files found. Skipping tests."
 fi
