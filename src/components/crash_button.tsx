@@ -1,31 +1,20 @@
-import { Component } from 'react';
+import { useState } from 'react';
 
-import type { CrashState } from './types';
+export default function CrashButton() {
+  const [crashNow, setCrashNow] = useState(false);
 
-export default class CrashButton extends Component<
-  Record<string, never>,
-  CrashState
-> {
-  constructor(props: Record<string, never>) {
-    super(props);
-    this.state = { crashNow: false };
-    this.releaseCrash = this.releaseCrash.bind(this);
+  function clickHandle() {
+    setCrashNow(true);
   }
 
-  releaseCrash() {
-    this.setState({ crashNow: true });
+  if (crashNow) {
+    throw new Error('Oh no!!! Someone pushed the Crash button!!');
   }
-
-  render() {
-    if (this.state.crashNow) {
-      throw new Error('Oh no!!! Someone pushed the Crash button!!');
-    }
-    return (
-      <button
-        className="crash-btn"
-        onClick={this.releaseCrash}
-        aria-label="Crash App"
-      />
-    );
-  }
+  return (
+    <button
+      className="crash-btn"
+      onClick={clickHandle}
+      aria-label="Crash App"
+    />
+  );
 }
