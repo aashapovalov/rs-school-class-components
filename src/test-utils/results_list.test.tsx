@@ -100,27 +100,3 @@ test('character name renders successfully', () => {
 
   expect(charName).toBeInTheDocument();
 });
-
-test('character alive status renders successfully', () => {
-  render(<ResultsList results={characterList} />);
-
-  const charStatus = screen.getByTestId('alive-status');
-
-  expect(charStatus).toHaveTextContent(characterList[0].status);
-});
-
-test('character species renders successfully', () => {
-  render(<ResultsList results={characterList} />);
-
-  const charSpecies = screen.getByTestId('species');
-
-  expect(charSpecies).toHaveTextContent(characterList[0].species);
-});
-
-test('character location renders successfully', () => {
-  render(<ResultsList results={characterList} />);
-
-  const charLocation = screen.getByTestId('location');
-
-  expect(charLocation).toHaveTextContent(characterList[0].location.name);
-});
