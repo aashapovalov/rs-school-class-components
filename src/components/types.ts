@@ -18,10 +18,6 @@ export interface SearchFormProps {
   onSearchSubmit: (value: string) => void;
 }
 
-export interface ErrorMessageProps {
-  message: string;
-}
-
 export interface CrashState {
   crashNow: boolean;
 }
