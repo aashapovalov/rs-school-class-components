@@ -150,77 +150,46 @@ body {
 }
 
 .result-section {
-  margin-block-start: 1rem;
+  margin-block-start: 2rem;
   display: grid;
   gap: 1rem;
-  padding: 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
   justify-items: center;
+  align-items: center;
+  font-size: 0.875rem;
 }
 
 .character-card {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   background-color: var(--Card-background);
   color: var(--Font-color-basic);
   border: 1px solid #333;
   border-radius: 1rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  height: 9rem;
-  width: 100%;
-  max-width: 30rem;
-  min-width: 10rem;
+  height: 15rem;
+  width: 9rem;
+  margin: 0;
 }
 
 .character-image {
-  height: 100%;
-  border-radius: 1rem 0 0 1rem;
-  margin-inline-end: 1rem;
+  width: 100%;
+  border-radius: 1rem 1rem 0 0;
 }
 
 .character-description {
   display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 1rem;
-  padding: 0;
+  justify-content: center; /* horizontal */
+  align-items: center; /* vertical */
+  height: 100%;
+  text-align: center;
+  padding: 0.5rem; /* or a fixed height like 100px */
 }
 
-.character-description p,
-.character-description h2 {
+.character-name {
+  padding: 0;
   margin: 0;
-  padding: 0;
-}
-
-.status-indicator {
-  display: inline-block;
-  width: 0.5rem;
-  height: 0.5rem;
-  margin-inline-end: 0.5rem;
-  border-radius: 50%;
-  vertical-align: middle;
-}
-
-.status-indicator.green {
-  background-color: green;
-}
-
-.status-indicator.red {
-  background-color: red;
-}
-
-.status-indicator.gray {
-  background-color: gray;
-}
-
-.location {
-  color: var(--Font-color-monitor-inactive);
-}
-
-.location span {
-  display: block;
-  color: var(--Font-color-basic);
 }
 
 .no-results-error {
