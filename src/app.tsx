@@ -6,10 +6,15 @@ import { useLocalStorage } from './components';
 import './app.css';
 import genErrorMortyImg from './assets/general_error_morty.png';
 
+import type { Character, Info } from './types';
+
 export default function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState<{
+    info: Info;
+    results: Character[];
+  } | null>(null);
   const [inputValue, setInputValue] = useLocalStorage('searchQuery', '');
 
   useEffect(() => {
@@ -29,19 +34,19 @@ export default function App() {
           throw new Error('Network response was not ok');
         }
         const data = await responseAll.json();
-        setSearchResults(data.results);
+        setSearchResults(data);
         setLoading(false);
       } else {
         const urlName: string = `${urlBase}/?name=${input.toLowerCase().replace(/\s+/g, '%20')}`;
         const response = await fetch(urlName);
         const data = await response.json();
         if (!response.ok) {
-          setSearchResults([]);
+          setSearchResults(null);
           setLoading(false);
           setError(data.error || 'Unknown error');
           return;
         }
-        setSearchResults(data.results);
+        setSearchResults(data);
         setLoading(false);
       }
     } catch (error) {
@@ -79,7 +84,12 @@ export default function App() {
           </div>
         )
       ) : null}
-      <ResultsList results={searchResults} />
+      {searchResults && (
+        <ResultsList
+          info={searchResults.info}
+          results={searchResults.results}
+        />
+      )}
     </div>
   );
 }

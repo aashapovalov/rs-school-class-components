@@ -4,7 +4,6 @@ import fallbackImg from '../assets/fallback_card_image.png';
 
 export default function ResultsList(props: ResultsListProps) {
   const { results } = props;
-
   return (
     <section className="result-section">
       {results.map((character, index) => (
