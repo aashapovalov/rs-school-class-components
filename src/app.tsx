@@ -14,7 +14,7 @@ export default function App() {
 
   useEffect(() => {
     handleSearchSubmit(inputValue);
-  }, []);
+  });
 
   function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
     setInputValue(e.target.value);
