@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { SearchForm, ResultsList, Spinner, ErrorMessage } from './components';
 
+import { useLocalStorage } from './components';
+
 import './app.css';
 import genErrorMortyImg from './assets/general_error_morty.png';
 
@@ -8,29 +10,20 @@ export default function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [searchResults, setSearchResults] = useState([]);
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useLocalStorage('searchQuery', '');
 
   useEffect(() => {
-    const savedQuary = localStorage.getItem('searchQuery') || '';
-    setInputValue(savedQuary);
-    handleSearchSubmit(savedQuary);
+    handleSearchSubmit(inputValue);
   }, []);
-
-  function nameTransform(name: string) {
-    return name.toLowerCase().replace(/\s+/g, '%20');
-  }
 
   function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
     setInputValue(e.target.value);
   }
 
   async function handleSearchSubmit(input: string) {
-    localStorage.removeItem('searchQuery');
-    localStorage.setItem('searchQuery', input.trim());
-
     const urlBase: string = 'https://rickandmortyapi.com/api/character';
     try {
-      if (input.trim() === '') {
+      if (input === '') {
         const responseAll = await fetch(urlBase);
         if (!responseAll.ok) {
           throw new Error('Network response was not ok');
@@ -39,7 +32,7 @@ export default function App() {
         setSearchResults(data.results);
         setLoading(false);
       } else {
-        const urlName: string = `${urlBase}/?name=${nameTransform(input.trim())}`;
+        const urlName: string = `${urlBase}/?name=${input.toLowerCase().replace(/\s+/g, '%20')}`;
         const response = await fetch(urlName);
         const data = await response.json();
         if (!response.ok) {
