@@ -21,6 +21,13 @@ export default function SearchForm() {
     }
   }, [inputValue, navigate, searchParams]);
 
+  useEffect(() => {
+    const nameFromUrl = searchParams.get('name') || '';
+    if (nameFromUrl !== inputValue) {
+      setInputValue(nameFromUrl);
+    }
+  }, [searchParams, inputValue, setInputValue]);
+
   return (
     <section className="device">
       <img src={appLogo} className="logo" />
