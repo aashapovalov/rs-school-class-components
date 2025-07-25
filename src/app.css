@@ -192,6 +192,31 @@ body {
   margin: 0;
 }
 
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin: 2rem auto;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.pagination * {
+  font-family: 'Comic Neue', cursive, 'Comic Sans MS', 'Comic Sans', sans-serif;
+  border: none;
+  background-color: var(--Grey-background);
+  font-size: 1.5rem;
+}
+
+button.active:hover {
+  font-weight: 700;
+  color: var(--Font-color-error);
+  cursor: pointer;
+}
+
 .no-results-error {
   display: block;
   margin: 2rem auto;
