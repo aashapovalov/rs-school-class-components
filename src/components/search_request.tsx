@@ -11,13 +11,14 @@ export default function SearchRequst() {
   } | null>(null);
   const [searchParams] = useSearchParams();
   const searchName = searchParams.get('name') || '';
+  const searchPage = searchParams.get('page') || 1;
   const { setLoading, setError } = useContext(SearchStateContext);
   useEffect(() => {
     const urlBase: string = 'https://rickandmortyapi.com/api/character';
     async function handleEventInput() {
       try {
         setError(null);
-        const urlName: string = `${urlBase}/?name=${searchName}`;
+        const urlName: string = `${urlBase}/?name=${searchName}&page=${searchPage}`;
         const response = await fetch(urlName);
         const data = await response.json();
         if (!response.ok) {

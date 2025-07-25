@@ -10,6 +10,7 @@ export default function SearchForm() {
   const [inputValue, setInputValue] = useLocalStorage('searchQuery', '');
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
+  const searchPage = searchParams.get('page') || 1;
 
   function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
     setInputValue(e.target.value);
@@ -26,7 +27,7 @@ export default function SearchForm() {
     if (nameFromUrl !== inputValue) {
       setInputValue(nameFromUrl);
     }
-  }, [searchParams, inputValue, setInputValue]);
+  }, []);
 
   return (
     <section className="device">
@@ -38,7 +39,9 @@ export default function SearchForm() {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            navigate(`/search?name=${encodeURIComponent(inputValue.trim())}`);
+            navigate(
+              `/search?name=${encodeURIComponent(inputValue.trim())}&page=${searchPage}`
+            );
           }}
         >
           <input
