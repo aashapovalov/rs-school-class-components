@@ -8,10 +8,12 @@ export default function PagesList(props: ResultsListProps) {
   const navigate = useNavigate();
 
   function goToPage(pageNum: number) {
+    console.log(pageButtons);
     navigate(`/search?name=${encodeURIComponent(name)}&page=${pageNum}`);
   }
 
-  const currentPage = parseInt(searchParams.get('page') || '1');
+  const currentPage = Number(searchParams.get('page') || '1');
+  console.log('currentPage type:', typeof currentPage, currentPage);
   const { info } = props;
   const pagesCount = info.pages;
 
@@ -42,39 +44,43 @@ export default function PagesList(props: ResultsListProps) {
 
   return (
     <>
-      <nav className={'pages-list'} aria-label="Pagination">
-        <button
-          disabled={currentPage === 1}
-          onClick={() => goToPage(currentPage - 1)}
-        >
-          Previous
-        </button>
+      <div className={'pagination-container'}>
+        <nav className={'pagination'} aria-label="Pagination">
+          <button
+            disabled={currentPage === 1}
+            onClick={() => goToPage(currentPage - 1)}
+            className={currentPage === 1 ? undefined : 'active'}
+          >
+            Previous
+          </button>
 
-        {pageButtons.map((p, idx) =>
-          typeof p === 'number' ? (
-            <button
-              key={p}
-              disabled={p === currentPage}
-              className={p === currentPage ? 'active' : ''}
-              onClick={() => goToPage(p)}
-              aria-current={p === currentPage ? 'page' : undefined}
-            >
-              {p}
-            </button>
-          ) : (
-            <span key={idx} className="ellipsis">
-              {p}
-            </span>
-          )
-        )}
+          {pageButtons.map((p, idx) => {
+            return typeof p === 'number' ? (
+              <button
+                key={`page-${p}`}
+                disabled={p === currentPage}
+                className={p === currentPage ? 'current' : 'active'}
+                onClick={() => goToPage(p)}
+                aria-current={p === currentPage ? 'page' : undefined}
+              >
+                {p}
+              </button>
+            ) : (
+              <span key={`ellipsis-${idx}`} className="ellipsis">
+                {p}
+              </span>
+            );
+          })}
 
-        <button
-          disabled={currentPage === pagesCount}
-          onClick={() => goToPage(currentPage + 1)}
-        >
-          Next
-        </button>
-      </nav>
+          <button
+            disabled={currentPage === pagesCount}
+            onClick={() => goToPage(currentPage + 1)}
+            className={currentPage === pagesCount ? undefined : 'active'}
+          >
+            Next
+          </button>
+        </nav>
+      </div>
     </>
   );
 }
