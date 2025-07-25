@@ -5,20 +5,23 @@ import type { Character, Info } from './types';
 import { ResultsList, SearchStateContext } from './';
 
 export default function SearchRequst() {
+  const [searchParams] = useSearchParams();
+  const name = searchParams.get('name') || '';
+  const page = searchParams.get('page') || '1';
+  const { setLoading, setError } = useContext(SearchStateContext);
   const [searchResults, setSearchResults] = useState<{
     info: Info;
     results: Character[];
   } | null>(null);
-  const [searchParams] = useSearchParams();
-  const searchName = searchParams.get('name') || '';
-  const searchPage = searchParams.get('page') || 1;
-  const { setLoading, setError } = useContext(SearchStateContext);
+
   useEffect(() => {
-    const urlBase: string = 'https://rickandmortyapi.com/api/character';
-    async function handleEventInput() {
+    async function fetchCharacters() {
+      const urlBase: string = 'https://rickandmortyapi.com/api/character';
+      setLoading(true);
+      setError(null);
       try {
         setError(null);
-        const urlName: string = `${urlBase}/?name=${searchName}&page=${searchPage}`;
+        const urlName: string = `${urlBase}/?name=${encodeURIComponent(name)}&page=${page}`;
         const response = await fetch(urlName);
         const data = await response.json();
         if (!response.ok) {
@@ -39,8 +42,8 @@ export default function SearchRequst() {
         }
       }
     }
-    handleEventInput();
-  }, [searchName, setError, setLoading]);
+    fetchCharacters();
+  }, [name, page, setError, setLoading]);
 
   if (searchResults) {
     return (
