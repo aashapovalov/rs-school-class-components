@@ -1,9 +1,11 @@
 import type { ResultsListProps } from './types';
+import { PagesList } from './';
 
 import fallbackImg from '../assets/fallback_card_image.png';
 
 export default function ResultsList(props: ResultsListProps) {
   const { results } = props;
+
   return (
     <section className="result-section">
       {results.map((character, index) => (
@@ -22,6 +24,7 @@ export default function ResultsList(props: ResultsListProps) {
           </div>
         </div>
       ))}
+      <PagesList {...props} />
     </section>
   );
 }
