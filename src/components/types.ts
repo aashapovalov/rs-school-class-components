@@ -32,10 +32,16 @@ export type Character = {
 };
 export interface SearchFormProps {
   inputValue: string;
-  onInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onSearchSubmit: (value: string) => void;
 }
 
 export interface CrashState {
   crashNow: boolean;
 }
+
+export type SearchStateContextType = {
+  loading: boolean;
+  error: string | null;
+  setLoading: (value: boolean) => void;
+  setError: (value: string | null) => void;
+};
