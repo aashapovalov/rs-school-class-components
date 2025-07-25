@@ -1,16 +1,25 @@
 import { CrashButton, useLocalStorage } from './';
 
+import { useNavigate, useSearchParams } from 'react-router';
+import { useEffect } from 'react';
+
 import deviceImg from '../assets/search_device_desktop_no_background.png';
 import appLogo from '../assets/app_logo.png';
-import { useNavigate } from 'react-router';
 
 export default function SearchForm() {
   const [inputValue, setInputValue] = useLocalStorage('searchQuery', '');
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
 
   function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
     setInputValue(e.target.value);
   }
+
+  useEffect(() => {
+    if (!searchParams.get('name')) {
+      navigate(`/search?name=${encodeURIComponent(inputValue)}`);
+    }
+  }, [inputValue, navigate, searchParams]);
 
   return (
     <section className="device">
@@ -22,7 +31,7 @@ export default function SearchForm() {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            navigate(`/search?name=${encodeURIComponent(inputValue)}`);
+            navigate(`/search?name=${encodeURIComponent(inputValue.trim())}`);
           }}
         >
           <input
