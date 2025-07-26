@@ -1,10 +1,17 @@
+import { useNavigate } from 'react-router';
 import appLogo from '../assets/app_logo.png';
 import myCharacter from '../assets/my_character_portrait.png';
 
 export default function AboutPage() {
+  const navigate = useNavigate();
   return (
     <section className="about-page">
-      <img src={appLogo} className="logo" alt={'Rick and Morty logo'} />
+      <img
+        src={appLogo}
+        className="logo"
+        alt={'Rick and Morty logo'}
+        onClick={() => navigate('/')}
+      />
       <h1 className={'about_author'}>About author</h1>
       <div className="about-text-grid">
         <div className="about-text">
