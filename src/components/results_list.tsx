@@ -1,3 +1,5 @@
+import { useNavigate, useSearchParams } from 'react-router';
+
 import type { ResultsListProps } from './types';
 import { PagesList } from './';
 
@@ -5,6 +7,20 @@ import fallbackImg from '../assets/fallback_card_image.png';
 
 export default function ResultsList(props: ResultsListProps) {
   const { characterActive, results } = props;
+  const [searchParams] = useSearchParams();
+  const name = searchParams.get('name') || '';
+  const page = searchParams.get('page') || '1';
+  const navigate = useNavigate();
+
+  function handleCardClick(
+    characterName: string,
+    searchPage: string,
+    characterDetails: number
+  ) {
+    navigate(
+      `/search?name=${characterName}&page=${searchPage}&details=${characterDetails}`
+    );
+  }
 
   return (
     <>
@@ -13,6 +29,7 @@ export default function ResultsList(props: ResultsListProps) {
       >
         {results.map((character, index) => (
           <div
+            onClick={() => handleCardClick(name, page, character.id)}
             key={index}
             className={`character-card ${index}`}
             data-testid="character-card"

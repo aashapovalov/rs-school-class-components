@@ -27,7 +27,9 @@ export default function SearchRequst() {
           results={dataList?.results}
           characterActive={details}
         />
-        <CharacterDetails character={dataCharacter} />
+        {details && dataCharacter && (
+          <CharacterDetails character={dataCharacter} />
+        )}{' '}
       </>
     );
   } else if (dataList) {

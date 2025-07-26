@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router';
 
-import { CrashButton, useLocalStorage } from './';
+import { AboutButton, useLocalStorage } from './';
 
 import deviceImg from '../assets/search_device_desktop_no_background.png';
 import appLogo from '../assets/app_logo.png';
@@ -27,7 +27,7 @@ export default function SearchForm() {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     const trimmed = inputValue.trim();
-    setInputValue(trimmed); // updates LS
+    setInputValue(trimmed);
     navigate(`/search?name=${encodeURIComponent(trimmed)}&page=1`);
   }
 
@@ -48,7 +48,7 @@ export default function SearchForm() {
           />
           <button className="search-btn" type="submit" aria-label="Search" />
         </form>
-        <CrashButton />
+        <AboutButton />
       </div>
     </section>
   );
