@@ -24,28 +24,34 @@ export default function ResultsList(props: ResultsListProps) {
 
   return (
     <>
-      <section
-        className={characterActive ? 'result-section narrow' : 'result-section'}
+      <div
+        className={
+          characterActive
+            ? 'results-list-section narrow'
+            : 'results-list-section '
+        }
       >
-        {results.map((character, index) => (
-          <div
-            onClick={() => handleCardClick(name, page, character.id)}
-            key={index}
-            className={`character-card ${index}`}
-            data-testid="character-card"
-          >
-            <img
-              className="character-image"
-              src={character.image ? character.image : fallbackImg}
-              alt={character.name}
-            />
-            <div className="character-description">
-              <h2 className="character-name">{character.name}</h2>
+        <div className="character-list">
+          {results.map((character, index) => (
+            <div
+              onClick={() => handleCardClick(name, page, character.id)}
+              key={index}
+              className={`character-card ${index}`}
+              data-testid="character-card"
+            >
+              <img
+                className="character-image"
+                src={character.image ? character.image : fallbackImg}
+                alt={character.name}
+              />
+              <div className="character-description">
+                <h2 className="character-name">{character.name}</h2>
+              </div>
             </div>
-          </div>
-        ))}
-      </section>
-      <PagesList {...props} />
+          ))}
+          <PagesList {...props} />
+        </div>
+      </div>
     </>
   );
 }

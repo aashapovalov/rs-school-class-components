@@ -154,7 +154,24 @@ body {
   filter: brightness(1.1);
 }
 
-.result-section {
+.results-section {
+  display: flex;
+  flex-direction: row;
+}
+
+.results-section:not(.split) .results-list-section {
+  width: 100%;
+}
+
+.results-section.split .results-list-section {
+  width: 60%;
+}
+
+.results-section.split .character-details {
+  width: 40%;
+}
+
+.character-list {
   margin-block-start: 2rem;
   display: grid;
   gap: 1rem;

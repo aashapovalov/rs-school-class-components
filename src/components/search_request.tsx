@@ -29,7 +29,7 @@ export default function SearchRequst() {
         />
         {details && dataCharacter && (
           <CharacterDetails character={dataCharacter} />
-        )}{' '}
+        )}
       </>
     );
   } else if (dataList) {

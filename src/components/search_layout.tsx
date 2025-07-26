@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router';
+import { Outlet, useSearchParams } from 'react-router';
 import { useContext } from 'react';
 
 import { SearchForm, Spinner, ErrorMessage, SearchStateContext } from './';
@@ -6,6 +6,8 @@ import { SearchForm, Spinner, ErrorMessage, SearchStateContext } from './';
 import genErrorMortyImg from '../assets/general_error_morty.png';
 
 export default function SearchLayout() {
+  const [searchParams] = useSearchParams();
+  const details = searchParams.get('details') || '';
   const { loading, error } = useContext(SearchStateContext);
   return (
     <>
@@ -27,7 +29,11 @@ export default function SearchLayout() {
               </div>
             )
           ) : null}
-          <Outlet />
+          <section
+            className={details ? 'results-section split' : 'results-section'}
+          >
+            <Outlet />
+          </section>
         </div>
       </div>
     </>
