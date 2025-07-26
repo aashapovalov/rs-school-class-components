@@ -129,7 +129,7 @@ body {
   filter: brightness(1.1);
 }
 
-.crash-btn {
+.about-btn {
   position: absolute;
   top: 57.9%;
   left: 83.8%;
@@ -137,7 +137,7 @@ body {
   height: 35.9%;
   background: none;
   border: none;
-  background-image: url('/src/assets/crash_button.png');
+  background-image: url('/src/assets/about_button.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -145,7 +145,7 @@ body {
   pointer-events: auto;
 }
 
-.crash-btn:hover {
+.about-btn:hover {
   transform: scale(1.05);
   filter: brightness(1.1);
 }
@@ -217,11 +217,6 @@ button.active:hover {
   color: var(--Font-color-error);
   cursor: pointer;
 }
-
-/*.current {
-  color: var(--Font-color-monitor-inactive);
-  font-weight: 700;
-}*/
 
 .no-results-error {
   display: block;
