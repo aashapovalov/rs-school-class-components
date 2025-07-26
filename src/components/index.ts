@@ -10,3 +10,4 @@ export { default as SearchLayout } from './search_layout';
 export { default as SearchStateProvider } from './search_state_context';
 export { SearchStateContext } from './search_state_context';
 export { default as PagesList } from './pages_list';
+export { useFetchApiList } from './use_fetch_api_list';
