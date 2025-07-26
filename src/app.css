@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Comic+Neue&family=Share+Tech+Mono&display=swap');
+@import 'tailwindcss';
 
 *,
 *::before,
@@ -156,7 +157,6 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
   justify-items: center;
   align-items: center;
-  font-size: 0.875rem;
 }
 
 .character-card {
@@ -180,14 +180,15 @@ body {
 
 .character-description {
   display: flex;
-  justify-content: center; /* horizontal */
-  align-items: center; /* vertical */
+  justify-content: center;
+  align-items: center;
   height: 100%;
   text-align: center;
-  padding: 0.5rem; /* or a fixed height like 100px */
+  padding: 0.5rem;
 }
 
 .character-name {
+  font-size: 1.2rem;
   padding: 0;
   margin: 0;
 }
@@ -216,6 +217,11 @@ button.active:hover {
   color: var(--Font-color-error);
   cursor: pointer;
 }
+
+/*.current {
+  color: var(--Font-color-monitor-inactive);
+  font-weight: 700;
+}*/
 
 .no-results-error {
   display: block;

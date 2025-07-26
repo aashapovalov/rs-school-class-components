@@ -45,7 +45,7 @@ export default function PagesList(props: ResultsListProps) {
   return (
     <>
       <div className={'pagination-container'}>
-        <nav className={'pagination'} aria-label="Pagination">
+        <nav className={'pagination text-15xl'} aria-label="Pagination">
           <button
             disabled={currentPage === 1}
             onClick={() => goToPage(currentPage - 1)}
@@ -59,7 +59,11 @@ export default function PagesList(props: ResultsListProps) {
               <button
                 key={`page-${p}`}
                 disabled={p === currentPage}
-                className={p === currentPage ? 'current' : 'active'}
+                className={
+                  p === currentPage
+                    ? 'current font-bold text-[color:var(--Font-color-monitor-inactive)]'
+                    : 'active'
+                }
                 onClick={() => goToPage(p)}
                 aria-current={p === currentPage ? 'page' : undefined}
               >
