@@ -49,8 +49,8 @@ export default function ResultsList(props: ResultsListProps) {
               </div>
             </div>
           ))}
-          <PagesList {...props} />
         </div>
+        <PagesList {...props} />
       </div>
     </>
   );

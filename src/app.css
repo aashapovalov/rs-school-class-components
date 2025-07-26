@@ -164,11 +164,11 @@ body {
 }
 
 .results-section.split .results-list-section {
-  width: 60%;
+  width: 65%;
 }
 
 .results-section.split .character-details {
-  width: 40%;
+  width: 35%;
 }
 
 .character-list {
@@ -237,6 +237,75 @@ button.active:hover {
   font-weight: 700;
   color: var(--Font-color-error);
   cursor: pointer;
+}
+
+.character-details-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--Card-background);
+  color: var(--Font-color-basic);
+  border: 1px solid #333;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 2rem;
+}
+
+.character-details-image {
+  border-radius: 1rem 1rem 0 0;
+}
+
+.character-details-description {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1rem;
+  padding: 1rem 2rem 1rem 2rem;
+  font-size: 1.2rem;
+}
+
+.character-details-description p,
+.character-details-description h2 {
+  margin: 0;
+  padding: 0;
+}
+
+.character-details-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--Font-color-error);
+}
+
+.status-indicator {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-inline-end: 0.5rem;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.status-indicator.green {
+  background-color: green;
+}
+
+.status-indicator.red {
+  background-color: red;
+}
+
+.status-indicator.gray {
+  background-color: gray;
+}
+
+.location,
+.origination {
+  color: var(--Font-color-monitor-inactive);
+}
+
+.location span,
+.origination span {
+  display: block;
+  color: var(--Font-color-basic);
 }
 
 .no-results-error {
