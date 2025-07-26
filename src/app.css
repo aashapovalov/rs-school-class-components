@@ -43,12 +43,15 @@ body {
 .logo {
   width: 20rem;
   height: auto;
+  margin: 0 auto;
 }
 
-.character-search {
+.character-search,
+.about_author {
   font-size: 2rem;
   font-size: clamp(2rem, 7.6vw, 3rem);
   margin: 0;
+  text-align: center;
 }
 
 .device {
@@ -223,6 +226,48 @@ button.active:hover {
   margin: 2rem auto;
   max-width: 30rem;
   width: 100%;
+}
+
+.about-page {
+  padding: 1rem;
+}
+.about-text-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  margin: 3rem;
+}
+
+.about-text {
+  grid-column: 1 / 3;
+  letter-spacing: 0.6px;
+  column-width: 20rem;
+  text-align: justify;
+  gap: 3rem;
+  font-size: 1.2rem;
+}
+
+.about-text p {
+  margin-block-end: 1rem;
+}
+
+.my-character-portrait {
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.first-paragraph {
+  margin-top: 2rem;
+}
+
+.first-paragraph::first-letter {
+  font-size: 5rem;
+  color: var(--Font-color-error);
+  float: left;
+  margin-right: 1rem;
+  letter-spacing: 0;
+  line-height: 5rem;
 }
 
 .error-block {
