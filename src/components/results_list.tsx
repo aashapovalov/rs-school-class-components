@@ -4,11 +4,13 @@ import { PagesList } from './';
 import fallbackImg from '../assets/fallback_card_image.png';
 
 export default function ResultsList(props: ResultsListProps) {
-  const { results } = props;
+  const { characterActive, results } = props;
 
   return (
     <>
-      <section className="result-section">
+      <section
+        className={characterActive ? 'result-section narrow' : 'result-section'}
+      >
         {results.map((character, index) => (
           <div
             key={index}

@@ -1,13 +1,16 @@
 import { useState, useEffect, useContext } from 'react';
 
 import { SearchStateContext } from '.';
-import type { Character, Info } from './types';
+import type { Character } from './types';
 
 export function useFetchApiCharacter(url: string) {
   const { setLoading, setError } = useContext(SearchStateContext);
   const [searchResults, setSearchResults] = useState<Character | null>(null);
 
   useEffect(() => {
+    if (!url) {
+      return;
+    }
     setLoading(true);
     setError(null);
     async function fetchApi() {

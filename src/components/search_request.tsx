@@ -1,18 +1,37 @@
 import { useSearchParams } from 'react-router';
 
-import { ResultsList, useFetchApiList } from './';
+import { ResultsList, useFetchApiList, useFetchApiCharacter } from './';
 
 export default function SearchRequst() {
   const [searchParams] = useSearchParams();
   const name = searchParams.get('name') || '';
   const page = searchParams.get('page') || '1';
+  const details = searchParams.get('details') || '';
 
   const urlBase: string = 'https://rickandmortyapi.com/api/character';
-  const urlName: string = `${urlBase}/?name=${encodeURIComponent(name)}&page=${page}`;
-  const data = useFetchApiList(urlName);
+  const urlList: string = `${urlBase}/?name=${encodeURIComponent(name)}&page=${page}`;
+  const urlCharacter = details ? `${urlBase}/${details}` : '';
+  const dataList = useFetchApiList(urlList);
+  const dataCharacter = useFetchApiCharacter(urlCharacter);
 
-  if (data) {
-    return <ResultsList info={data?.info} results={data?.results} />;
+  if (dataList && dataCharacter) {
+    return (
+      <>
+        <ResultsList
+          info={dataList?.info}
+          results={dataList?.results}
+          characterActive={details}
+        />
+      </>
+    );
+  } else if (dataList) {
+    return (
+      <ResultsList
+        info={dataList?.info}
+        results={dataList?.results}
+        characterActive={''}
+      />
+    );
   }
 
   return null;
