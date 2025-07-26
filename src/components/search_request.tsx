@@ -1,6 +1,11 @@
 import { useSearchParams } from 'react-router';
 
-import { ResultsList, useFetchApiList, useFetchApiCharacter } from './';
+import {
+  ResultsList,
+  useFetchApiList,
+  useFetchApiCharacter,
+  CharacterDetails,
+} from './';
 
 export default function SearchRequst() {
   const [searchParams] = useSearchParams();
@@ -22,6 +27,7 @@ export default function SearchRequst() {
           results={dataList?.results}
           characterActive={details}
         />
+        <CharacterDetails character={dataCharacter} />
       </>
     );
   } else if (dataList) {
