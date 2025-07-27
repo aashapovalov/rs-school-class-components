@@ -7,10 +7,20 @@ import fallbackImg from '../assets/fallback_card_image.png';
 
 export default function ResultsList(props: ResultsListProps) {
   const { characterActive, results } = props;
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const name = searchParams.get('name') || '';
   const page = searchParams.get('page') || '1';
+  const details = searchParams.get('details') || '';
   const navigate = useNavigate();
+
+  function handleContainerClick(e: React.MouseEvent) {
+    console.log(e);
+    if (e.currentTarget === e.target && details) {
+      const newParams = new URLSearchParams(searchParams);
+      newParams.delete('details');
+      setSearchParams(newParams);
+    }
+  }
 
   function handleCardClick(
     characterName: string,
@@ -31,7 +41,7 @@ export default function ResultsList(props: ResultsListProps) {
             : 'results-list-section '
         }
       >
-        <div className="character-list">
+        <div className="character-list" onClick={handleContainerClick}>
           {results.map((character, index) => (
             <div
               onClick={() => handleCardClick(name, page, character.id)}
