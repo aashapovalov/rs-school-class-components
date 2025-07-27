@@ -13,3 +13,4 @@ export { default as PagesList } from './pages_list';
 export { useFetchApiList } from './use_fetch_api_list';
 export { useFetchApiCharacter } from './use_fetch_api_character.tsx';
 export { default as CharacterDetails } from './character_details';
+export { default as NotFoundPage } from './not_found_page';

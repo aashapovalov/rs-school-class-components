@@ -34,7 +34,7 @@ export default function AboutPage() {
         src={appLogo}
         className="logo"
         alt={'Rick and Morty logo'}
-        onClick={() => navigate('/')}
+        onClick={() => navigate('/search')}
       />
       <h1 className={'about_author'}>About author</h1>
       <img
