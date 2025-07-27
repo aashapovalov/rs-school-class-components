@@ -1,9 +1,33 @@
 import { useNavigate } from 'react-router';
+
+import Carousel from './slick_carousel';
+
 import appLogo from '../assets/app_logo.png';
 import myCharacter from '../assets/my_character_portrait.png';
+import carouselImg1 from '../assets/character_rick_morty1.png';
+import carouselImg2 from '../assets/character_rick_morty2.png';
+import carouselImg3 from '../assets/character_rick_morty3.png';
+import reprogramming from '../assets/reprogramming_line.png';
+import portal from '../assets/portal_background.png';
+import wallCrack from '../assets/wall_crack.png';
 
 export default function AboutPage() {
   const navigate = useNavigate();
+  const slides = [
+    {
+      src: carouselImg1,
+      caption: 'Running from a Gromflomite tax collector. Thanks, Rick.',
+    },
+    {
+      src: carouselImg2,
+      caption:
+        'Just one drink, he said. Five galaxies later, I’m banned from the Citadel dive bar.',
+    },
+    {
+      src: carouselImg3,
+      caption: 'Rick made me try on a coat with sentient nipples. Again.',
+    },
+  ];
   return (
     <section className="about-page">
       <img
@@ -13,6 +37,12 @@ export default function AboutPage() {
         onClick={() => navigate('/')}
       />
       <h1 className={'about_author'}>About author</h1>
+      <img
+        className="wall-crack"
+        src={wallCrack}
+        alt="Wall crack page decoration"
+      />
+      <img className="portal" src={portal} alt="Portal page decoration" />
       <div className="about-text-grid">
         <div className="about-text">
           <img
@@ -37,14 +67,60 @@ export default function AboutPage() {
             <i>“The Portal Shakes Twice”</i>, and{' '}
             <i>“Rick’s Rehab Roulette.”</i>
           </p>
+        </div>
+      </div>
+      <blockquote>
+        <hr />
+        <p className="quote">You’re too unstable for this multiverse</p>
+        <hr />
+      </blockquote>
+      <div className="about-text-grid">
+        <div className="about-text">
           <p>
             I spent weeks shooting scenes that were 90% improvised and 100%
             lethal to my sanity. At one point, I was cast as “Alternate Rick’s
             Emotional Support Human.” The job required me to cry on command and
             hold a shrieking space ferret for 17 takes.
           </p>
+          <p>
+            I drank. I raged. I lost my cool during a wrap party on Planet
+            Glorzo. Rick said, “You’re too unstable for this multiverse,” and
+            Morty just nodded like I was a lost cause.
+          </p>
         </div>
       </div>
+      <Carousel images={slides} />
+      <div className="about-text-grid">
+        <div className="about-text">
+          <p>
+            So I did the only logical thing: I packed up my life and decided to
+            reset — not just my location, but my entire codebase. I enrolled in
+            the{' '}
+            <i>
+              <a href="https://rs.school/courses/reactjs">
+                RS School React course
+              </a>
+            </i>
+            , learned how to make buttons that don’t implode, components that
+            don’t scream, and interfaces that (mostly) obey the laws of physics.
+          </p>
+          <p>
+            Now, I’m building something of my own. A story-driven indie game.
+            Inspired by everything that didn’t go according to plan.
+          </p>
+          <p>
+            It’s not just a game — it’s my redemption arc. Expect portals,
+            panic, sarcastic AI, broken timelines, and maybe… just maybe… a
+            version of me who finally gets the last line.
+          </p>
+        </div>
+      </div>
+      <p className="sign-error">MULTIVERSE ERROR CODE: 404-BIO</p>
+      <img
+        className="reprogramming"
+        src={reprogramming}
+        alt="reprogramming underline"
+      />
     </section>
   );
 }

@@ -318,6 +318,25 @@ button.active:hover {
 .about-page {
   padding: 1rem;
 }
+
+.wall-crack {
+  position: absolute;
+  top: 130%;
+  right: -6%;
+  object-fit: cover;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.portal {
+  position: absolute;
+  top: -17%;
+  right: -10%;
+  object-fit: cover;
+  z-index: -1;
+  pointer-events: none;
+}
+
 .about-text-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -355,6 +374,51 @@ button.active:hover {
   margin-right: 1rem;
   letter-spacing: 0;
   line-height: 5rem;
+}
+
+blockquote {
+  display: block;
+  width: 75%;
+  margin: 0 auto 1rem auto;
+}
+
+.quote {
+  color: var(--Font-color-error);
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 900;
+}
+
+.quote::before {
+  content: '" ';
+}
+
+.quote::after {
+  content: ' "';
+}
+
+a {
+  text-decoration: underline;
+}
+
+a:hover {
+  color: var(--Font-color-error);
+  font-weight: 900;
+}
+
+.reprogramming {
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+}
+
+.sign-error {
+  font-family: 'Share Tech Mono', monospace;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--Font-color-error);
+  margin-inline-end: 2.5rem;
 }
 
 .error-block {
