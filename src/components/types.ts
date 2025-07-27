@@ -1,7 +1,6 @@
 export type ResultsListProps = {
   info: Info;
   results: Character[];
-  characterActive?: string;
 };
 
 export type Info = {

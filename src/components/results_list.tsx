@@ -6,7 +6,7 @@ import { PagesList } from './';
 import fallbackImg from '../assets/fallback_card_image.png';
 
 export default function ResultsList(props: ResultsListProps) {
-  const { characterActive, results } = props;
+  const { results } = props;
   const [searchParams, setSearchParams] = useSearchParams();
   const name = searchParams.get('name') || '';
   const page = searchParams.get('page') || '1';
@@ -34,13 +34,7 @@ export default function ResultsList(props: ResultsListProps) {
 
   return (
     <>
-      <div
-        className={
-          characterActive
-            ? 'results-list-section narrow'
-            : 'results-list-section '
-        }
-      >
+      <div className={'results-list-section '}>
         <div className="character-list" onClick={handleContainerClick}>
           {results.map((character, index) => (
             <div

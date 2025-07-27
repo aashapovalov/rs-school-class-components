@@ -1,33 +1,14 @@
 import { useNavigate } from 'react-router';
 
-import Carousel from './slick_carousel';
-
 import appLogo from '../assets/app_logo.png';
 import myCharacter from '../assets/my_character_portrait.png';
-import carouselImg1 from '../assets/character_rick_morty1.png';
 import carouselImg2 from '../assets/character_rick_morty2.png';
-import carouselImg3 from '../assets/character_rick_morty3.png';
 import reprogramming from '../assets/reprogramming_line.png';
 import portal from '../assets/portal_background.png';
 import wallCrack from '../assets/wall_crack.png';
 
 export default function AboutPage() {
   const navigate = useNavigate();
-  const slides = [
-    {
-      src: carouselImg1,
-      caption: 'Running from a Gromflomite tax collector. Thanks, Rick.',
-    },
-    {
-      src: carouselImg2,
-      caption:
-        'Just one drink, he said. Five galaxies later, I’m banned from the Citadel dive bar.',
-    },
-    {
-      src: carouselImg3,
-      caption: 'Rick made me try on a coat with sentient nipples. Again.',
-    },
-  ];
   return (
     <section className="about-page">
       <img
@@ -89,7 +70,15 @@ export default function AboutPage() {
           </p>
         </div>
       </div>
-      <Carousel images={slides} />
+      <img
+        src={carouselImg2}
+        alt="Me and Rick drinking in the bar"
+        className="middle-img"
+      />
+      <p className="middle-img-caption">
+        Just one drink, he said. Five galaxies later, I’m banned from the
+        Citadel dive bar.
+      </p>
       <div className="about-text-grid">
         <div className="about-text">
           <p>

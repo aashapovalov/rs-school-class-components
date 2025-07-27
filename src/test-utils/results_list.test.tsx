@@ -1,97 +1,82 @@
 import { ResultsList } from '../components';
 import { screen, render } from '@testing-library/react';
 
+import {
+  createMockArrayfFull,
+  createMockArrayEmpty,
+  createInfo,
+} from './mocks';
+import { MemoryRouter } from 'react-router';
+
 import fallbackImage from '../assets/fallback_card_image.png';
 
-type Character = {
-  name: string;
-  status: string;
-  species: string;
-  location: {
-    name: string;
-  };
-  image: string;
-};
-
-let characterList: Character[] = [
-  {
-    name: 'Developer Rick',
-    status: 'alive',
-    species: 'not human',
-    location: {
-      name: 'Home alone',
-    },
-    image: './assets/test_card_img_developer_rick.png',
-  },
-  {
-    name: 'QA Morty',
-    status: 'dead',
-    species: 'only a human',
-    location: {
-      name: 'At work',
-    },
-    image: './assets/test_card_image_qa_morty.png',
-  },
-];
-
-const characterListEmpty: Character[] = [
-  {
-    name: 'PM',
-    status: 'dead',
-    species: 'unknown',
-    location: {
-      name: 'unknown',
-    },
-    image: '',
-  },
-];
-
 test('result list has approprite cards number', () => {
-  render(<ResultsList results={characterList} />);
+  const mockArray = createMockArrayfFull();
+  const infoObj = createInfo();
+  render(
+    <MemoryRouter>
+      <ResultsList results={mockArray} info={infoObj} />
+    </MemoryRouter>
+  );
 
   const numberOfChar: number = screen.getAllByTestId('character-card').length;
 
-  expect(numberOfChar).toBe(characterList.length);
+  expect(numberOfChar).toBe(mockArray.length);
 });
 
 test('if character image is empty fallback image renders successfully', () => {
-  render(<ResultsList results={characterListEmpty} />);
+  const mockArrayEmpty = createMockArrayEmpty();
+  const infoObj = createInfo();
 
+  render(
+    <MemoryRouter>
+      <ResultsList results={mockArrayEmpty} info={infoObj} />
+    </MemoryRouter>
+  );
   const charImg = screen.getByAltText('PM');
 
   expect(charImg).toHaveAttribute('src', fallbackImage);
 });
 
-characterList = [
-  {
-    name: 'Developer Rick',
-    status: 'alive',
-    species: 'not human',
-    location: {
-      name: 'Home alone',
-    },
-    image: './assets/test_card_img_developer_rick.png',
-  },
-];
-
 test('character image renders successfully ', () => {
-  render(<ResultsList results={characterList} />);
+  const mockArray = createMockArrayfFull();
+  const infoObj = createInfo();
 
-  const charImg = screen.getByRole('img');
+  render(
+    <MemoryRouter>
+      <ResultsList results={mockArray} info={infoObj} />
+    </MemoryRouter>
+  );
 
-  expect(charImg).toBeInTheDocument();
+  const charImgs = screen.getAllByRole('img');
+  expect(charImgs.length).toBeGreaterThan(0);
+  expect(charImgs[0]).toBeInTheDocument();
 });
 
 test('character image has alt property', () => {
-  render(<ResultsList results={characterList} />);
+  const mockArray = createMockArrayfFull();
+  const infoObj = createInfo();
 
-  const charImgAlt = screen.getByAltText(characterList[0].name);
+  render(
+    <MemoryRouter>
+      <ResultsList results={mockArray} info={infoObj} />
+    </MemoryRouter>
+  );
+
+  const charImgAlt = screen.getByAltText(mockArray[0].name);
 
   expect(charImgAlt).toBeInTheDocument();
 });
 
 test('character name renders successfully', () => {
-  render(<ResultsList results={characterList} />);
+  const mockArray = createMockArrayfFull();
+  const infoObj = createInfo();
+
+  render(
+    <MemoryRouter>
+      <ResultsList results={mockArray} info={infoObj} />
+    </MemoryRouter>
+  );
 
   const charName = screen.getByRole('heading', {
     level: 2,

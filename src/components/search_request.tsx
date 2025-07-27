@@ -22,24 +22,14 @@ export default function SearchRequst() {
   if (dataList && dataCharacter) {
     return (
       <>
-        <ResultsList
-          info={dataList?.info}
-          results={dataList?.results}
-          characterActive={details}
-        />
+        <ResultsList info={dataList?.info} results={dataList?.results} />
         {details && dataCharacter && (
           <CharacterDetails character={dataCharacter} />
         )}
       </>
     );
   } else if (dataList) {
-    return (
-      <ResultsList
-        info={dataList?.info}
-        results={dataList?.results}
-        characterActive={''}
-      />
-    );
+    return <ResultsList info={dataList?.info} results={dataList?.results} />;
   }
 
   return null;

@@ -397,6 +397,17 @@ blockquote {
   content: ' "';
 }
 
+.middle-img {
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+}
+
+.middle-img-caption {
+  text-align: center;
+}
+
 a {
   text-decoration: underline;
 }
