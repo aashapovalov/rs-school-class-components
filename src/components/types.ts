@@ -4,7 +4,6 @@ export interface Character {
   species: string;
   location: {
     name: string;
-    url: string;
   };
   image: string;
 }
@@ -16,13 +15,13 @@ export interface ResultsListProps {
 export interface SearchFormProps {
   inputValue: string;
   onInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onSearchSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  onSearchSubmit: (value: string) => void;
 }
 
 export interface ErrorMessageProps {
   message: string;
 }
 
-export interface State {
+export interface CrashState {
   crashNow: boolean;
 }

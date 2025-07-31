@@ -1,2 +1,2 @@
-export { default as App } from './App';
+export { default as App } from './app';
 export { default as ErrorBoundary } from './error_boundary';

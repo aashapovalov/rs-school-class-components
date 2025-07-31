@@ -16,7 +16,12 @@ export default class SearchForm extends Component<SearchFormProps> {
 
           <div className="device-frame">
             <img src={deviceImg} alt="Device" className="device-no-bg" />
-            <form onSubmit={this.props.onSearchSubmit}>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                this.props.onSearchSubmit(this.props.inputValue);
+              }}
+            >
               <input
                 className="search-input"
                 value={this.props.inputValue}
@@ -24,7 +29,15 @@ export default class SearchForm extends Component<SearchFormProps> {
                 placeholder="Search for a character..."
                 type="text"
               />
-              <button className="search-btn" type="submit" />
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  this.props.onSearchSubmit(this.props.inputValue);
+                }}
+                className="search-btn"
+                type="submit"
+                aria-label="Search"
+              />
             </form>
             <CrashButton />
           </div>
