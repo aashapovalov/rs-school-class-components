@@ -46,22 +46,6 @@ test('saves search term to localStorage when search button is clicked', async ()
   const input = await screen.findByRole('textbox');
   const searchButton = await screen.findByRole('button', { name: 'Search' });
 
-  await userEvent.type(input, 'abrakadabra');
-  await userEvent.click(searchButton);
-
-  const valueLS = localStorage.getItem('searchQuery');
-
-  expect(valueLS).toBe('abrakadabra');
-});
-
-test('saves search term to localStorage when search button is clicked', async () => {
-  localStorage.removeItem('searchQuery');
-
-  render(<App />);
-
-  const input = await screen.findByRole('textbox');
-  const searchButton = await screen.findByRole('button', { name: 'Search' });
-
   await userEvent.type(input, '  abra kadabra ');
   await userEvent.click(searchButton);
 

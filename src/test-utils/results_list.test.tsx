@@ -13,7 +13,7 @@ type Character = {
   image: string;
 };
 
-let characterList: Character[] = [
+const characterList: Character[] = [
   {
     name: 'Developer Rick',
     status: 'alive',
@@ -31,6 +31,18 @@ let characterList: Character[] = [
       name: 'At work',
     },
     image: './assets/test_card_image_qa_morty.png',
+  },
+];
+
+const characterListAlone = [
+  {
+    name: 'Developer Rick',
+    status: 'alive',
+    species: 'not human',
+    location: {
+      name: 'Home alone',
+    },
+    image: './assets/test_card_img_developer_rick.png',
   },
 ];
 
@@ -62,20 +74,8 @@ test('if character image is empty fallback image renders successfully', () => {
   expect(charImg).toHaveAttribute('src', fallbackImage);
 });
 
-characterList = [
-  {
-    name: 'Developer Rick',
-    status: 'alive',
-    species: 'not human',
-    location: {
-      name: 'Home alone',
-    },
-    image: './assets/test_card_img_developer_rick.png',
-  },
-];
-
 test('character image renders successfully ', () => {
-  render(<ResultsList results={characterList} />);
+  render(<ResultsList results={characterListAlone} />);
 
   const charImg = screen.getByRole('img');
 
@@ -83,7 +83,7 @@ test('character image renders successfully ', () => {
 });
 
 test('character image has alt property', () => {
-  render(<ResultsList results={characterList} />);
+  render(<ResultsList results={characterListAlone} />);
 
   const charImgAlt = screen.getByAltText(characterList[0].name);
 
@@ -91,7 +91,7 @@ test('character image has alt property', () => {
 });
 
 test('character name renders successfully', () => {
-  render(<ResultsList results={characterList} />);
+  render(<ResultsList results={characterListAlone} />);
 
   const charName = screen.getByRole('heading', {
     level: 2,
@@ -102,7 +102,7 @@ test('character name renders successfully', () => {
 });
 
 test('character alive status renders successfully', () => {
-  render(<ResultsList results={characterList} />);
+  render(<ResultsList results={characterListAlone} />);
 
   const charStatus = screen.getByTestId('alive-status');
 
@@ -110,7 +110,7 @@ test('character alive status renders successfully', () => {
 });
 
 test('character species renders successfully', () => {
-  render(<ResultsList results={characterList} />);
+  render(<ResultsList results={characterListAlone} />);
 
   const charSpecies = screen.getByTestId('species');
 
@@ -118,7 +118,7 @@ test('character species renders successfully', () => {
 });
 
 test('character location renders successfully', () => {
-  render(<ResultsList results={characterList} />);
+  render(<ResultsList results={characterListAlone} />);
 
   const charLocation = screen.getByTestId('location');
 
