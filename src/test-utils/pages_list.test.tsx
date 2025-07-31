@@ -98,7 +98,6 @@ test('mock with page 5', async () => {
 });
 
 test('Clicking a page button triggers callback with correct page', async () => {
-  // Mock react-router hooks
   vi.doMock('react-router', async () => {
     const actual =
       await vi.importActual<typeof import('react-router')>('react-router');
@@ -118,7 +117,6 @@ test('Clicking a page button triggers callback with correct page', async () => {
     };
   });
 
-  // Re-import with mocks applied
   const { default: PagesList } = await import('../components/pages_list');
 
   render(
@@ -130,7 +128,6 @@ test('Clicking a page button triggers callback with correct page', async () => {
     </MemoryRouter>
   );
 
-  // Simulate clicking page 3
   await userEvent.click(screen.getByRole('button', { name: '3' }));
 
   expect(mockNavigate).toHaveBeenCalledWith('/search?name=Rick&page=3');
