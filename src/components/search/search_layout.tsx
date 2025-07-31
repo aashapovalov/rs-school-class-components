@@ -1,9 +1,9 @@
 import { Outlet, useSearchParams } from 'react-router';
 import { useContext } from 'react';
 
-import { SearchForm, Spinner, ErrorMessage, SearchStateContext } from './';
+import { SearchForm, Spinner, ErrorMessage, SearchStateContext } from '../';
 
-import genErrorMortyImg from '../assets/general_error_morty.png';
+import genErrorMortyImg from '../../assets/general_error_morty.png';
 
 export default function SearchLayout() {
   const [searchParams] = useSearchParams();

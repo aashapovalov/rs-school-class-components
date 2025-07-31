@@ -6,7 +6,7 @@ import {
   SearchLayout,
   SearchStateProvider,
   NotFoundPage,
-} from './components';
+} from '../components';
 
 import './app.css';
 
@@ -16,11 +16,11 @@ export default function App() {
       <SearchStateProvider>
         <BrowserRouter>
           <Routes>
-            <Route path="search" element={<SearchLayout />}>
+            <Route path="/" element={<SearchLayout />}>
               <Route index element={<SearchRequest />} />
             </Route>
 
-            <Route path="about" element={<AboutPage />} />
+            <Route path="/about" element={<AboutPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </BrowserRouter>

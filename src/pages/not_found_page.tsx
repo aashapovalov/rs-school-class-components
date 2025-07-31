@@ -12,7 +12,7 @@ export default function NotFoundPage() {
         src={appLogo}
         className="logo"
         alt={'Rick and Morty logo'}
-        onClick={() => navigate('/search')}
+        onClick={() => navigate('/')}
       />
       <div className="error-block">
         <p className="general-error">

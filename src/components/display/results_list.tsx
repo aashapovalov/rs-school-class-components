@@ -1,9 +1,9 @@
 import { useNavigate, useSearchParams } from 'react-router';
 
-import type { ResultsListProps } from './types';
-import { PagesList } from './';
+import type { ResultsListProps } from '../../types/types';
+import { PagesList } from '../';
 
-import fallbackImg from '../assets/fallback_card_image.png';
+import fallbackImg from '../../assets/fallback_card_image.png';
 
 export default function ResultsList(props: ResultsListProps) {
   const { results } = props;
@@ -28,7 +28,7 @@ export default function ResultsList(props: ResultsListProps) {
     characterDetails: number
   ) {
     navigate(
-      `/search?name=${characterName}&page=${searchPage}&details=${characterDetails}`
+      `/?name=${characterName}&page=${searchPage}&details=${characterDetails}`
     );
   }
 

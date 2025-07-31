@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router';
 
-import { AboutButton, useLocalStorage } from './';
+import { AboutButton, useLocalStorage } from '../';
 
-import deviceImg from '../assets/search_device_desktop_no_background.png';
-import appLogo from '../assets/app_logo.png';
+import deviceImg from '../../assets/search_device_desktop_no_background.png';
+import appLogo from '../../assets/app_logo.png';
 
 export default function SearchForm() {
   const [inputValue, setInputValue] = useLocalStorage('searchQuery', '');
@@ -28,7 +28,7 @@ export default function SearchForm() {
     e.preventDefault();
     const trimmed = inputValue.trim();
     setInputValue(trimmed);
-    navigate(`/search?name=${encodeURIComponent(trimmed)}&page=1`);
+    navigate(`/?name=${encodeURIComponent(trimmed)}&page=1`);
   }
 
   return (

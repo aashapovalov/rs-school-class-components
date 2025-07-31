@@ -26,19 +26,25 @@ export type Character = {
     url: string;
   };
   image: string;
-  episode: string[]; // array of episode URLs
+  episode: string[];
   url: string;
-  created: string; // ISO date string
+  created: string;
 };
-
-export interface AppState {
+export interface SearchFormProps {
   inputValue: string;
-  searchResults: Character[];
-  loading: boolean;
-  error: string | null;
+  onSearchSubmit: (value: string) => void;
 }
 
-export type AppProps = Record<string, never>;
+export interface CrashState {
+  crashNow: boolean;
+}
+
+export type SearchStateContextType = {
+  loading: boolean;
+  error: string | null;
+  setLoading: (value: boolean) => void;
+  setError: (value: string | null) => void;
+};
 
 export interface ErrorBoundaryState {
   hasError: boolean;

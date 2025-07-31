@@ -15,7 +15,7 @@
   --Font-color-monitor-active: hsl(152, 76%, 80%);
   --Font-color-monitor-inactive: hsl(152, 0%, 53%);
   --Font-color-error: hsl(8, 40%, 42%);
-  font-size: 16px;
+  font-size: 62.5%;
 }
 
 body {
@@ -25,11 +25,11 @@ body {
   margin: 0 auto;
   padding: 0;
   min-height: 100vh;
-  max-width: 65rem;
+  max-width: 102.4rem;
 }
 
 .app {
-  padding: 1rem;
+  padding: 1.6rem;
   position: relative;
 }
 
@@ -41,7 +41,7 @@ body {
 }
 
 .logo {
-  width: 20rem;
+  width: 32rem;
   height: auto;
   margin: 0 auto;
   cursor: pointer;
@@ -49,8 +49,8 @@ body {
 
 .character-search,
 .about_author {
-  font-size: 2rem;
-  font-size: clamp(2rem, 7.6vw, 3rem);
+  font-size: 3.2rem;
+  font-size: clamp(3.2rem, 7.6vw, 4.8rem);
   margin: 0;
   text-align: center;
 }
@@ -58,8 +58,8 @@ body {
 .device {
   position: relative;
   width: 100%;
-  max-width: 50rem;
-  min-width: 20rem;
+  max-width: 80rem;
+  min-width: 32rem;
   margin: 0 auto;
 }
 
@@ -67,8 +67,8 @@ body {
   position: relative;
   width: 100%;
   display: inline-block;
-  max-width: 40rem;
-  min-width: 22rem;
+  max-width: 64rem;
+  min-width: 35.2rem;
 }
 
 .device-no-bg {
@@ -83,11 +83,11 @@ body {
   left: 14.3%;
   width: 66.6%;
   height: 33.8%;
-  font-size: clamp(1rem, 3vw, 1.5rem);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
   font-family: 'Share Tech Mono', monospace;
   background-color: var(--Grey-background);
   color: var(--Font-color-basic);
-  padding: 0.3rem 4% 0.3rem 4%;
+  padding: 0.5rem 4% 0.5rem 4%;
   border-radius: clamp(6px, calc(-1.608px + 1.902vw), 13px);
   pointer-events: auto;
   border: none;
@@ -118,7 +118,6 @@ body {
   left: 61.4%;
   width: 20%;
   height: 37%;
-  background: none;
   border: none;
   background-image: url('/src/assets/search_button.png');
   background-size: contain;
@@ -139,7 +138,6 @@ body {
   left: 83.8%;
   width: 12%;
   height: 35.9%;
-  background: none;
   border: none;
   background-image: url('/src/assets/about_button.png');
   background-size: contain;
@@ -172,10 +170,10 @@ body {
 }
 
 .character-list {
-  margin-block-start: 2rem;
+  margin-block-start: 3.2rem;
   display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 1.6rem;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
   justify-items: center;
   align-items: center;
 }
@@ -187,16 +185,16 @@ body {
   background-color: var(--Card-background);
   color: var(--Font-color-basic);
   border: 1px solid #333;
-  border-radius: 1rem;
+  border-radius: 1.6rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  height: 15rem;
-  width: 9rem;
+  height: 24rem;
+  width: 14.4rem;
   margin: 0;
 }
 
 .character-image {
   width: 100%;
-  border-radius: 1rem 1rem 0 0;
+  border-radius: 1.6rem 1.6rem 0 0;
 }
 
 .character-description {
@@ -205,11 +203,11 @@ body {
   align-items: center;
   height: 100%;
   text-align: center;
-  padding: 0.5rem;
+  padding: 0.8rem;
 }
 
 .character-name {
-  font-size: 1.2rem;
+  font-size: 1.8rem;
   padding: 0;
   margin: 0;
 }
@@ -217,20 +215,20 @@ body {
 .pagination-container {
   display: flex;
   justify-content: center;
-  margin: 2rem auto;
+  margin: 3.2rem auto;
 }
 
 .pagination {
   display: flex;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 0.8rem;
 }
 
 .pagination * {
   font-family: 'Comic Neue', cursive, 'Comic Sans MS', 'Comic Sans', sans-serif;
   border: none;
   background-color: var(--Grey-background);
-  font-size: 1.5rem;
+  font-size: 2.4rem;
 }
 
 button.active:hover {
@@ -246,21 +244,21 @@ button.active:hover {
   background-color: var(--Card-background);
   color: var(--Font-color-basic);
   border: 1px solid #333;
-  border-radius: 1rem;
+  border-radius: 1.6rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin: 2rem;
+  margin: 3.2rem;
 }
 
 .character-details-image {
-  border-radius: 1rem 1rem 0 0;
+  border-radius: 1.6rem 1.6rem 0 0;
 }
 
 .character-details-description {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  gap: 1rem;
-  padding: 1rem 2rem 1rem 2rem;
+  gap: 1.6rem;
+  padding: 1.6rem 3.2rem 1.6rem 3.2rem;
   font-size: 1.2rem;
 }
 
@@ -271,16 +269,16 @@ button.active:hover {
 }
 
 .character-details-name {
-  font-size: 1.5rem;
+  font-size: 2.4rem;
   font-weight: 700;
   color: var(--Font-color-error);
 }
 
 .status-indicator {
   display: inline-block;
-  width: 0.5rem;
-  height: 0.5rem;
-  margin-inline-end: 0.5rem;
+  width: 0.8rem;
+  height: 0.8rem;
+  margin-inline-end: 0.8rem;
   border-radius: 50%;
   vertical-align: middle;
 }
@@ -310,13 +308,13 @@ button.active:hover {
 
 .no-results-error {
   display: block;
-  margin: 2rem auto;
-  max-width: 30rem;
+  margin: 3.2rem auto;
+  max-width: 48rem;
   width: 100%;
 }
 
 .about-page {
-  padding: 1rem;
+  padding: 1.6rem;
 }
 
 .wall-crack {
@@ -341,20 +339,20 @@ button.active:hover {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: start;
-  margin: 3rem;
+  margin: 4.8rem;
 }
 
 .about-text {
   grid-column: 1 / 3;
   letter-spacing: 0.6px;
-  column-width: 20rem;
+  column-width: 32rem;
   text-align: justify;
-  gap: 3rem;
-  font-size: 1.2rem;
+  gap: 4.8rem;
+  font-size: 1.8rem;
 }
 
 .about-text p {
-  margin-block-end: 1rem;
+  margin-block-end: 1.6rem;
 }
 
 .my-character-portrait {
@@ -364,16 +362,16 @@ button.active:hover {
 }
 
 .first-paragraph {
-  margin-top: 2rem;
+  margin-top: 3.2rem;
 }
 
 .first-paragraph::first-letter {
   font-size: 5rem;
   color: var(--Font-color-error);
   float: left;
-  margin-right: 1rem;
+  margin-right: 1.6rem;
   letter-spacing: 0;
-  line-height: 5rem;
+  line-height: 8rem;
 }
 
 blockquote {
@@ -384,7 +382,7 @@ blockquote {
 
 .quote {
   color: var(--Font-color-error);
-  font-size: 2rem;
+  font-size: 3.2rem;
   text-align: center;
   font-weight: 900;
 }
@@ -401,7 +399,7 @@ blockquote {
   display: block;
   margin: 0 auto;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 0.5rem;
+  border-radius: 0.8rem;
 }
 
 .middle-img-caption {
@@ -426,10 +424,10 @@ a:hover {
 .sign-error {
   font-family: 'Share Tech Mono', monospace;
   text-align: center;
-  font-size: 2rem;
+  font-size: 3.2rem;
   font-weight: 900;
   color: var(--Font-color-error);
-  margin-inline-end: 2.5rem;
+  margin-inline-end: 4rem;
 }
 
 .error-block {
@@ -437,27 +435,27 @@ a:hover {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
-  margin: 2rem auto;
+  gap: 1.6rem;
+  margin: 3.2rem auto;
   text-align: center;
   width: 70%;
 }
 
 .general-error-morty,
 .general-error-rick {
-  max-width: 20rem;
+  max-width: 32rem;
   width: 45%;
 }
 
 .general-error {
   font-family: 'Share Tech Mono', monospace;
   font-weight: 700;
-  font-size: clamp(1.5rem, 7.6vw, 3rem);
+  font-size: clamp(2.4rem, 7.6vw, 4.8rem);
   color: var(--Font-color-error);
   max-width: 100%;
   word-wrap: break-word;
   white-space: normal;
-  padding: 1rem;
+  padding: 1.6rem;
 }
 
 .spinner {
@@ -465,8 +463,8 @@ a:hover {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 3rem;
-  height: 3rem;
+  width: 4.8rem;
+  height: 4.8rem;
   border: 4px solid var(--Font-color-monitor-inactive);
   border-top: 4px solid var(--Active-monitor-background);
   border-radius: 50%;
@@ -487,8 +485,8 @@ a:hover {
   transition: all 0.2s ease;
 }
 
-@media (max-width: 28rem) {
+@media (max-width: 44.8rem) {
   .character-description {
-    gap: 0.3rem;
+    gap: 0.8rem;
   }
 }

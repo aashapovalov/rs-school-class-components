@@ -47,7 +47,9 @@ test('mock with page 1', async () => {
     };
   });
 
-  const { default: PagesList } = await import('../components/pages_list');
+  const { default: PagesList } = await import(
+    '../components/display/pages_list'
+  );
 
   render(
     <MemoryRouter>
@@ -82,7 +84,9 @@ test('mock with page 5', async () => {
     };
   });
 
-  const { default: PagesList } = await import('../components/pages_list');
+  const { default: PagesList } = await import(
+    '../components/display/pages_list'
+  );
 
   render(
     <MemoryRouter>
@@ -117,7 +121,9 @@ test('Clicking a page button triggers callback with correct page', async () => {
     };
   });
 
-  const { default: PagesList } = await import('../components/pages_list');
+  const { default: PagesList } = await import(
+    '../components/display/pages_list'
+  );
 
   render(
     <MemoryRouter>

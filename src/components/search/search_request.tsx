@@ -5,7 +5,7 @@ import {
   useFetchApiList,
   useFetchApiCharacter,
   CharacterDetails,
-} from './';
+} from '../';
 
 export default function SearchRequst() {
   const [searchParams] = useSearchParams();

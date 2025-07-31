@@ -1,4 +1,4 @@
-import noResultsImg from '../assets/no_results_error.png';
+import noResultsImg from '../../assets/no_results_error.png';
 
 export default function ErrorMessage({ message }: { message: string }) {
   const isNotFound = message.toLowerCase().includes('there is nothing here');

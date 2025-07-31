@@ -1,11 +1,13 @@
 import { useNavigate } from 'react-router';
 
-import appLogo from '../assets/app_logo.png';
-import myCharacter from '../assets/my_character_portrait.png';
-import carouselImg2 from '../assets/character_rick_morty2.png';
-import reprogramming from '../assets/reprogramming_line.png';
-import portal from '../assets/portal_background.png';
-import wallCrack from '../assets/wall_crack.png';
+import {
+  appLogo,
+  myCharacter,
+  carouselImg2,
+  reprogramming,
+  portal,
+  wallCrack,
+} from '../assets';
 
 export default function AboutPage() {
   const navigate = useNavigate();
@@ -15,7 +17,7 @@ export default function AboutPage() {
         src={appLogo}
         className="logo"
         alt={'Rick and Morty logo'}
-        onClick={() => navigate('/search')}
+        onClick={() => navigate('/')}
       />
       <h1 className={'about_author'}>About author</h1>
       <img

@@ -1,6 +1,6 @@
-import type { Character } from './types';
+import type { Character } from '../../types/types';
 
-import fallbackImg from '../assets/fallback_card_image.png';
+import fallbackImg from '../../assets/fallback_card_image.png';
 
 export default function CharacterDetails({
   character,

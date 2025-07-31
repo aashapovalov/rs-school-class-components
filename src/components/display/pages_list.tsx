@@ -1,6 +1,6 @@
 import { useNavigate, useSearchParams } from 'react-router';
 
-import type { ResultsListProps } from './types';
+import type { ResultsListProps } from '../../types/types';
 
 export default function PagesList(props: ResultsListProps) {
   const [searchParams] = useSearchParams();
