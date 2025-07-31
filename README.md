@@ -1,69 +1,76 @@
-# React + TypeScript + Vite
+# Rick and Morty Character Search Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## RS School React Course – Practical Assignment
 
-Currently, two official plugins are available:
+### Overview:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This is a **single-page React application** that allows users to search for Rick and Morty characters using the public Rick and Morty REST API. It displays character cards with details such as name, status, species, and last known location.
 
-## Expanding the ESLint configuration
+### Project Goals:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Search characters by name via API
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Display results in a styled card format
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- Persist search input across sessions using localStorage
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
-```
+- Gracefully handle loading and error states
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- Prepare for routing, pagination, and master-detail layout
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x';
-import reactDom from 'eslint-plugin-react-dom';
+- Ensure code is testable and well-structured
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
-```
+### Current Status:
+
+1. Application is implemented with React class components
+
+2. LocalStorage stores the last entered search query
+
+3. `App.tsx` handles multiple responsibilities: state, side effects, rendering
+
+4. Unit tests are written using Vitest and React Testing Library
+
+### Tests cover:
+
+- Component rendering
+
+- User interaction with the search form
+
+- Integration of localStorage
+
+- API fetch behavior and error handling
+
+### Assignment Objectives:
+
+1. Convert all class components to functional components using React hooks (_Exception: ErrorBoundary remains a class component_)
+
+2. Extract a custom hook for localStorage interaction
+
+3. Isolate interactions with LS into a dedicated custom hook
+
+4. Refactor App.tsx to focus only on rendering and composition
+
+5. Integrate React Router for:
+   - Pagination (sync with query string: ?page=2)
+
+   - Master-detail layout with side-by-side view
+
+   - About page with author information and course link
+
+   - 404 route for non-existent paths
+
+### How to Run:
+
+- Clone the repository
+
+- Run `npm install` to install dependencies
+
+- Run `npm run dev` to start the development server
+
+- Open http://localhost:5173 (or your Vite port) in a browser
+
+### How to Test:
+
+Run `npm run test` to execute the test suite
+
+Run `npm run test --coverage` to check test coverage
