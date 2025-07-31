@@ -16,9 +16,9 @@ test('triggers search callback with correct parameters of character list', async
   global.fetch = mockFetchList;
 
   render(
-    <MemoryRouter initialEntries={['/search']}>
+    <MemoryRouter initialEntries={['/']}>
       <Routes>
-        <Route path="/search" element={<SearchLayout />}>
+        <Route path="/" element={<SearchLayout />}>
           <Route index element={<SearchRequest />} />
         </Route>
       </Routes>
@@ -43,9 +43,9 @@ test('displays correct result list after getting response from api', async () =>
   } as unknown as Response);
 
   render(
-    <MemoryRouter initialEntries={['/search']}>
+    <MemoryRouter initialEntries={['/']}>
       <Routes>
-        <Route path="/search" element={<SearchLayout />}>
+        <Route path="/" element={<SearchLayout />}>
           <Route index element={<SearchRequest />} />
         </Route>
       </Routes>
@@ -94,9 +94,9 @@ test('displays character details when a character card is clicked', async () => 
   );
 
   render(
-    <MemoryRouter initialEntries={['/search?name=Rick&page=1']}>
+    <MemoryRouter initialEntries={['/?name=Rick&page=1']}>
       <Routes>
-        <Route path="/search" element={<SearchLayout />}>
+        <Route path="/" element={<SearchLayout />}>
           <Route index element={<SearchRequest />} />
         </Route>
       </Routes>

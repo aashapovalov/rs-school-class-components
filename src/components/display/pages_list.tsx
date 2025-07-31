@@ -9,7 +9,7 @@ export default function PagesList(props: ResultsListProps) {
 
   function goToPage(pageNum: number) {
     console.log(pageButtons);
-    navigate(`/search?name=${encodeURIComponent(name)}&page=${pageNum}`);
+    navigate(`/?name=${encodeURIComponent(name)}&page=${pageNum}`);
   }
 
   const currentPage = Number(searchParams.get('page') || '1');

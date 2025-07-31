@@ -14,7 +14,7 @@ test('renders correct number of pagination buttons', () => {
   const results = createMockCharacters(5);
 
   render(
-    <MemoryRouter initialEntries={['/search?name=Rick&page=1']}>
+    <MemoryRouter initialEntries={['/?name=Rick&page=1']}>
       <PagesList info={info} results={results} />
     </MemoryRouter>
   );
@@ -136,5 +136,5 @@ test('Clicking a page button triggers callback with correct page', async () => {
 
   await userEvent.click(screen.getByRole('button', { name: '3' }));
 
-  expect(mockNavigate).toHaveBeenCalledWith('/search?name=Rick&page=3');
+  expect(mockNavigate).toHaveBeenCalledWith('/?name=Rick&page=3');
 });

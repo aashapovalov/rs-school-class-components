@@ -116,7 +116,7 @@ test('useNavigate is called with correct link when user clicks search button', a
   await userEvent.type(screen.getByRole('textbox'), 'Rick');
   await userEvent.click(screen.getByRole('button', { name: 'Search' }));
 
-  expect(mockNavigate).toBeCalledWith('/search?name=Rick&page=1');
+  expect(mockNavigate).toBeCalledWith('/?name=Rick&page=1');
 });
 
 test('useNavigate is called with trimmed value in the link when user clicks search button', async () => {
@@ -129,7 +129,7 @@ test('useNavigate is called with trimmed value in the link when user clicks sear
   await userEvent.type(screen.getByRole('textbox'), ' Rick Sanchez  ');
   await userEvent.click(screen.getByRole('button', { name: 'Search' }));
 
-  expect(mockNavigate).toBeCalledWith('/search?name=Rick%20Sanchez&page=1');
+  expect(mockNavigate).toBeCalledWith('/?name=Rick%20Sanchez&page=1');
 });
 
 test('saves search term to localStorage when search button is clicked', async () => {
