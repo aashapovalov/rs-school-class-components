@@ -16,7 +16,7 @@ export default function SearchForm() {
     if (urlName !== null && urlName !== inputValue) {
       setInputValue(urlName);
     } else if (!urlName) {
-      setSearchParams({ name: inputValue || '', page: '1' });
+      setSearchParams({ name: String(inputValue || ''), page: '1' });
     }
   }, []);
 
@@ -26,7 +26,7 @@ export default function SearchForm() {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    const trimmed = inputValue.trim();
+    const trimmed = (inputValue as string).trim();
     setInputValue(trimmed);
     navigate(`/?name=${encodeURIComponent(trimmed)}&page=1`);
   }
@@ -41,7 +41,7 @@ export default function SearchForm() {
         <form onSubmit={handleSubmit}>
           <input
             className="search-input"
-            value={inputValue}
+            value={inputValue as string}
             onChange={handleInputChange}
             placeholder="Search for a character..."
             type="text"

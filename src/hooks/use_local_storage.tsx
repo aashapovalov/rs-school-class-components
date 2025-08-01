@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 
-export function useLocalStorage(key: string, value: string = '') {
+export function useLocalStorage(key: string, fallback: string) {
   const [input, setInput] = useState(() => {
-    return localStorage.getItem(key) || value;
+    const stored = localStorage.getItem(key);
+    return stored !== null ? stored : fallback;
   });
 
   useEffect(() => {
