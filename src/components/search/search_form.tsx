@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router';
 
-import { AboutButton, useLocalStorage } from '../';
+import { AboutButton, useLocalStorage, ThemeButton } from '../';
 
-import deviceImg from '../../assets/search_device_desktop_no_background.png';
+import deviceImg from '../../assets/search_device_desktop.png';
 import appLogo from '../../assets/app_logo.png';
 
 export default function SearchForm() {
@@ -49,6 +49,7 @@ export default function SearchForm() {
           <button className="search-btn" type="submit" aria-label="Search" />
         </form>
         <AboutButton />
+        <ThemeButton />
       </div>
     </section>
   );
