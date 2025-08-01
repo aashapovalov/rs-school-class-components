@@ -1,4 +1,4 @@
-import { SearchLayout, SearchRequest } from '../components';
+import { SearchLayout, SearchRequest, ThemeProvider } from '../components';
 
 import { render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
@@ -16,13 +16,15 @@ test('triggers search callback with correct parameters of character list', async
   global.fetch = mockFetchList;
 
   render(
-    <MemoryRouter initialEntries={['/']}>
-      <Routes>
-        <Route path="/" element={<SearchLayout />}>
-          <Route index element={<SearchRequest />} />
-        </Route>
-      </Routes>
-    </MemoryRouter>
+    <ThemeProvider>
+      <MemoryRouter initialEntries={['/']}>
+        <Routes>
+          <Route path="/" element={<SearchLayout />}>
+            <Route index element={<SearchRequest />} />
+          </Route>
+        </Routes>
+      </MemoryRouter>
+    </ThemeProvider>
   );
 
   await userEvent.type(screen.getByRole('textbox'), 'Rick');
@@ -43,13 +45,15 @@ test('displays correct result list after getting response from api', async () =>
   } as unknown as Response);
 
   render(
-    <MemoryRouter initialEntries={['/']}>
-      <Routes>
-        <Route path="/" element={<SearchLayout />}>
-          <Route index element={<SearchRequest />} />
-        </Route>
-      </Routes>
-    </MemoryRouter>
+    <ThemeProvider>
+      <MemoryRouter initialEntries={['/']}>
+        <Routes>
+          <Route path="/" element={<SearchLayout />}>
+            <Route index element={<SearchRequest />} />
+          </Route>
+        </Routes>
+      </MemoryRouter>
+    </ThemeProvider>
   );
 
   await userEvent.type(screen.getByRole('textbox'), 'Rick');
@@ -94,13 +98,15 @@ test('displays character details when a character card is clicked', async () => 
   );
 
   render(
-    <MemoryRouter initialEntries={['/?name=Rick&page=1']}>
-      <Routes>
-        <Route path="/" element={<SearchLayout />}>
-          <Route index element={<SearchRequest />} />
-        </Route>
-      </Routes>
-    </MemoryRouter>
+    <ThemeProvider>
+      <MemoryRouter initialEntries={['/']}>
+        <Routes>
+          <Route path="/" element={<SearchLayout />}>
+            <Route index element={<SearchRequest />} />
+          </Route>
+        </Routes>
+      </MemoryRouter>
+    </ThemeProvider>
   );
 
   const characterCard = await screen.findByText('Developer Rick');
