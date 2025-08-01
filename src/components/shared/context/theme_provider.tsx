@@ -6,10 +6,10 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
   );
 
-  const toggleTheme = (theme: 'dark' | 'light') => {
+  function toggleTheme(theme: 'dark' | 'light') {
     setTheme(theme);
     document.documentElement.classList.toggle('dark', theme === 'dark');
-  };
+  }
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', theme === 'dark');

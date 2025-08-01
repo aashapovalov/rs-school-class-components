@@ -34,7 +34,9 @@ export default function SearchForm() {
   return (
     <section className="device">
       <img src={appLogo} className="logo" alt={'Rick and Morty logo'} />
-      <h1 className="character-search">Character Search</h1>
+      <h1 className="character-search text-[var(--Font-color-basic)] dark:text-[var(--Font-color-basic-dark)]">
+        Character Search
+      </h1>
 
       <div className="device-frame">
         <img src={deviceImg} alt="Device" className="device-no-bg" />

@@ -14,7 +14,7 @@ export default function SearchLayout() {
   console.log('LOADING STATE:', loading);
   return (
     <>
-      <div className="app">
+      <div className="app bg-[var(--Background-light)] dark:bg-[var(--Background-dark)]">
         {loading ? <Spinner /> : null}
         <div className={loading ? 'blurring' : ''}>
           <SearchForm />

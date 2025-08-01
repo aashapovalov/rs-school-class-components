@@ -34,13 +34,15 @@ export default function ResultsList(props: ResultsListProps) {
 
   return (
     <>
-      <div className={'results-list-section '}>
+      <div className={'results-list-section'}>
         <div className="character-list" onClick={handleContainerClick}>
           {results.map((character, index) => (
             <div
               onClick={() => handleCardClick(name, page, character.id)}
               key={index}
-              className={`character-card ${index}`}
+              className={
+                'bg-[var(--Card-background)] dark:bg-[var(--Card-background-dark)] shadow-[0_4px_6px_rgba(0,0,0,0.5)] dark:shadow-[0_4px_6px_rgba(255,255,255,0.5)] character-card'
+              }
               data-testid="character-card"
             >
               <img
@@ -49,7 +51,9 @@ export default function ResultsList(props: ResultsListProps) {
                 alt={character.name}
               />
               <div className="character-description">
-                <h2 className="character-name">{character.name}</h2>
+                <h2 className="character-name text-[var(--Font-color-basic)] dark:text-[var(--Font-color-basic-dark)]">
+                  {character.name}
+                </h2>
               </div>
             </div>
           ))}
