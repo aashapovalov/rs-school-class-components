@@ -10,7 +10,7 @@ export default function CharacterDetails({
   return (
     <section className={'character-details'}>
       <div
-        className={`character-details-card ${character?.id}`}
+        className="character-details-card bg-[var(--Card-background)] dark:bg-[var(--Card-background-dark)] shadow-[0_4px_6px_rgba(0,0,0,0.5)] dark:shadow-[0_4px_6px_yellow-200] border border-solid border-hsl(0, 0%, 20%) dark:border-yellow-600"
         data-testid="character-details-card"
       >
         <img
@@ -33,11 +33,17 @@ export default function CharacterDetails({
             {character?.status} -
             <span className="species"> {character?.species}</span>
           </p>
-          <p className="origination">
-            Originally from: <span>{character?.origin.name}</span>
+          <p className="origination text-[var(--Font-color-secondary)] dark:text-[var(--Font-color-secondary-dark)]">
+            Originally from:{' '}
+            <span className="text-[var(--Font-color-basic)] dark:text-[var(--Font-color-basic-dark)]">
+              {character?.origin.name}
+            </span>
           </p>
-          <p className="location">
-            Last known location: <span>{character?.location.name}</span>
+          <p className="location text-[var(--Font-color-secondary)] dark:text-[var(--Font-color-secondary-dark)]">
+            Last known location:{' '}
+            <span className="text-[var(--Font-color-basic)] dark:text-[var(--Font-color-basic-dark)]">
+              {character?.location.name}
+            </span>
           </p>
           <p className="episodes">
             Appears in {character?.episode?.length ?? 0} episodes

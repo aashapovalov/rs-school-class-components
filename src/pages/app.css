@@ -29,7 +29,7 @@
   --Font-color-basic: hsl(24, 5%, 18%);
   --Font-color-secondary: hsl(152, 0%, 53%);
   --Font-color-basic-dark: hsl(0, 0%, 94%);
-  --Font-color-secondary-dark: hsl(0, 0%, 80%);
+  --Font-color-secondary-dark: hsl(0, 0%, 60%);
   --Font-color-monitor-active: hsl(152, 76%, 80%);
   --Font-color-error: hsl(8, 40%, 42%);
   font-size: 62.5%;
@@ -239,11 +239,7 @@ button.active:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--Card-background);
-  color: var(--Font-color-basic);
-  border: 1px solid #333;
   border-radius: 1.6rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin: 3.2rem;
 }
 
@@ -293,15 +289,9 @@ button.active:hover {
   background-color: gray;
 }
 
-.location,
-.origination {
-  color: var(--Font-color-secondary);
-}
-
 .location span,
 .origination span {
   display: block;
-  color: var(--Font-color-basic);
 }
 
 .no-results-error {
@@ -364,7 +354,7 @@ button.active:hover {
 }
 
 .first-paragraph::first-letter {
-  font-size: 5rem;
+  font-size: 8rem;
   color: var(--Font-color-error);
   float: left;
   margin-right: 1.6rem;
@@ -402,6 +392,9 @@ blockquote {
 
 .middle-img-caption {
   text-align: center;
+  font-size: 1.3rem;
+  color: var(--Font-color-secondary);
+  margin-top: 0.8rem;
 }
 
 a {
