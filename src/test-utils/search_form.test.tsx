@@ -1,4 +1,4 @@
-import { SearchForm } from '../components';
+import { SearchForm, ThemeProvider } from '../components';
 
 import { render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
@@ -16,9 +16,11 @@ vi.mock('react-router', async () => {
 
 test('search input mounts successfully', () => {
   render(
-    <MemoryRouter>
-      <SearchForm />
-    </MemoryRouter>
+    <ThemeProvider>
+      <MemoryRouter>
+        <SearchForm />
+      </MemoryRouter>
+    </ThemeProvider>
   );
   const searchInput = screen.getByRole('textbox');
 
@@ -27,9 +29,11 @@ test('search input mounts successfully', () => {
 
 test('search button mounts successfully', () => {
   render(
-    <MemoryRouter>
-      <SearchForm />
-    </MemoryRouter>
+    <ThemeProvider>
+      <MemoryRouter>
+        <SearchForm />
+      </MemoryRouter>
+    </ThemeProvider>
   );
 
   const searchButton = screen.getByRole('button', { name: 'Search' });
@@ -39,9 +43,11 @@ test('search button mounts successfully', () => {
 
 test('search input has a placeholder', () => {
   render(
-    <MemoryRouter>
-      <SearchForm />
-    </MemoryRouter>
+    <ThemeProvider>
+      <MemoryRouter>
+        <SearchForm />
+      </MemoryRouter>
+    </ThemeProvider>
   );
 
   const searchInput = screen.getByPlaceholderText('Search for a character...');
@@ -60,9 +66,11 @@ test('search input shows value stored in LS', () => {
   );
 
   render(
-    <MemoryRouter>
-      <SearchForm />
-    </MemoryRouter>
+    <ThemeProvider>
+      <MemoryRouter>
+        <SearchForm />
+      </MemoryRouter>
+    </ThemeProvider>
   );
 
   const searchInput = screen.getByRole('textbox');
@@ -83,9 +91,11 @@ test('shows empty input when there is no saved value in LS', () => {
   );
 
   render(
-    <MemoryRouter>
-      <SearchForm />
-    </MemoryRouter>
+    <ThemeProvider>
+      <MemoryRouter>
+        <SearchForm />
+      </MemoryRouter>
+    </ThemeProvider>
   );
 
   const searchInput = screen.getByRole('textbox');
@@ -97,9 +107,11 @@ test('shows empty input when there is no saved value in LS', () => {
 
 test('useNavigate is called when user clicks search button', async () => {
   render(
-    <MemoryRouter>
-      <SearchForm />
-    </MemoryRouter>
+    <ThemeProvider>
+      <MemoryRouter>
+        <SearchForm />
+      </MemoryRouter>
+    </ThemeProvider>
   );
   await userEvent.type(screen.getByRole('textbox'), 'Rick');
   await userEvent.click(screen.getByRole('button', { name: 'Search' }));
@@ -109,9 +121,11 @@ test('useNavigate is called when user clicks search button', async () => {
 
 test('useNavigate is called with correct link when user clicks search button', async () => {
   render(
-    <MemoryRouter>
-      <SearchForm />
-    </MemoryRouter>
+    <ThemeProvider>
+      <MemoryRouter>
+        <SearchForm />
+      </MemoryRouter>
+    </ThemeProvider>
   );
   await userEvent.type(screen.getByRole('textbox'), 'Rick');
   await userEvent.click(screen.getByRole('button', { name: 'Search' }));
@@ -121,9 +135,11 @@ test('useNavigate is called with correct link when user clicks search button', a
 
 test('useNavigate is called with trimmed value in the link when user clicks search button', async () => {
   render(
-    <MemoryRouter>
-      <SearchForm />
-    </MemoryRouter>
+    <ThemeProvider>
+      <MemoryRouter>
+        <SearchForm />
+      </MemoryRouter>
+    </ThemeProvider>
   );
   await userEvent.clear(screen.getByRole('textbox'));
   await userEvent.type(screen.getByRole('textbox'), ' Rick Sanchez  ');
@@ -136,9 +152,11 @@ test('saves search term to localStorage when search button is clicked', async ()
   localStorage.removeItem('searchQuery');
 
   render(
-    <MemoryRouter>
-      <SearchForm />
-    </MemoryRouter>
+    <ThemeProvider>
+      <MemoryRouter>
+        <SearchForm />
+      </MemoryRouter>
+    </ThemeProvider>
   );
   const input = await screen.findByRole('textbox');
   const searchButton = await screen.findByRole('button', { name: 'Search' });
@@ -156,9 +174,11 @@ test('overwrites existing localStorage value when new search is performed', asyn
   localStorage.setItem('searchQuery', 'Rick Sanchez');
 
   render(
-    <MemoryRouter>
-      <SearchForm />
-    </MemoryRouter>
+    <ThemeProvider>
+      <MemoryRouter>
+        <SearchForm />
+      </MemoryRouter>
+    </ThemeProvider>
   );
 
   const input = await screen.findByRole('textbox');

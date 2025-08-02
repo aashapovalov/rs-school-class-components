@@ -17,14 +17,14 @@ export default function SearchRequst() {
   const urlList: string = `${urlBase}/?name=${encodeURIComponent(name)}&page=${page}`;
   const urlCharacter = details ? `${urlBase}/${details}` : '';
   const dataList = useFetchApiList(urlList);
-  const dataCharacter = useFetchApiCharacter(urlCharacter);
+  const { searchResults } = useFetchApiCharacter(urlCharacter);
 
-  if (dataList && dataCharacter) {
+  if (dataList && searchResults) {
     return (
       <>
         <ResultsList info={dataList?.info} results={dataList?.results} />
-        {details && dataCharacter && (
-          <CharacterDetails character={dataCharacter} />
+        {details && searchResults && (
+          <CharacterDetails character={searchResults} />
         )}
       </>
     );

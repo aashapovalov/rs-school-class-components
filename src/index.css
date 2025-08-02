@@ -1,1 +1,15 @@
 @import 'tailwindcss';
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  --background-light:
+    hsl(65, 21%, 89%), --background-dark: hsl(220, 10%, 12%),
+    --card-background: hsl(45, 100%, 94%),
+    --card-background-dark: hsl(220, 8%, 18%),
+    --active-monitor-background: hsl(164, 86%, 16%),
+    --font-color-basic: hsl(24, 5%, 18%),
+    --font-color-secondary: hsl(152, 0%, 53%),
+    --font-color-basic-dark: hsl(0, 0%, 94%),
+    --font-color-secondary-dark: hsl(0, 0%, 80%),
+    --font-color-monitor-active: hsl(152, 76%, 80%),
+    --font-color-error: hsl(8, 40%, 42%);
+}

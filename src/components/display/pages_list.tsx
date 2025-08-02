@@ -8,12 +8,10 @@ export default function PagesList(props: ResultsListProps) {
   const navigate = useNavigate();
 
   function goToPage(pageNum: number) {
-    console.log(pageButtons);
     navigate(`/?name=${encodeURIComponent(name)}&page=${pageNum}`);
   }
 
   const currentPage = Number(searchParams.get('page') || '1');
-  console.log('currentPage type:', typeof currentPage, currentPage);
   const { info } = props;
   const pagesCount = info.pages;
 
@@ -49,7 +47,11 @@ export default function PagesList(props: ResultsListProps) {
           <button
             disabled={currentPage === 1}
             onClick={() => goToPage(currentPage - 1)}
-            className={currentPage === 1 ? undefined : 'active'}
+            className={
+              currentPage === 1
+                ? undefined
+                : 'active text-[var(--Font-color-basic)] dark:text-[var(--Font-color-basic-dark)]'
+            }
           >
             Previous
           </button>
@@ -61,8 +63,8 @@ export default function PagesList(props: ResultsListProps) {
                 disabled={p === currentPage}
                 className={
                   p === currentPage
-                    ? 'current font-bold text-[color:var(--Font-color-monitor-inactive)]'
-                    : 'active'
+                    ? 'current font-bold text-[color:var(--Font-color-monitor-inactive)] dark:text-[var(--Font-color-secondary-dark)]'
+                    : 'active text-[var(--Font-color-basic)] dark:text-[var(--Font-color-basic-dark)]'
                 }
                 onClick={() => goToPage(p)}
                 aria-current={p === currentPage ? 'page' : undefined}
@@ -70,7 +72,10 @@ export default function PagesList(props: ResultsListProps) {
                 {p}
               </button>
             ) : (
-              <span key={`ellipsis-${idx}`} className="ellipsis">
+              <span
+                key={`ellipsis-${idx}`}
+                className="ellipsis text-[var(--Font-color-basic)] dark:text-[var(--Font-color-basic-dark)]"
+              >
                 {p}
               </span>
             );
@@ -79,7 +84,11 @@ export default function PagesList(props: ResultsListProps) {
           <button
             disabled={currentPage === pagesCount}
             onClick={() => goToPage(currentPage + 1)}
-            className={currentPage === pagesCount ? undefined : 'active'}
+            className={
+              currentPage === pagesCount
+                ? undefined
+                : 'active text-[var(--Font-color-basic)] dark:text-[var(--Font-color-basic-dark)]'
+            }
           >
             Next
           </button>

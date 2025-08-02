@@ -1,10 +1,10 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 
-import { SearchStateContext } from '../components';
-import type { Character } from '../types/types';
+import type { Character, SearchLayoutContext } from '../types/types';
+import { useOutletContext } from 'react-router';
 
 export function useFetchApiCharacter(url: string) {
-  const { setLoading, setError } = useContext(SearchStateContext);
+  const { setLoading, setError } = useOutletContext<SearchLayoutContext>();
   const [searchResults, setSearchResults] = useState<Character | null>(null);
 
   useEffect(() => {
@@ -19,24 +19,32 @@ export function useFetchApiCharacter(url: string) {
         const response = await fetch(url);
         const data = await response.json();
         if (!response.ok) {
+          setTimeout(() => {
+            setLoading(false);
+          }, 500);
           setSearchResults(null);
-          setLoading(false);
           setError(data.error || 'Unknown error');
           return;
         }
+        setTimeout(() => {
+          setLoading(false);
+        }, 500);
         setSearchResults(data);
-        setLoading(false);
       } catch (error) {
         if (error instanceof Error) {
+          setTimeout(() => {
+            setLoading(false);
+          }, 500);
           setError(error.message);
-          setLoading(false);
         } else {
+          setTimeout(() => {
+            setLoading(false);
+          }, 500);
           setError('Unknown error');
-          setLoading(false);
         }
       }
     }
     fetchApi();
   }, [url]);
-  return searchResults;
+  return { searchResults };
 }

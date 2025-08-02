@@ -52,3 +52,10 @@ export interface ErrorBoundaryState {
 }
 
 export type ErrorBoundaryProps = React.PropsWithChildren<unknown>;
+
+export type SearchLayoutContext = {
+  loading: boolean;
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  error: string | false;
+  setError: React.Dispatch<React.SetStateAction<string | null>>;
+};
