@@ -1,4 +1,4 @@
-import { useStore } from '../index';
+import { useStore, DownloadArray } from '../index';
 
 import { modalRick, downloadBtn, unselectBtn } from '../../assets';
 
@@ -41,6 +41,7 @@ export default function SelectModal() {
           style={{ backgroundImage: `url(${downloadBtn})` }}
           className="download-button w-80 h-20 bg-no-repeat bg-center bg-contain cursor-pointer hover:scale-105 hover:brightness-[1.20]"
           aria-label="Download Characters"
+          onClick={() => DownloadArray(selectedCharacters)}
         />
       </div>
     </div>
