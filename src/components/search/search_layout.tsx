@@ -10,8 +10,6 @@ export default function SearchLayout() {
   const details = searchParams.get('details') || '';
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  console.log('ERROR STATE:', error);
-  console.log('LOADING STATE:', loading);
   return (
     <>
       <div className="app bg-[var(--Background-light)] dark:bg-[var(--Background-dark)]">

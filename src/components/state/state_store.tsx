@@ -4,6 +4,9 @@ import type { Character } from '../../types/types';
 
 interface StateStore {
   selectedCharacters: Character[];
+  addSelectedCharacter: (character: Character) => void;
+  removeSelectedCharacter: (character: Character) => void;
+  clearSelectedCharacters: () => void;
 }
 
 export const useStore = create<StateStore>((set) => ({

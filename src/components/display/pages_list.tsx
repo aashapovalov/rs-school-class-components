@@ -8,12 +8,10 @@ export default function PagesList(props: ResultsListProps) {
   const navigate = useNavigate();
 
   function goToPage(pageNum: number) {
-    console.log(pageButtons);
     navigate(`/?name=${encodeURIComponent(name)}&page=${pageNum}`);
   }
 
   const currentPage = Number(searchParams.get('page') || '1');
-  console.log('currentPage type:', typeof currentPage, currentPage);
   const { info } = props;
   const pagesCount = info.pages;
 

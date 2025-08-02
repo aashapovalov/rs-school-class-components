@@ -20,3 +20,6 @@ export { useFetchApiList } from '../hooks/use_fetch_api_list';
 export { useFetchApiCharacter } from '../hooks/use_fetch_api_character.tsx';
 export { useLocalStorage } from '../hooks/use_local_storage.tsx';
 export { useTheme } from '../hooks/use_theme.tsx';
+
+export { useStore } from './state/state_store.tsx';
+export { useSelectedCharacterCount } from './state/state_store.tsx';

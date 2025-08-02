@@ -11,9 +11,7 @@ export function useFetchApiList(url: string) {
   } | null>(null);
 
   useEffect(() => {
-    console.log('Calling setLoading(true) inside fetch');
     setLoading(true);
-    console.log('setLoading called with', true);
     setError(null);
     async function fetchApi() {
       try {
@@ -28,7 +26,6 @@ export function useFetchApiList(url: string) {
           setError(data.error || 'Unknown error');
           return;
         }
-        console.log('setLoading called with', false);
         setTimeout(() => {
           setLoading(false);
         }, 500);
