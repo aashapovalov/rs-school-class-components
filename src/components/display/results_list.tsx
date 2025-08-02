@@ -17,7 +17,8 @@ export default function ResultsList(props: ResultsListProps) {
   const removeSelectedCharacter = useStore(
     (state) => state.removeSelectedCharacter
   );
-  console.log('SELECTED CHARACTERS:', selectedCharacters.length);
+  console.log('SELECTED CHARACTERS COUNT:', selectedCharacters.length);
+  console.log('SELECTED CHARACTERS:', selectedCharacters);
 
   function handleContainerClick(e: React.MouseEvent) {
     if (e.currentTarget === e.target && details) {
@@ -52,6 +53,9 @@ export default function ResultsList(props: ResultsListProps) {
             >
               <input
                 type="checkbox"
+                checked={selectedCharacters.some(
+                  (char) => char.id === character.id
+                )}
                 className="character-checkbox absolute top-[5%] right-[7%] scale-[1.5] cursor-pointer"
                 onChange={(e) =>
                   e.target.checked === true
