@@ -1,15 +1,22 @@
 import { useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router';
 
-import { AboutButton, useLocalStorage, ThemeButton } from '../';
+import { AboutButton, useLocalStorage, ThemeButton, useTheme } from '../';
 
-import deviceImg from '../../assets/search_device_desktop.png';
-import appLogo from '../../assets/app_logo.png';
+import {
+  deviceImg,
+  deviceImgDark,
+  appLogo,
+  searchBtnDark,
+  searchBtn,
+} from '../../assets/index';
 
 export default function SearchForm() {
   const [inputValue, setInputValue] = useLocalStorage('searchQuery', '');
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
+  const { theme } = useTheme();
+  const imgDevice = theme === 'dark' ? deviceImgDark : deviceImg;
 
   useEffect(() => {
     const urlName = searchParams.get('name');
@@ -39,16 +46,23 @@ export default function SearchForm() {
       </h1>
 
       <div className="device-frame">
-        <img src={deviceImg} alt="Device" className="device-no-bg" />
+        <img src={imgDevice} alt="Device" className="device-no-bg" />
         <form onSubmit={handleSubmit}>
           <input
-            className="search-input"
+            className="search-input bg-[var(--Background-light)] dark:bg-[var(--Background-dark)] dark:text-[var(--Font-color-basic-dark)] placeholder-[var(--Font-color-secondary)] dark:placeholder-[var(--Font-color-basic-dark)]"
             value={inputValue as string}
             onChange={handleInputChange}
             placeholder="Search for a character..."
             type="text"
           />
-          <button className="search-btn" type="submit" aria-label="Search" />
+          <button
+            style={{
+              backgroundImage: `url(${theme === 'dark' ? searchBtnDark : searchBtn})`,
+            }}
+            className="search-btn dark:scale-[1.1]"
+            type="submit"
+            aria-label="Search"
+          />
         </form>
         <AboutButton />
         <ThemeButton />

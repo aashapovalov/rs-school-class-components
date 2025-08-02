@@ -41,7 +41,7 @@ export default function ResultsList(props: ResultsListProps) {
               onClick={() => handleCardClick(name, page, character.id)}
               key={index}
               className={
-                'bg-[var(--Card-background)] dark:bg-[var(--Card-background-dark)] shadow-[0_4px_6px_rgba(0,0,0,0.5)] dark:shadow-[0_4px_6px_rgba(255,255,255,0.5)] character-card'
+                'bg-[var(--Card-background)] dark:bg-[var(--Card-background-dark)] shadow-[0_4px_6px_rgba(0,0,0,0.5)] dark:shadow-[0_4px_6px_yellow-200] border border-solid border-hsl(0, 0%, 20%) dark:border-yellow-600 character-card'
               }
               data-testid="character-card"
             >
