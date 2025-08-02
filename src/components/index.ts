@@ -11,6 +11,7 @@ export { default as AboutButton } from './shared/about_button.tsx';
 export { default as Spinner } from './shared/spinner.tsx';
 export { default as ThemeButton } from './shared/theme_button.tsx';
 export { ThemeProvider } from './shared/context/theme_provider.tsx';
+export { default as SelectModal } from './shared/select_modal.tsx';
 
 export { default as NotFoundPage } from '../pages/not_found_page.tsx';
 export { default as AboutPage } from '../pages/about_page.tsx';
