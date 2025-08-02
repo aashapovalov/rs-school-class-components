@@ -41,10 +41,14 @@ export default function ResultsList(props: ResultsListProps) {
               onClick={() => handleCardClick(name, page, character.id)}
               key={index}
               className={
-                'bg-[var(--Card-background)] dark:bg-[var(--Card-background-dark)] shadow-[0_4px_6px_rgba(0,0,0,0.5)] dark:shadow-[0_4px_6px_yellow-200] border border-solid border-hsl(0, 0%, 20%) dark:border-yellow-600 character-card'
+                'character-card relative bg-[var(--Card-background)] dark:bg-[var(--Card-background-dark)] shadow-[0_4px_6px_rgba(0,0,0,0.5)] dark:shadow-[0_4px_6px_yellow-200] border border-solid border-hsl(0, 0%, 20%) dark:border-yellow-600'
               }
               data-testid="character-card"
             >
+              <input
+                type="checkbox"
+                className="character-checkbox absolute top-[5%] right-[7%] scale-[1.5] cursor-pointer"
+              />
               <img
                 className="character-image"
                 src={character.image ? character.image : fallbackImg}
