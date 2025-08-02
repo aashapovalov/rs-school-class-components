@@ -59,7 +59,7 @@ export default function SearchForm() {
             style={{
               backgroundImage: `url(${theme === 'dark' ? searchBtnDark : searchBtn})`,
             }}
-            className="search-btn dark:scale-[1.1]"
+            className="search-btn dark:scale-[1.05]"
             type="submit"
             aria-label="Search"
           />

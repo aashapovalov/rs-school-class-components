@@ -12,3 +12,6 @@ export { default as themeBtn } from '../assets/theme_button.png';
 export { default as themeArrow } from '../assets/theme_arrow.png';
 export { default as themeBtnDark } from '../assets/theme_button_dark.png';
 export { default as themeArrowDark } from '../assets/theme_arrow_dark.png';
+export { default as modalRick } from '../assets/modal_rick.png';
+export { default as downloadBtn } from '../assets/download_button.png';
+export { default as unselectBtn } from '../assets/unselect_button.png';
