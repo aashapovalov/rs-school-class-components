@@ -17,8 +17,6 @@ export default function ResultsList(props: ResultsListProps) {
   const removeSelectedCharacter = useStore(
     (state) => state.removeSelectedCharacter
   );
-  console.log('SELECTED CHARACTERS COUNT:', selectedCharacters.length);
-  console.log('SELECTED CHARACTERS:', selectedCharacters);
 
   function handleContainerClick(e: React.MouseEvent) {
     if (e.currentTarget === e.target && details) {
@@ -29,10 +27,14 @@ export default function ResultsList(props: ResultsListProps) {
   }
 
   function handleCardClick(
+    e: React.MouseEvent,
     characterName: string,
     searchPage: string,
     characterDetails: number
   ) {
+    if ((e.target as HTMLInputElement).type === 'checkbox') {
+      return;
+    }
     navigate(
       `/?name=${characterName}&page=${searchPage}&details=${characterDetails}`
     );
@@ -44,7 +46,7 @@ export default function ResultsList(props: ResultsListProps) {
         <div className="character-list" onClick={handleContainerClick}>
           {results.map((character, index) => (
             <div
-              onClick={() => handleCardClick(name, page, character.id)}
+              onClick={(e) => handleCardClick(e, name, page, character.id)}
               key={index}
               className={
                 'character-card relative bg-[var(--Card-background)] dark:bg-[var(--Card-background-dark)] shadow-[0_4px_6px_rgba(0,0,0,0.5)] dark:shadow-[0_4px_6px_yellow-200] border border-solid border-hsl(0, 0%, 20%) dark:border-yellow-600'

@@ -24,3 +24,5 @@ export { useTheme } from '../hooks/use_theme.tsx';
 
 export { useStore } from './state/state_store.tsx';
 export { useSelectedCharacterCount } from './state/state_store.tsx';
+
+export { default as getPaginationArray } from './utils/pagination_array.tsx';

@@ -1,6 +1,7 @@
 import { useNavigate, useSearchParams } from 'react-router';
 
 import type { ResultsListProps } from '../../types/types';
+import { getPaginationArray } from '../index';
 
 export default function PagesList(props: ResultsListProps) {
   const [searchParams] = useSearchParams();
@@ -15,29 +16,9 @@ export default function PagesList(props: ResultsListProps) {
   const { info } = props;
   const pagesCount = info.pages;
 
-  let pageButtons: (number | string)[] = [];
-  if (pagesCount < 2) {
+  const pageButtons = getPaginationArray(currentPage, pagesCount);
+  if (!pageButtons) {
     return null;
-  } else if (pagesCount <= 5 && pagesCount >= 2) {
-    for (let i = 1; i <= pagesCount; i++) {
-      pageButtons.push(i);
-    }
-  } else {
-    if (currentPage < 3) {
-      pageButtons = [1, 2, 3, '...', pagesCount];
-    } else if (currentPage >= pagesCount - 2) {
-      pageButtons = [1, '...', pagesCount - 2, pagesCount - 1, pagesCount];
-    } else {
-      pageButtons = [
-        1,
-        '...',
-        currentPage - 1,
-        currentPage,
-        currentPage + 1,
-        '...',
-        pagesCount,
-      ];
-    }
   }
 
   return (

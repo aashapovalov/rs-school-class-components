@@ -1,5 +1,5 @@
 import { screen, render } from '@testing-library/react';
-import { ErrorBoundary } from '../';
+import { ErrorBoundary } from '..';
 
 test('Catches and handles JavaScript errors in child components', () => {
   const NaugthyChild = () => {
