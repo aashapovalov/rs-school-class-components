@@ -19,7 +19,9 @@ export default function CharacterDetails({
           alt={`${character?.name} character image`}
         />
         <div className="character-details-description">
-          <h2 className="character-details-name">{character?.name}</h2>
+          <h2 className="character-details-name text-[var(--Font-color-error)] dark:text-[var(--Font-color-error-dark)]">
+            {character?.name}
+          </h2>
           <p className="alive-status">
             <span
               className={`status-indicator ${

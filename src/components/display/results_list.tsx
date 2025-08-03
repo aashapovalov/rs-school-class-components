@@ -48,9 +48,15 @@ export default function ResultsList(props: ResultsListProps) {
             <div
               onClick={(e) => handleCardClick(e, name, page, character.id)}
               key={index}
-              className={
-                'character-card relative bg-[var(--Card-background)] dark:bg-[var(--Card-background-dark)] shadow-[0_4px_6px_rgba(0,0,0,0.5)] dark:shadow-[0_4px_6px_yellow-200] border border-solid border-hsl(0, 0%, 20%) dark:border-yellow-600'
-              }
+              className={`character-card relative 
+  bg-[var(--Card-background)] dark:bg-[var(--Card-background-dark)] 
+  border border-solid border-hsl(0, 0%, 20%) dark:border-yellow-600 
+  hover:cursor-pointer shadow-[0_4px_6px_rgba(0,0,0,0.5)] 
+  ${
+    selectedCharacters.some((char) => char.id === character.id)
+      ? 'ring-2 ring-yellow-400 shadow-[0_0_20px_rgba(255,255,0,0.5)] dark:ring-blue-300 dark:shadow-[0_0_20px_rgba(255,255,0,0.5)]'
+      : ''
+  }`}
               data-testid="character-card"
             >
               <input

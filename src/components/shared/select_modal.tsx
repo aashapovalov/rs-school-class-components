@@ -8,7 +8,7 @@ export default function SelectModal() {
     (state) => state.clearSelectedCharacters
   );
   return (
-    <div className="select-modal fixed bottom-10 left-1/2 -translate-x-1/2 max-w-[64rem] w-full sm:w-[90%] overflow-y-auto z-50 flex flex-col justify-center bg-[var(--Card-background)] dark:bg-[var(--Card-background-dark)] p-6 rounded-2xl shadow-lg border-2 border-solid border-[hsl(195,53%,72%)] outline-2">
+    <div className="select-modal fixed bottom-10 left-1/2 -translate-x-1/2 max-w-[64rem] w-full sm:w-[90%] overflow-y-auto z-50 flex flex-col justify-center bg-[var(--Modal-background)] dark:bg-[var(--Modal-background-dark)] p-6 rounded-2xl shadow-lg border-2 border-solid border-[hsl(195,53%,72%)] outline-2">
       <div className="modal-description flex flex-row justify-center items-center gap-4">
         <img
           src={modalRick}

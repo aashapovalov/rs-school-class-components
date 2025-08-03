@@ -22,16 +22,21 @@
 
 :root {
   --Background-light: hsl(65, 21%, 89%);
-  --Background-dark: hsl(220, 10%, 12%);
+  --Background-dark: hsl(30, 15%, 15%);
   --Card-background: hsl(45, 100%, 94%);
-  --Card-background-dark: hsl(220, 8%, 18%);
+  --Card-background-dark: hsl(35, 10%, 25%);
+  --Modal-background: hsl(65, 21%, 92%);
+  --Modal-background-dark: hsl(30, 15%, 18%);
   --Active-monitor-background: hsl(164, 86%, 16%);
+  --Active-monitor-background-dark: hsl(40, 95%, 8%);
   --Font-color-basic: hsl(24, 5%, 18%);
+  --Font-color-basic-dark: hsl(45, 30%, 90%);
   --Font-color-secondary: hsl(152, 0%, 53%);
-  --Font-color-basic-dark: hsl(0, 0%, 94%);
-  --Font-color-secondary-dark: hsl(0, 0%, 60%);
+  --Font-color-secondary-dark: hsl(40, 20%, 65%);
   --Font-color-monitor-active: hsl(152, 76%, 80%);
   --Font-color-error: hsl(8, 40%, 42%);
+  --Font-color-error-dark: hsl(10, 70%, 48%);
+
   font-size: 62.5%;
 }
 
@@ -265,7 +270,6 @@ button.active:hover {
 .character-details-name {
   font-size: 2.4rem;
   font-weight: 700;
-  color: var(--Font-color-error);
 }
 
 .status-indicator {

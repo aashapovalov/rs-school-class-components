@@ -49,7 +49,7 @@ export default function SearchForm() {
         <img src={imgDevice} alt="Device" className="device-no-bg" />
         <form onSubmit={handleSubmit}>
           <input
-            className="search-input bg-[var(--Background-light)] dark:bg-[var(--Background-dark)] dark:text-[var(--Font-color-basic-dark)] placeholder-[var(--Font-color-secondary)] dark:placeholder-[var(--Font-color-basic-dark)]"
+            className="search-input bg-[var(--Background-light)] dark:bg-[var(--Active-monitor-background-dark)] dark:text-[var(--Font-color-basic-dark)] placeholder-[var(--Font-color-secondary)] dark:placeholder-[var(--Font-color-basic-dark)]"
             value={inputValue as string}
             onChange={handleInputChange}
             placeholder="Search for a character..."
