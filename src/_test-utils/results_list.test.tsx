@@ -1,14 +1,20 @@
-import { ResultsList } from '../components';
-import { screen, render } from '@testing-library/react';
+import { screen, render, waitFor } from '@testing-library/react';
+import { userEvent } from '@testing-library/user-event';
+import { MemoryRouter } from 'react-router';
+
+import { ResultsList, useStore } from '../components';
 
 import {
   createMockArrayfFull,
   createMockArrayEmpty,
   createInfo,
 } from './mocks';
-import { MemoryRouter } from 'react-router';
 
 import fallbackImage from '../assets/fallback_card_image.png';
+
+afterEach(() => {
+  useStore.setState({ selectedCharacters: [] });
+});
 
 test('result list has approprite cards number', () => {
   const mockArray = createMockArrayfFull();
@@ -84,4 +90,54 @@ test('character name renders successfully', () => {
   });
 
   expect(charName).toBeInTheDocument();
+});
+
+test('click on character card checkbox adds character to selected characters', async () => {
+  const mockArray = createMockArrayfFull();
+  const infoObj = createInfo();
+
+  render(
+    <MemoryRouter>
+      <ResultsList results={mockArray} info={infoObj} />
+    </MemoryRouter>
+  );
+
+  const checkboxes = screen.getAllByRole('checkbox');
+  const checkbox = checkboxes[0];
+  await userEvent.click(checkbox);
+  const selected = useStore.getState().selectedCharacters;
+
+  expect(checkbox).toBeChecked();
+  expect(selected).toHaveLength(1);
+  expect(selected[0].id).toBe(mockArray[0].id);
+});
+
+test('click on character card checkbox removes character from selected characters', async () => {
+  const mockArray = createMockArrayfFull();
+  const infoObj = createInfo();
+
+  render(
+    <MemoryRouter>
+      <ResultsList results={mockArray} info={infoObj} />
+    </MemoryRouter>
+  );
+
+  const checkboxes = screen.getAllByRole('checkbox');
+  const checkbox = checkboxes[0];
+
+  // First click: select character
+  await userEvent.click(checkbox);
+
+  await waitFor(() => {
+    expect(checkbox).toBeChecked();
+    expect(useStore.getState().selectedCharacters).toHaveLength(1);
+  });
+
+  // Second click: unselect
+  await userEvent.click(checkbox);
+
+  await waitFor(() => {
+    expect(checkbox).not.toBeChecked();
+    expect(useStore.getState().selectedCharacters).toHaveLength(0);
+  });
 });
