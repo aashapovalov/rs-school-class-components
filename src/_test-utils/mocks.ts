@@ -124,3 +124,51 @@ export function createMockCharacters(count: number): Character[] {
     created: '2025-01-01T00:00:00.000Z',
   }));
 }
+
+export const mockSelectedCharactersTwo: Character[] = [
+  {
+    id: 1,
+    name: 'Developer Rick',
+    status: 'Alive',
+    species: 'not human',
+    type: '',
+    gender: 'Male',
+    origin: { name: 'Earth (C-137)', url: '' },
+    location: { name: 'Home alone', url: '' },
+    image: '',
+    episode: [],
+    url: '',
+    created: '',
+  },
+  {
+    id: 2,
+    name: 'QA Morty',
+    status: 'Dead',
+    species: 'only a human',
+    type: '',
+    gender: 'Male',
+    origin: { name: 'Earth (Replacement Dimension)', url: '' },
+    location: { name: 'At work', url: '' },
+    image: '',
+    episode: [],
+    url: '',
+    created: '',
+  },
+];
+
+export const mockSelectedCharactersOne: Character[] = [
+  {
+    id: 1,
+    name: 'Developer Rick',
+    status: 'Alive',
+    species: 'not human',
+    type: '',
+    gender: 'Male',
+    origin: { name: 'Earth (C-137)', url: '' },
+    location: { name: 'Home alone', url: '' },
+    image: '',
+    episode: [],
+    url: '',
+    created: '',
+  },
+];
