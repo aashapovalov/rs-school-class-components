@@ -1,17 +1,18 @@
 import { Outlet, useSearchParams } from 'react-router';
-import { useContext } from 'react';
 
-import { SearchForm, Spinner, ErrorMessage, SearchStateContext } from '../';
+import { SearchForm, Spinner, ErrorMessage } from '../';
 
 import genErrorMortyImg from '../../assets/general_error_morty.png';
+import { useState } from 'react';
 
 export default function SearchLayout() {
   const [searchParams] = useSearchParams();
   const details = searchParams.get('details') || '';
-  const { loading, error } = useContext(SearchStateContext);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   return (
     <>
-      <div className="app">
+      <div className="app bg-[var(--Background-light)] dark:bg-[var(--Background-dark)]">
         {loading ? <Spinner /> : null}
         <div className={loading ? 'blurring' : ''}>
           <SearchForm />
@@ -25,14 +26,14 @@ export default function SearchLayout() {
                   alt="Morty panic"
                   className="general-error-morty"
                 />
-                <ErrorMessage message={error} />
+                <ErrorMessage message={error as string} />
               </div>
             )
           ) : null}
           <section
             className={details ? 'results-section split' : 'results-section'}
           >
-            <Outlet />
+            <Outlet context={{ setLoading, setError }} />
           </section>
         </div>
       </div>

@@ -9,7 +9,7 @@ beforeEach(() => {
   vi.restoreAllMocks();
 });
 
-test('renders correct number of pagination buttons', () => {
+test('renders correct number of pagination buttons for 5 pages', () => {
   const info = { pages: 5, count: 100, next: '', prev: '' };
   const results = createMockCharacters(5);
 
@@ -25,6 +25,24 @@ test('renders correct number of pagination buttons', () => {
   );
 
   expect(pageButtons).toHaveLength(5);
+});
+
+test('do not render pagination buttons for 1 page', () => {
+  const info = { pages: 1, count: 200, next: '', prev: '' };
+  const results = createMockCharacters(10);
+
+  render(
+    <MemoryRouter initialEntries={['/?name=Morty&page=1']}>
+      <PagesList info={info} results={results} />
+    </MemoryRouter>
+  );
+
+  const buttons = screen.queryAllByRole('button');
+  const pageButtons = buttons.filter((btn) =>
+    /^\d+$/.test(btn.textContent ?? '')
+  );
+
+  expect(pageButtons).toHaveLength(0);
 });
 
 test('mock with page 1', async () => {

@@ -1,6 +1,11 @@
 import { useNavigate } from 'react-router';
+import { useTheme } from '../../hooks/use_theme';
 
-export default function CrashButton() {
+import aboutBtn from '../../assets/about_button.png';
+import aboutBtnDark from '../../assets/about_button_dark.png';
+
+export default function AboutButton() {
+  const { theme } = useTheme();
   const navigate = useNavigate();
   function clickHandle() {
     navigate('/about');
@@ -8,7 +13,10 @@ export default function CrashButton() {
 
   return (
     <button
-      className="about-btn"
+      style={{
+        backgroundImage: `url(${theme === 'dark' ? aboutBtnDark : aboutBtn})`,
+      }}
+      className="about-btn dark:scale-[1.15]"
       onClick={clickHandle}
       aria-label="About author"
     />
