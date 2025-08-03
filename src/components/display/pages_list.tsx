@@ -17,6 +17,7 @@ export default function PagesList(props: ResultsListProps) {
   const pagesCount = info.pages;
 
   const pageButtons = getPaginationArray(currentPage, pagesCount);
+  console.log('Page buttons:', pageButtons);
   if (!pageButtons) {
     return null;
   }

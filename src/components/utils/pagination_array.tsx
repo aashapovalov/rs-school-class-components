@@ -14,6 +14,7 @@ export default function getPaginationArray(
     for (let i = 1; i <= pagesCount; i++) {
       pageButtons.push(i);
     }
+    return pageButtons;
   }
 
   // If there are more than 5 pages, return a more complex pagination
