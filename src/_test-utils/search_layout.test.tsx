@@ -1,6 +1,6 @@
 import { SearchLayout, SearchRequest, ThemeProvider } from '../components';
 
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 
 import { createInfo, createMockArrayfFull, mockFetchList } from './mocks';
@@ -116,4 +116,27 @@ test('displays character details when a character card is clicked', async () => 
 
   const characterDetail = await screen.findByText('Earth (C-137)');
   expect(characterDetail).toBeInTheDocument();
+});
+
+test('displays error message on fetch failure', async () => {
+  vi.spyOn(global, 'fetch').mockRejectedValueOnce(new Error('Fetch failed'));
+
+  render(
+    <ThemeProvider>
+      <MemoryRouter initialEntries={['/']}>
+        <Routes>
+          <Route path="/" element={<SearchLayout />}>
+            <Route index element={<SearchRequest />} />
+          </Route>
+        </Routes>
+      </MemoryRouter>
+    </ThemeProvider>
+  );
+
+  await waitFor(() => {
+    expect(
+      screen.getByText(/cannot read properties of undefined/i)
+    ).toBeInTheDocument();
+    expect(screen.getByText(/error/i)).toBeInTheDocument();
+  });
 });
