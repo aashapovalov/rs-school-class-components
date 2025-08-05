@@ -15,10 +15,10 @@ export default defineConfig({
         'src/setupTests.{js,ts}',
         'src/**/*.d.ts',
         'src/main.tsx',
-        'src/_test-utils/index.ts',
+        'src/__test-setup/index.ts',
         'src/pages/app.tsx',
-        'src/pages/about_page.tsx',
-        'src/_test-utils/mocks.ts',
+        'src/pages/about.tsx',
+        'src/__test-setup/mocks.ts',
       ],
       thresholds: {
         statements: 80,

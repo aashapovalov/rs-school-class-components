@@ -1,7 +1,10 @@
 import { Component } from 'react';
-import { ErrorMessage } from './components';
+import { ErrorMessage } from './svalka';
 
-import type { ErrorBoundaryState, ErrorBoundaryProps } from './types/types';
+import type {
+  ErrorBoundaryState,
+  ErrorBoundaryProps,
+} from './shared/types/types';
 
 import genErrorRickImg from './assets/general_error_rick.png';
 
