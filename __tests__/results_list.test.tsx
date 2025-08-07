@@ -2,7 +2,7 @@ import { screen, render, waitFor } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router';
 
-import { ResultsList } from '../src/entities';
+import { ResultsList } from '@/entities';
 import { useStore } from '@/state/zustand';
 import {
   createMockArrayfFull,
@@ -10,7 +10,7 @@ import {
   createInfo,
 } from '../src/shared/__test-setup/mocks';
 
-import fallbackImage from '../assets/fallback_card_image.png';
+import fallbackImage from '@/assets/fallback_card_image.png';
 
 afterEach(() => {
   useStore.setState({ selectedCharacters: [] });

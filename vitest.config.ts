@@ -1,6 +1,8 @@
 import { defineConfig } from 'vitest/config';
+import viteConfig from './vite.config';
 
 export default defineConfig({
+  ...viteConfig,
   test: {
     environment: 'jsdom',
     globals: true,
@@ -26,6 +28,15 @@ export default defineConfig({
         functions: 50,
         lines: 50,
       },
+    },
+  },
+  resolve: {
+    alias: {
+      '@assets': '/users/alekseishapovalov/my-rick-morty-app/src/assets',
+      '@entities': '/users/alekseishapovalov/my-rick-morty-app/src/entities',
+      '@pages': '/users/alekseishapovalov/my-rick-morty-app/src/pages',
+      '@shared': '/users/alekseishapovalov/my-rick-morty-app/src/shared',
+      '@state': '/users/alekseishapovalov/my-rick-morty-app/src/state',
     },
   },
 });
