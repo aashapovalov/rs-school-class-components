@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes } from 'react-router';
 
-import { SearchRequest, SearchLayout } from './entities';
-import { NotFoundPage, AboutPage } from './pages';
-import { ThemeProvider } from './state/context';
+import { SearchRequest, SearchLayout } from '@/entities';
+import { NotFoundPage, AboutPage } from '@/pages';
+import { ThemeProvider } from '@/state/context';
 
 import './app.css';
 

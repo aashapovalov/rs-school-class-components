@@ -2,8 +2,7 @@ import { useNavigate } from 'react-router';
 
 import { useTheme } from '@/shared/hooks';
 
-import aboutBtn from '../../assets/about_button.png';
-import aboutBtnDark from '../../assets/about_button_dark.png';
+import { aboutBtn, aboutBtnDark } from '@/assets';
 
 export function AboutButton() {
   const { theme } = useTheme();

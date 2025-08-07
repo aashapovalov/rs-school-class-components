@@ -1,4 +1,4 @@
-import noResultsImg from '../../assets/no_results_error.png';
+import { noResultsError } from '@/assets';
 
 export function ErrorMessage({ message }: { message: string }) {
   const isNotFound = message.toLowerCase().includes('there is nothing here');
@@ -7,7 +7,7 @@ export function ErrorMessage({ message }: { message: string }) {
     <div className="error-message">
       {isNotFound ? (
         <img
-          src={noResultsImg}
+          src={noResultsError}
           alt="No Results Error"
           className="no-results-error"
         />

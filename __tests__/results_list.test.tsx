@@ -10,7 +10,7 @@ import {
   createInfo,
 } from '../src/shared/__test-setup/mocks';
 
-import fallbackImage from '@/assets/fallback_card_image.png';
+import fallbackImage from '@/assets/errors/fallback_card_image.png';
 
 afterEach(() => {
   useStore.setState({ selectedCharacters: [] });

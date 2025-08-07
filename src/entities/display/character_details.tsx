@@ -1,6 +1,6 @@
 import type { Character } from '@/shared/types';
 
-import fallbackImg from '../../assets/fallback_card_image.png';
+import { fallbackImg } from '@/assets';
 
 export function CharacterDetails({
   character,

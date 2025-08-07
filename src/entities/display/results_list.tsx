@@ -2,10 +2,10 @@ import { useNavigate, useSearchParams } from 'react-router';
 import type { MouseEvent } from 'react';
 
 import type { ResultsListProps } from '@/shared/types';
-import { PagesList, SelectModal } from '@/entities/index';
+import { PagesList, SelectModal } from '@/entities';
 import { useStore } from '@/state/zustand';
 
-import fallbackImg from '../../assets/fallback_card_image.png';
+import { fallbackImg } from '@/assets';
 
 export function ResultsList(props: ResultsListProps) {
   const { results } = props;

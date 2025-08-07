@@ -1,10 +1,10 @@
 import type { ErrorInfo } from 'react';
 import { Component } from 'react';
 
-import { ErrorMessage } from './entities';
+import { ErrorMessage } from '@/entities';
 import type { ErrorBoundaryState, ErrorBoundaryProps } from '@/shared/types';
 
-import genErrorRickImg from './assets/general_error_rick.png';
+import { genErrorRickImg } from '@/assets';
 
 export class ErrorBoundary extends Component<
   ErrorBoundaryProps,

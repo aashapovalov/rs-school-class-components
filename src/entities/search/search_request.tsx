@@ -1,6 +1,6 @@
 import { useSearchParams } from 'react-router';
 
-import { ResultsList, CharacterDetails } from '..';
+import { ResultsList, CharacterDetails } from '@/entities';
 import { useFetchApiList, useFetchApiCharacter } from '@/shared/hooks';
 
 export function SearchRequest() {

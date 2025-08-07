@@ -1,7 +1,7 @@
 import { DownloadArray } from '@/shared/utils';
 import { useStore } from '@/state/zustand';
 
-import { modalRick, downloadBtn, unselectBtn } from '../../assets';
+import { modalRick, downloadBtn, unselectBtn } from '@/assets';
 
 export function SelectModal() {
   const selectedCharacters = useStore((state) => state.selectedCharacters);

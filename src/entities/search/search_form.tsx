@@ -2,7 +2,7 @@ import type { ChangeEvent, FormEvent } from 'react';
 import { useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router';
 
-import { AboutButton, ThemeButton } from '..';
+import { AboutButton, ThemeButton } from '@/entities';
 import { useLocalStorage, useTheme } from '@/shared/hooks';
 
 import {
@@ -11,7 +11,7 @@ import {
   appLogo,
   searchBtnDark,
   searchBtn,
-} from '../../assets/index';
+} from '@/assets';
 
 export function SearchForm() {
   const [inputValue, setInputValue] = useLocalStorage('searchQuery', '');
