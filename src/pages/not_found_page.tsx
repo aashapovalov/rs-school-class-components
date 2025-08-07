@@ -1,5 +1,5 @@
-import appLogo from '../assets/app_logo.png';
-import notFoundErrorRickImg from '../assets/404_error_rick.png';
+import appLogo from '@/assets/app_logo.png';
+import notFoundErrorRickImg from '@/assets/404_error_rick.png';
 
 import { useNavigate } from 'react-router';
 
