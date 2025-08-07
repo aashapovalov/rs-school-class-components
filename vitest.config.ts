@@ -32,11 +32,11 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@assets': '/users/alekseishapovalov/my-rick-morty-app/src/assets',
-      '@entities': '/users/alekseishapovalov/my-rick-morty-app/src/entities',
-      '@pages': '/users/alekseishapovalov/my-rick-morty-app/src/pages',
-      '@shared': '/users/alekseishapovalov/my-rick-morty-app/src/shared',
-      '@state': '/users/alekseishapovalov/my-rick-morty-app/src/state',
+      '@assets': 'src/assets',
+      '@entities': 'src/entities',
+      '@pages': 'src/pages',
+      '@shared': 'src/shared',
+      '@state': 'src/state',
     },
   },
 });
