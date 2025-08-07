@@ -1,11 +1,12 @@
 import { render, screen } from '@testing-library/react';
-import { PagesList } from '../src/entities';
 import { MemoryRouter } from 'react-router';
+import userEvent from '@testing-library/user-event';
+
+import { PagesList } from '@/entities';
 import {
   createMockCharacters,
   mockNavigate,
-} from '../src/shared/__test-setup/mocks';
-import userEvent from '@testing-library/user-event';
+} from '@/shared/__test-setup/mocks';
 
 beforeEach(() => {
   vi.resetModules();
@@ -68,9 +69,7 @@ test('mock with page 1', async () => {
     };
   });
 
-  const { default: PagesList } = await import(
-    '../src/entities/display/pages_list'
-  );
+  const { PagesList } = await import('../src/entities/display/pages_list');
 
   render(
     <MemoryRouter>
@@ -105,9 +104,7 @@ test('mock with page 5', async () => {
     };
   });
 
-  const { default: PagesList } = await import(
-    '../src/entities/display/pages_list'
-  );
+  const { PagesList } = await import('../src/entities/display/pages_list');
 
   render(
     <MemoryRouter>
@@ -142,9 +139,7 @@ test('Clicking a page button triggers callback with correct page', async () => {
     };
   });
 
-  const { default: PagesList } = await import(
-    '../src/entities/display/pages_list'
-  );
+  const { PagesList } = await import('../src/entities/display/pages_list');
 
   render(
     <MemoryRouter>

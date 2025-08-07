@@ -1,4 +1,4 @@
-import { getPaginationArray } from '../src/entities';
+import { getPaginationArray } from '@/shared/utils';
 
 test('getPaginationArray returns correct array for 1 page', () => {
   const result = getPaginationArray(1, 1);

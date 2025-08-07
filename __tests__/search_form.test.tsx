@@ -1,9 +1,10 @@
-import { SearchForm, ThemeProvider } from '../src/entities';
-
 import { render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router';
+
+import { SearchForm } from '../src/entities';
 import { mockNavigate } from '../src/shared/__test-setup/mocks';
+import { ThemeProvider } from '@/state/context';
 
 vi.mock('react-router', async () => {
   const actual =

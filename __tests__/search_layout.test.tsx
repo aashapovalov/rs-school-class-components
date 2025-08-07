@@ -1,14 +1,14 @@
-import { SearchLayout, SearchRequest, ThemeProvider } from '../src/entities';
-
 import { render, screen, waitFor } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
+import { MemoryRouter, Route, Routes } from 'react-router';
 
+import { SearchLayout, SearchRequest } from '@/entities';
+import { ThemeProvider } from '@/state/context';
 import {
   createInfo,
   createMockArrayfFull,
   mockFetchList,
-} from '../src/shared/__test-setup/mocks';
-import { MemoryRouter, Route, Routes } from 'react-router';
+} from '@/shared/__test-setup/mocks';
 
 screen.debug();
 

@@ -1,12 +1,13 @@
 import { render, screen } from '@testing-library/react';
-import { SelectModal } from '../src/entities';
+import { act } from 'react';
+import userEvent from '@testing-library/user-event';
+
+import { SelectModal } from '@/entities';
 import {
   mockSelectedCharactersTwo,
   mockSelectedCharactersOne,
-} from '../src/shared/__test-setup/mocks';
-import { useStore } from '../zustand/state_store';
-import { act } from 'react';
-import userEvent from '@testing-library/user-event';
+} from '@/shared/__test-setup/mocks';
+import { useStore } from '@/state/zustand';
 
 afterEach(() => {
   useStore.setState({ selectedCharacters: [] });

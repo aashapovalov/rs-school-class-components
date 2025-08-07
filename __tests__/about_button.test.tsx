@@ -1,4 +1,5 @@
-import { AboutButton, ThemeProvider } from '../src/entities';
+import { AboutButton } from '@/entities';
+import { ThemeProvider } from '@/state/context';
 
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router';

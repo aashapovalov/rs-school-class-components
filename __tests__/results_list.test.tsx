@@ -4,7 +4,6 @@ import { MemoryRouter } from 'react-router';
 
 import { ResultsList } from '../src/entities';
 import { useStore } from '@/state/zustand';
-
 import {
   createMockArrayfFull,
   createMockArrayEmpty,
