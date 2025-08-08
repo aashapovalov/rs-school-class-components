@@ -1,6 +1,8 @@
 import { defineConfig } from 'vitest/config';
+import viteConfig from './vite.config';
 
 export default defineConfig({
+  ...viteConfig,
   test: {
     environment: 'jsdom',
     globals: true,
@@ -26,6 +28,15 @@ export default defineConfig({
         functions: 50,
         lines: 50,
       },
+    },
+  },
+  resolve: {
+    alias: {
+      '@assets': 'src/assets',
+      '@entities': 'src/entities',
+      '@pages': 'src/pages',
+      '@shared': 'src/shared',
+      '@state': 'src/state',
     },
   },
 });

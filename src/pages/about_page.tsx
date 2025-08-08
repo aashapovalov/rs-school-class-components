@@ -7,7 +7,7 @@ import {
   reprogramming,
   portal,
   wallCrack,
-} from '../assets';
+} from '@/assets';
 
 export default function AboutPage() {
   const navigate = useNavigate();

@@ -1,11 +1,12 @@
+import type { ErrorInfo } from 'react';
 import { Component } from 'react';
-import { ErrorMessage } from './components';
 
-import type { ErrorBoundaryState, ErrorBoundaryProps } from './types/types';
+import { ErrorMessage } from '@/entities';
+import type { ErrorBoundaryState, ErrorBoundaryProps } from '@/shared/types';
 
-import genErrorRickImg from './assets/general_error_rick.png';
+import { genErrorRickImg } from '@/assets';
 
-export default class ErrorBoundary extends Component<
+export class ErrorBoundary extends Component<
   ErrorBoundaryProps,
   ErrorBoundaryState
 > {
@@ -18,7 +19,7 @@ export default class ErrorBoundary extends Component<
     return { hasError: true, error };
   }
 
-  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     console.error('Error caught by ErrorBoundary:', error, errorInfo);
   }
 

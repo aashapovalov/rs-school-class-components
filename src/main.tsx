@@ -1,4 +1,4 @@
-import React from 'react';
+import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 
 import { App, ErrorBoundary } from './';
@@ -12,9 +12,9 @@ if (!rootElement) {
 }
 
 ReactDOM.createRoot(rootElement).render(
-  <React.StrictMode>
+  <StrictMode>
     <ErrorBoundary>
       <App />
     </ErrorBoundary>
-  </React.StrictMode>
+  </StrictMode>
 );
